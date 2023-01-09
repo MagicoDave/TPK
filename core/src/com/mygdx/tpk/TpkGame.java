@@ -2,28 +2,24 @@ package com.mygdx.tpk;
 
 import com.badlogic.gdx.Game;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.screens.GameScreen;
 
 /**
- * TpkGame
- *
  * Clase principal
  */
 public class TpkGame extends Game {
 
 	/**
-	 * create
-	 *
 	 * Carga el AssetLoader y manda a la SplashScreen al iniciar el juego
 	 */
 	@Override
 	public void create () {
 		AssetLoader.load();
 		//this.setScreen(new SplashScreen(this));
+		this.setScreen(new GameScreen()); // Temporal
 	}
 
 	/**
-	 * dispose
-	 *
 	 * Liberar recursos
 	 */
 	@Override
