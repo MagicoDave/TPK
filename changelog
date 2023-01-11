@@ -1,1 +1,9 @@
-09/11/22 - Definición de clases, estructura general del proyecto. La clase InputHandler podría no ser necesaria
+09/11/22
+    Definición de clases, estructura general del proyecto.
+    La clase InputHandler probablemente no sea necesaria.
+11/11/22
+    Reestructuración del proyecto y de los planteamientos.
+    Se opta por cambiar la orientación del juego a vertical.
+    El espacio para la UI es un problema, hay que simplificar la interfaz.
+    Creación del tilemap del primer nivel en Tiled, y renderizado con éxito.
+    Falta la capa de objetos.

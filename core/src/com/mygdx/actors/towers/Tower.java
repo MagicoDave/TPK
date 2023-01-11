@@ -1,8 +1,8 @@
-package com.mygdx.towers;
+package com.mygdx.actors.towers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.enemies.Enemy;
+import com.mygdx.actors.enemies.Enemy;
 
 /**
  * Tower
@@ -17,7 +17,7 @@ public abstract class Tower {
     Debuff debuff = new Debuff();
     Enemy target;
     int cost = 10;
-    float rotation;
+    float rotation; // Probablemente no vaya a usarla
 
     int ID;
     int projectileSize;

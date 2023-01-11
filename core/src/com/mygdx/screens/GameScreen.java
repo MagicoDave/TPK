@@ -1,16 +1,17 @@
 package com.mygdx.screens;
 
 import com.badlogic.gdx.Screen;
-import com.mygdx.gameworld.GameRenderer;
-import com.mygdx.gameworld.GameWorld;
+import com.mygdx.gameworld.Renderer;
+import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 /**
  * Clase que controla la pantalla de juego
  */
 public class GameScreen implements Screen {
 
-    private GameWorld world;
-    private GameRenderer renderer;
+    private World world;
+    private Renderer renderer;
 
     private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
 
@@ -18,8 +19,8 @@ public class GameScreen implements Screen {
      * Inicializar variables en el constructor
      */
     public GameScreen(){
-        world = new GameWorld();
-        renderer = new GameRenderer(world);
+        world = new World();
+        renderer = new Renderer(world, AssetLoader.map);
     }
 
     @Override

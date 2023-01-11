@@ -1,6 +1,9 @@
 package com.mygdx.gameworld;
 
-public class GameWorld {
+/**
+ * Esta clase gestiona las reglas del juego en sí
+ */
+public class World {
 
     private int score = 0;
 
@@ -11,10 +14,14 @@ public class GameWorld {
         READY, RUNNING, GAMEOVER, HIGHSCORE
     }
 
-    public GameWorld(){
+    public World(){
         currentState = GameState.READY;
     }
 
+    /**
+     * Actualiza el juego según su estado
+     * @param delta Tasa de refresco
+     */
     public void update(float delta){
         runTime += delta;
 

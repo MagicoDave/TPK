@@ -1,7 +1,7 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.InputProcessor;
-import com.mygdx.gameworld.GameWorld;
+import com.mygdx.gameworld.World;
 
 /**
  * InputHandler
@@ -12,9 +12,9 @@ import com.mygdx.gameworld.GameWorld;
  */
 public class InputHandler implements InputProcessor {
 
-    private GameWorld world;
+    private World world;
 
-    public InputHandler(GameWorld world, float scaleFactorX, float scaleFactorY){
+    public InputHandler(World world, float scaleFactorX, float scaleFactorY){
         this.world = world;
     }
 

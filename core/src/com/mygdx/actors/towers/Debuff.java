@@ -1,4 +1,4 @@
-package com.mygdx.towers;
+package com.mygdx.actors.towers;
 
 public class Debuff {
 
