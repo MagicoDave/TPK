@@ -20,7 +20,7 @@ public class GameScreen implements Screen {
      */
     public GameScreen(){
         world = new World();
-        renderer = new Renderer(world, AssetLoader.map);
+        renderer = new Renderer(world, AssetLoader.level1);
     }
 
     @Override

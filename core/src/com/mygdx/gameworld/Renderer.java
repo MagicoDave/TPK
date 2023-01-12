@@ -8,6 +8,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
+/**
+ * Esta clase gestiona el dibujado de elementos
+ */
 public class Renderer {
 
     private World world;

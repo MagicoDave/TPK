@@ -1,35 +1,35 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTile;
-import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-
-import java.util.Iterator;
 
 /**
  * AssetLoader
  *
- * Esta clase gestiona el dibujo de recursos gráficos
+ * Esta clase gestiona la carga de assets
  */
 public class AssetLoader {
 
-    public static TiledMap map;
-    public static AssetManager manager;
+    public static TiledMap level1;
+
+    public static LevelCreator levelCreator;
 
     public static void load(){
-        /*manager = new AssetManager();
-        manager.setLoader(TiledMap.class, new TmxMapLoader());
-        manager.load("maps/level1.txt", TiledMap.class);*/
 
-        map = new TmxMapLoader().load("maps/level1.tmx");
+        /*map = new TmxMapLoader().load("maps/level1.tmx");
+        objectLayer = (TiledMapTileLayer) map.getLayers().get("Object Layer");
+        MapObjects objects = objectLayer.getObjects();*/
+        levelCreator = new LevelCreator();
+        level1 = levelCreator.setLevel("maps/level1.tmx");
+
 
 
     }
 
     public static void dispose(){
-        map.dispose();
+        level1.dispose();
     }
 }
