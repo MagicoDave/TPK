@@ -5,5 +5,11 @@ package com.mygdx.helpers;
  */
 public class Constants {
 
+    public enum GameState{
+        READY, RUNNING, GAMEOVER, HIGHSCORE
+    }
 
+    public enum Tile{
+        
+    }
 }
