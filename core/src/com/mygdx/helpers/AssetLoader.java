@@ -25,8 +25,6 @@ public class AssetLoader {
         levelCreator = new LevelCreator();
         level1 = levelCreator.setLevel("maps/level1.tmx");
 
-
-
     }
 
     public static void dispose(){

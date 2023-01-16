@@ -1,9 +1,11 @@
 package com.mygdx.gameworld;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
+
 /**
  * Esta clase gestiona las reglas del juego en sí
  */
-public class World {
+public class World extends Stage {
 
     private int score = 0;
 

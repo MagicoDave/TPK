@@ -2,6 +2,7 @@ package com.mygdx.actors.towers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.enemies.Enemy;
 
 /**
@@ -9,21 +10,18 @@ import com.mygdx.actors.enemies.Enemy;
  *
  * Esta clase abstracta contiene las propiedades comunes de todas las torres
  */
-public abstract class Tower {
+public abstract class Tower extends Image {
 
     Vector2 position = new Vector2();
-    float damage;
-    float range, projectileSpeed, fireRate = 0;
+    int damage;
+    int range, projectileSpeed, fireRate = 0;
     Debuff debuff = new Debuff();
     Enemy target;
     int cost = 10;
-    float rotation; // Probablemente no vaya a usarla
 
     int ID;
-    int projectileSize;
-    Color projectileColor;
 
-    Tower(Tower model){
+    /*Tower(Tower model){
         this.position.set(model.position);
         this.damage = model.damage;
         this.debuff = new Debuff(model.debuff);
@@ -34,7 +32,7 @@ public abstract class Tower {
         this.ID = model.ID;
         this.projectileSize = model.projectileSize;
         this.projectileColor = model.projectileColor.cpy();
-    }
+    }*/
 
     Tower(float x, float y, int ID){
         this.position.x = x + 15;
