@@ -1,6 +1,10 @@
 package com.mygdx.gameworld;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.actors.enemies.Farmer;
+import com.mygdx.helpers.LevelCreator;
+
 
 /**
  * Esta clase gestiona las reglas del juego en sí
@@ -16,8 +20,16 @@ public class World extends Stage {
         READY, RUNNING, GAMEOVER, HIGHSCORE
     }
 
-    public World(){
+    public Farmer testDummie;
+    private Rectangle spawnPoint;
+
+    public World(LevelCreator levelCreator){
+
+        spawnPoint = levelCreator.getSpawnTile().getHitbox();
+
         currentState = GameState.READY;
+        testDummie = new Farmer(this);
+        testDummie.setBounds(spawnPoint.getX(), spawnPoint.getY(), 16, 16);
     }
 
     /**

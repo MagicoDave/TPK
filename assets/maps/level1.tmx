@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="10" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="67">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="10" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="68">
  <tileset firstgid="1" source="colored.tsx"/>
- <layer id="3" name="Fix Layer" width="10" height="15">
+ <layer id="3" name="Fix Layer" width="10" height="18">
   <data encoding="csv">
 1,1,1,1,1,1,1,254,1,1,
 1,1,1,1,1,254,254,254,1,1,
@@ -17,10 +17,13 @@
 1,1,254,1,1,1,1,1,1,1,
 1,1,254,1,1,1,1,1,1,1,
 1,1,254,1,1,1,1,1,1,1,
-1,1,254,1,1,1,1,1,1,1
+1,1,254,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
- <layer id="1" name="Tile Layer" width="10" height="15">
+ <layer id="1" name="Tile Layer" width="10" height="18">
   <data encoding="csv">
 51,58,6,51,51,7,6,205,51,51,
 51,58,1,6,7,206,2684354765,3221225678,6,7,
@@ -36,7 +39,10 @@
 7,58,205,122,1,122,58,1,58,3,
 1,1610612795,252,1610612794,1610612794,1610612794,3221225531,122,58,2,
 1,1,205,1,1,1,1,245,58,105,
-1,7,205,1,105,3,105,105,58,105
+1,7,205,1,105,3,105,105,58,105,
+785,786,786,786,786,786,786,786,786,787,
+834,835,835,835,835,835,835,835,835,836,
+883,884,884,884,884,884,884,884,884,885
 </data>
  </layer>
  <objectgroup id="2" name="Metadata">
@@ -54,17 +60,17 @@
   <object id="28" name="FUNDATION" x="48" y="176" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="Directions">
-  <object id="55" name="RIGHT" x="16" y="48" width="16" height="16"/>
-  <object id="56" name="UP" x="96" y="48" width="16" height="16"/>
-  <object id="57" name="RIGHT" x="96" y="32" width="16" height="16"/>
-  <object id="58" name="DOWN" x="128" y="32" width="16" height="16"/>
-  <object id="59" name="LEFT" x="128" y="112" width="16" height="16"/>
-  <object id="60" name="UP" x="96" y="112" width="16" height="16"/>
-  <object id="61" name="LEFT" x="96" y="80" width="16" height="16"/>
-  <object id="62" name="RIGHT" x="16" y="192" width="16" height="16"/>
-  <object id="63" name="UP" x="96" y="192" width="16" height="16"/>
-  <object id="64" name="RIGHT" x="96" y="144" width="16" height="16"/>
-  <object id="65" name="DOWN" x="128" y="144" width="16" height="16"/>
-  <object id="66" name="DOWN" x="16" y="80" width="16" height="16"/>
+  <object id="55" name="RIGHT" x="16" y="56" width="16" height="8"/>
+  <object id="56" name="UP" x="104" y="48" width="8" height="16"/>
+  <object id="57" name="RIGHT" x="96" y="32" width="16" height="8"/>
+  <object id="58" name="DOWN" x="136" y="32" width="8" height="16"/>
+  <object id="59" name="LEFT" x="128" y="120" width="16" height="8"/>
+  <object id="60" name="UP" x="96" y="112" width="8" height="16"/>
+  <object id="61" name="LEFT" x="96" y="80" width="16" height="8"/>
+  <object id="66" name="DOWN" x="16" y="80" width="8" height="16"/>
+  <object id="62" name="RIGHT" x="16" y="200" width="16" height="8"/>
+  <object id="63" name="UP" x="104" y="192" width="8" height="16"/>
+  <object id="64" name="RIGHT" x="96" y="144" width="16" height="8"/>
+  <object id="65" name="DOWN" x="136" y="144" width="8" height="16"/>
  </objectgroup>
 </map>

@@ -19,7 +19,7 @@ public class GameScreen implements Screen {
      * Inicializar variables en el constructor
      */
     public GameScreen(){
-        world = new World();
+        world = new World(AssetLoader.getLevelCreator());
         renderer = new Renderer(world, AssetLoader.level1);
     }
 

@@ -1,9 +1,21 @@
-09/11/22
+09/01/23
     Definición de clases, estructura general del proyecto.
     La clase InputHandler probablemente no sea necesaria.
-11/11/22
+11/01/23
     Reestructuración del proyecto y de los planteamientos.
     Se opta por cambiar la orientación del juego a vertical.
     El espacio para la UI es un problema, hay que simplificar la interfaz.
     Creación del tilemap del primer nivel en Tiled, y renderizado con éxito.
     Falta la capa de objetos.
+13/01/23
+    Se elimina InputHandler, al menos por ahora.
+    Nueva clase: LevelCreator. Gestiona la carga de cada mapa y parsea la capa de objetos de
+    los mapas del Tiled.
+    Se replantean algunos conceptos del juego. Las colisiones entre unidades limitan el diseño,
+    se deshechan.
+17/01/23
+    Definición de las clases de enemigos, de la clase Tile, Direction y Type.
+    Definición de la clase Tower, pero le falta trabajo.
+    Definición clase Stats para guardar variables útiles.
+    Se hace una primera prueba básica del funcionamiento del juego con un solo enemigo
+    y sin torres.

@@ -48,10 +48,10 @@ public abstract class Tower extends Image {
             debuff.duration = 60;
             debuff.speedmulti = 1;
             projectileSpeed = 5;
-            fireRate = 0.5f;
+            //fireRate = 0.5f;
             range = 300;
-            projectileColor.set(Color.RED);
-            projectileSize = 3;
+            //projectileColor.set(Color.RED);
+            //projectileSize = 3;
         } else if (ID == 2) {
             damage = 0;
             debuff.damage = 0.05f;
@@ -60,37 +60,37 @@ public abstract class Tower extends Image {
             projectileSpeed = 1;
             fireRate = 1;
             range = 150;
-            projectileColor.set(Color.CYAN);
-            projectileSize = 5;
+            //projectileColor.set(Color.CYAN);
+            //projectileSize = 5;
         } else if (ID == 3) {
             damage = 0;
             debuff.damage = 0.2f;
             debuff.duration = 60;
             debuff.speedmulti = 0.7f;
-            projectileSpeed = 1f;
+            //projectileSpeed = 1f;
             fireRate = 30;
             range = 100;
-            projectileColor.set(Color.ORANGE);
-            projectileSize = 8;
+            //projectileColor.set(Color.ORANGE);
+            //projectileSize = 8;
         } else if (ID == 4) {
-            damage = 0.5f;
+            //damage = 0.5f;
             debuff.damage = 0.05f;
             debuff.duration = 60;
             debuff.speedmulti = 0.7f;
             projectileSpeed = 10;
             fireRate = 30;
             range = 300;
-            projectileColor.set(Color.YELLOW);
-            projectileSize = 2;
+            //projectileColor.set(Color.YELLOW);
+            //projectileSize = 2;
         } else if (ID == 5) {
             damage = 0;
             debuff.damage = 0f;
             debuff.duration = 600;
             debuff.speedmulti = 0f;
-            projectileSpeed = 2f;
-            fireRate = 0.3f;
+            //projectileSpeed = 2f;
+            //fireRate = 0.3f;
             range = 1000;
-            projectileColor.set(Color.YELLOW);
+            //projectileColor.set(Color.YELLOW);
         }
     }
 
