@@ -1,8 +1,11 @@
 package com.mygdx.gameworld;
 
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
+import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.enemies.Farmer;
+import com.mygdx.actors.tiles.Tile;
+import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
 
 
@@ -20,16 +23,26 @@ public class World extends Stage {
         READY, RUNNING, GAMEOVER, HIGHSCORE
     }
 
+    EnemyManager enemyManager;
+
+    public Array<Enemy> enemiesInScreen = new Array<Enemy>();
     public Farmer testDummie;
-    private Rectangle spawnPoint;
+
+    private Tile spawnPoint;
+    public Tile finishPoint;
+    public Array<Tile> roadTiles = new Array<Tile>();
 
     public World(LevelCreator levelCreator){
 
-        spawnPoint = levelCreator.getSpawnTile().getHitbox();
+        spawnPoint = levelCreator.getSpawnTile();
+        finishPoint = levelCreator.getFinishTile();
+        roadTiles = levelCreator.getDirectionTiles();
 
         currentState = GameState.READY;
         testDummie = new Farmer(this);
-        testDummie.setBounds(spawnPoint.getX(), spawnPoint.getY(), 16, 16);
+        testDummie.setBounds(spawnPoint.getHitbox().getX(), spawnPoint.getHitbox().getY(), 16, 16);
+        enemiesInScreen.add(testDummie);
+        enemyManager = new EnemyManager(this);
     }
 
     /**
@@ -38,6 +51,7 @@ public class World extends Stage {
      */
     public void update(float delta){
         runTime += delta;
+        enemyManager.update(delta);
 
         switch (currentState) {
             case READY:

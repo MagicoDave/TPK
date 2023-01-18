@@ -1,4 +1,4 @@
 package com.mygdx.helpers;
 
-public class TowerLogic {
+public class TowerManager {
 }

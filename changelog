@@ -1,21 +1,31 @@
 09/01/23
     Definición de clases, estructura general del proyecto.
     La clase InputHandler probablemente no sea necesaria.
+    Sentimiento de arrepentimiento por la escala del juego. Debería haberme limitado a un Space Invaders.
 11/01/23
-    Reestructuración del proyecto y de los planteamientos.
-    Se opta por cambiar la orientación del juego a vertical.
-    El espacio para la UI es un problema, hay que simplificar la interfaz.
+    Reestructuración del proyecto y de los planteamientos. Algunas ideas no eran tan buenas en retrospectiva.
+    Se opta por cambiar la orientación del juego a vertical, se aprovecha mucho mejor el espacio.
+    El espacio para la UI es un problema, hay que simplificar la interfaz y el número de espacios que se
+    pueden pulsar planteados.
     Creación del tilemap del primer nivel en Tiled, y renderizado con éxito.
-    Falta la capa de objetos.
+    Falta la capa de objetos del Tiled.
 13/01/23
-    Se elimina InputHandler, al menos por ahora.
+    Se elimina InputHandler, al menos por ahora. Demasiado caos de clases.
     Nueva clase: LevelCreator. Gestiona la carga de cada mapa y parsea la capa de objetos de
     los mapas del Tiled.
     Se replantean algunos conceptos del juego. Las colisiones entre unidades limitan el diseño,
-    se deshechan.
+    se deshechan. Ahora puedo añadir torres que reduzcan la velocidad de los enemigos sin preocuparme por
+    que se hagan bodyblocking entre ellos.
 17/01/23
+    Reestructuración del mapa en el Tiled. Organización de las capas de objetos, ajustados los hitbox.
     Definición de las clases de enemigos, de la clase Tile, Direction y Type.
     Definición de la clase Tower, pero le falta trabajo.
+    Se crea la clase Debuff para gestionar estados especiales que las torres ponen en los enemigos.
     Definición clase Stats para guardar variables útiles.
     Se hace una primera prueba básica del funcionamiento del juego con un solo enemigo
-    y sin torres.
+    y sin torres, ¡funciona!
+18/01/23
+    Los enemigos ya son capaces de navegar el nivel siguiendo el camino sin mayor problema.
+    Probando la velocidad de los enemigos hasta encontrar el balance correcto.
+    Hay que hacer limpieza del código, las variables están en público y privado sin mucho sentido.
+    Los proyectiles de las torres presentan un nuevo desafío. Debo pensar como plantearlo.
