@@ -1,12 +1,15 @@
 package com.mygdx.gameworld;
 
+import static com.mygdx.helpers.Stats.LEVEL_1_WAVE;
+import static com.mygdx.helpers.Stats.TIME_BETWEEN_SPAWNS;
+
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.actors.enemies.Enemy;
-import com.mygdx.actors.enemies.Farmer;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
+import com.mygdx.helpers.WaveManager;
 
 
 /**
@@ -24,13 +27,15 @@ public class World extends Stage {
     }
 
     EnemyManager enemyManager;
+    WaveManager waveManager;
 
     public Array<Enemy> enemiesInScreen = new Array<Enemy>();
-    public Farmer testDummie;
 
-    private Tile spawnPoint;
+    public Tile spawnPoint;
     public Tile finishPoint;
     public Array<Tile> roadTiles = new Array<Tile>();
+
+    float timeSinceLastSpawn = 0;
 
     public World(LevelCreator levelCreator){
 
@@ -39,10 +44,9 @@ public class World extends Stage {
         roadTiles = levelCreator.getDirectionTiles();
 
         currentState = GameState.READY;
-        testDummie = new Farmer(this);
-        testDummie.setBounds(spawnPoint.getHitbox().getX(), spawnPoint.getHitbox().getY(), 16, 16);
-        enemiesInScreen.add(testDummie);
+
         enemyManager = new EnemyManager(this);
+        waveManager = new WaveManager(this, LEVEL_1_WAVE);
     }
 
     /**
@@ -51,8 +55,14 @@ public class World extends Stage {
      */
     public void update(float delta){
         runTime += delta;
+        timeSinceLastSpawn += delta;
+        System.out.println(timeSinceLastSpawn);
         enemyManager.update(delta);
 
+        if (timeSinceLastSpawn >= TIME_BETWEEN_SPAWNS){
+            waveManager.spawn();
+            timeSinceLastSpawn = 0;
+        }
         switch (currentState) {
             case READY:
             case RUNNING:

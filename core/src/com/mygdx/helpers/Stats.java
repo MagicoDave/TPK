@@ -1,5 +1,6 @@
 package com.mygdx.helpers;
 
+import com.badlogic.gdx.utils.Array;
 import com.mygdx.actors.enemies.Barbarian;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.enemies.Farmer;
@@ -24,8 +25,13 @@ public class Stats {
 
     public static int BASE_ENEMY_SPEED = 10;
 
+    public static int TIME_BETWEEN_SPAWNS = 2;
+
+    //Waves
+    public static int[] LEVEL_1_WAVE = {0,0,0,1,2,3};
+
     //Enemies
-    public static EnemyStats FARMER = new EnemyStats(4, 1, 10, 1);
+    public static EnemyStats FARMER = new EnemyStats(4, 1, 1, 1);
     public static EnemyStats BARBARIAN = new EnemyStats(15, 2, 1, 5);
     public static EnemyStats THIEF = new EnemyStats(6, 3, 2, 3);
     public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4);

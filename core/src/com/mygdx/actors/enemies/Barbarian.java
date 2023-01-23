@@ -7,6 +7,7 @@ public class Barbarian extends Enemy{
     public Barbarian(World world) {
         super(world);
 
+        this.ID = 1;
         this.hp = Stats.BARBARIAN.hp;
         this.damage = Stats.BARBARIAN.damage;
         this.speed = Stats.BARBARIAN.speed;

@@ -8,6 +8,7 @@ public class Thief extends Enemy{
     public Thief(World world) {
         super(world);
 
+        this.ID = 3;
         this.hp = Stats.THIEF.hp;
         this.damage = Stats.THIEF.damage;
         this.speed = Stats.THIEF.speed;

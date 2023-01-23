@@ -18,32 +18,25 @@ public abstract class Enemy extends Image {
 
     protected World world;
 
-    private Vector2 position = new Vector2(); //Como determinamos posición?
+    protected Vector2 position = new Vector2(); //Como determinamos posición?
     Direction direction;
 
-    int ID, hp, damage, speed, reward;
+    protected int ID, hp, damage, speed, reward;
 
-    private Rectangle hitbox;
+    //protected Rectangle hitbox; //No parece necesario, seguramente lo borre
 
-    boolean isAlive;
+    protected boolean alive;
 
     public Enemy(World world){
         super();
 
         this.world = world;
 
-        //this.position =
         this.direction = Direction.DOWN;
+        //this.hitbox = new Rectangle();
+        this.setBounds(world.spawnPoint.getHitbox().getX(), world.spawnPoint.getHitbox().getY(), 16, 16);
 
-        this.hitbox = new Rectangle();
-
-        this.ID = ID;
-        this.damage = damage;
-        this.hp = hp;
-        this.speed = speed;
-        this.reward = reward;
-
-        isAlive = true;
+        alive = true;
     }
 
     public void move(float delta){
@@ -81,7 +74,7 @@ public abstract class Enemy extends Image {
                 && this.getCenter().y >= world.finishPoint.getHitbox().y + world.finishPoint.getHitbox().height / 2
                 && this.getCenter().y <= world.finishPoint.getHitbox().y + world.finishPoint.getHitbox().height)
         {
-            // Hacer que desaparezca
+            world.enemiesInScreen.removeValue(this, true);
         }
     }
 
@@ -89,4 +82,71 @@ public abstract class Enemy extends Image {
         return new Vector2(this.getX() + this.getWidth() / 2, this.getY() + this.getHeight() / 2);
     }
 
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    public void setPosition(Vector2 position) {
+        this.position = position;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+
+//    public Rectangle getHitbox() {
+//        return hitbox;
+//    }
+//
+//    public void setHitbox(Rectangle hitbox) {
+//        this.hitbox = hitbox;
+//    }
+
+    public boolean isAlive(){
+        return alive;
+    }
 }

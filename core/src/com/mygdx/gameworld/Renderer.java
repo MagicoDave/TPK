@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.helpers.AssetLoader;
 
 /**
@@ -23,7 +24,7 @@ public class Renderer {
 
     private SpriteBatch batcher;
 
-    private Animation farmerAnimation;
+    private Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
 
     /**
      * Inicializar variables en el constructor
@@ -42,6 +43,9 @@ public class Renderer {
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
         farmerAnimation = AssetLoader.farmerAnimation;
+        barbarianAnimation = AssetLoader.barbarianAnimation;
+        mageAnimation = AssetLoader.mageAnimation;
+        thiefAnimation = AssetLoader.thiefAnimation;
     }
 
     /**
@@ -60,18 +64,68 @@ public class Renderer {
         tiledMapRenderer.setView(camera);
 
         batcher.begin();
-        batcher.draw(
-                (TextureRegion) farmerAnimation.getKeyFrame(runTime, true),
-                world.testDummie.getX(),
-                world.testDummie.getY(),
-                world.testDummie.getWidth() / 2.0f,
-                world.testDummie.getHeight() / 2.0f,
-                world.testDummie.getWidth(),
-                world.testDummie.getHeight(),
-                1,
-                1,
-                world.testDummie.getRotation()
-        );
+        for (Enemy enemy: world.enemiesInScreen) {
+            switch (enemy.getID()){
+                case 0:
+                    batcher.draw(
+                            (TextureRegion) farmerAnimation.getKeyFrame(runTime, true),
+                            enemy.getX(),
+                            enemy.getY(),
+                            enemy.getWidth() / 2.0f,
+                            enemy.getHeight() / 2.0f,
+                            enemy.getWidth(),
+                            enemy.getHeight(),
+                            1,
+                            1,
+                            enemy.getRotation()
+                    );
+                    break;
+                case 1:
+                    batcher.draw(
+                            (TextureRegion) barbarianAnimation.getKeyFrame(runTime, true),
+                            enemy.getX(),
+                            enemy.getY(),
+                            enemy.getWidth() / 2.0f,
+                            enemy.getHeight() / 2.0f,
+                            enemy.getWidth(),
+                            enemy.getHeight(),
+                            1,
+                            1,
+                            enemy.getRotation()
+                    );
+                    break;
+                case 2:
+                    batcher.draw(
+                            (TextureRegion) mageAnimation.getKeyFrame(runTime, true),
+                            enemy.getX(),
+                            enemy.getY(),
+                            enemy.getWidth() / 2.0f,
+                            enemy.getHeight() / 2.0f,
+                            enemy.getWidth(),
+                            enemy.getHeight(),
+                            1,
+                            1,
+                            enemy.getRotation()
+                    );
+                    break;
+                case 3:
+                    batcher.draw(
+                            (TextureRegion) thiefAnimation.getKeyFrame(runTime, true),
+                            enemy.getX(),
+                            enemy.getY(),
+                            enemy.getWidth() / 2.0f,
+                            enemy.getHeight() / 2.0f,
+                            enemy.getWidth(),
+                            enemy.getHeight(),
+                            1,
+                            1,
+                            enemy.getRotation()
+                    );
+                    break;
+            }
+
+        }
+
         batcher.end();
     }
 }

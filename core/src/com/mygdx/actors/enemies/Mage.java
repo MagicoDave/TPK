@@ -7,6 +7,7 @@ public class Mage extends Enemy{
     public Mage(World world) {
         super(world);
 
+        this.ID = 2;
         this.hp = Stats.MAGE.hp;
         this.damage = Stats.MAGE.damage;
         this.speed = Stats.MAGE.speed;
