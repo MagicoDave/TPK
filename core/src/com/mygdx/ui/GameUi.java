@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class GameUi extends Stage {
 
     private final World world;
-
+    private final Table table;
     private final ArrayList<Button> buttons = new ArrayList<>();
 
     public GameUi (World world) {
@@ -22,10 +22,12 @@ public class GameUi extends Stage {
 
         this.world = world;
 
-        Table root = new Table();
-        root.setFillParent(true);
+        /*Table root = new Table();
+        root.setFillParent(true);*/
 
-        Table table = new Table();
+        table = new Table();
+
+
     }
 
 }

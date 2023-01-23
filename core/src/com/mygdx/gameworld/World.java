@@ -34,6 +34,7 @@ public class World extends Stage {
     public Tile spawnPoint;
     public Tile finishPoint;
     public Array<Tile> roadTiles = new Array<Tile>();
+    public Array<Tile> fundationTiles = new Array<Tile>();
 
     float timeSinceLastSpawn = 0;
 
@@ -42,6 +43,7 @@ public class World extends Stage {
         spawnPoint = levelCreator.getSpawnTile();
         finishPoint = levelCreator.getFinishTile();
         roadTiles = levelCreator.getDirectionTiles();
+        fundationTiles = levelCreator.getFundationTiles();
 
         currentState = GameState.READY;
 
