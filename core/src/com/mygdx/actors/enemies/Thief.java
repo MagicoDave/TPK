@@ -3,6 +3,9 @@ package com.mygdx.actors.enemies;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.Stats;
 
+/**
+ * Esta clase establece propiedades para el Enemy Thief
+ */
 public class Thief extends Enemy{
 
     public Thief(World world) {

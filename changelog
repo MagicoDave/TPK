@@ -34,3 +34,6 @@
     Nueva clase WaveManager para gestionar comodamente las oleadas.
     Los enemigos ahora desaparecen al llegar al final del nivel.
     Limpieza general de código en las clases de Enemy y derivadas.
+24/01/23
+    Spritesheets para todas las torres.
+    Definición de clases para las torres WitchTower, StickyTower y CyclopTower, con sus correspondientes estadísticas en Stats.

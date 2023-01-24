@@ -3,6 +3,9 @@ package com.mygdx.actors.enemies;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.Stats;
 
+/**
+ * Esta clase establece propiedades para el Enemy Barbarian
+ */
 public class Barbarian extends Enemy{
     public Barbarian(World world) {
         super(world);

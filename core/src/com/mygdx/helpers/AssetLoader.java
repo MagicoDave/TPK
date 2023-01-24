@@ -21,12 +21,13 @@ public class AssetLoader {
     public static TextureRegion farmer1, farmer2, farmer3, farmer4, barbarian1, barbarian2, barbarian3, barbarian4, mage1, mage2, mage3, mage4, thief1, thief2, thief3, thief4;
     public static Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
 
-    public static Texture arrowTower;
-    public static TextureRegion arrowTower1, arrowTower2, arrowTower3, arrowTower4;
-    public static Animation arrowTowerAnimation;
+    public static Texture arrowTower, witchTower, stickyTower, cyclopTower;
+    public static TextureRegion arrowTower1, arrowTower2, arrowTower3, arrowTower4, witchTower1, witchTower2, witchTower3, witchTower4, stickyTower1, stickyTower2, stickyTower3, stickyTower4, cyclopTower1, cyclopTower2, cyclopTower3, cyclopTower4;
+    public static Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
 
     public static void load(){
 
+        //Levels
         levelCreator = new LevelCreator();
         level1 = levelCreator.setLevel("maps/level1.tmx");
 
@@ -77,21 +78,60 @@ public class AssetLoader {
         //ArrowTower
         arrowTower = new Texture(Gdx.files.internal("towers/arrowtower.png"));
         arrowTower.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        arrowTower1 = new TextureRegion(farmer, 0, 0, 24, 24);
-        arrowTower2 = new TextureRegion(farmer, 24, 0, 24, 24);
-        arrowTower3 = new TextureRegion(farmer, 48, 0, 24, 24);
-        arrowTower4 = new TextureRegion(farmer, 72, 0, 24, 24);
+        arrowTower1 = new TextureRegion(arrowTower, 0, 0, 24, 24);
+        arrowTower2 = new TextureRegion(arrowTower, 24, 0, 24, 24);
+        arrowTower3 = new TextureRegion(arrowTower, 48, 0, 24, 24);
+        arrowTower4 = new TextureRegion(arrowTower, 72, 0, 24, 24);
         TextureRegion[] atowers = {arrowTower1, arrowTower2, arrowTower3, arrowTower4};
-        arrowTowerAnimation = new Animation(0.06f, atowers);
+        arrowTowerAnimation = new Animation(0.1f, atowers);
         arrowTowerAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
+        //WitchTower
+        witchTower = new Texture(Gdx.files.internal("towers/witchtower.png"));
+        witchTower.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        witchTower1 = new TextureRegion(witchTower, 0, 0, 24, 24);
+        witchTower2 = new TextureRegion(witchTower, 24, 0, 24, 24);
+        witchTower3 = new TextureRegion(witchTower, 48, 0, 24, 24);
+        witchTower4 = new TextureRegion(witchTower, 72, 0, 24, 24);
+        TextureRegion[] wtowers = {witchTower1, witchTower2, witchTower3, witchTower4};
+        witchTowerAnimation = new Animation(0.1f, wtowers);
+        witchTowerAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
+        //StickyTower
+        stickyTower = new Texture(Gdx.files.internal("towers/stickytower.png"));
+        stickyTower.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        stickyTower1 = new TextureRegion(stickyTower, 0, 0, 24, 24);
+        stickyTower2 = new TextureRegion(stickyTower, 24, 0, 24, 24);
+        stickyTower3 = new TextureRegion(stickyTower, 48, 0, 24, 24);
+        stickyTower4 = new TextureRegion(stickyTower, 72, 0, 24, 24);
+        TextureRegion[] stowers = {stickyTower1, stickyTower2, stickyTower3, stickyTower4};
+        stickyTowerAnimation = new Animation(0.1f, stowers);
+        stickyTowerAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
+        //CyclopTower
+        cyclopTower = new Texture(Gdx.files.internal("towers/cycloptower.png"));
+        cyclopTower.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        cyclopTower1 = new TextureRegion(cyclopTower, 0, 0, 24, 24);
+        cyclopTower2 = new TextureRegion(cyclopTower, 24, 0, 24, 24);
+        cyclopTower3 = new TextureRegion(cyclopTower, 48, 0, 24, 24);
+        cyclopTower4 = new TextureRegion(cyclopTower, 72, 0, 24, 24);
+        TextureRegion[] ctowers = {cyclopTower1, cyclopTower2, cyclopTower3, cyclopTower4};
+        cyclopTowerAnimation = new Animation(0.1f, ctowers);
+        cyclopTowerAnimation.setPlayMode(Animation.PlayMode.LOOP);
     }
 
     public static void dispose(){
         level1.dispose();
 
         farmer.dispose();
+        barbarian.dispose();
+        thief.dispose();
+        mage.dispose();
 
         arrowTower.dispose();
+        witchTower.dispose();
+        stickyTower.dispose();
+        cyclopTower.dispose();
     }
 
     public static LevelCreator getLevelCreator() {

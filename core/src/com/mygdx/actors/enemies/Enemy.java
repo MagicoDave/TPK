@@ -10,8 +10,6 @@ import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
 
 /**
- * Enemy
- *
  * Esta clase abstracta contiene las propiedades comunes de todos los enemigos
  */
 public abstract class Enemy extends Image {

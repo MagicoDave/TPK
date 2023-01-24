@@ -1,20 +1,17 @@
 package com.mygdx.actors.towers;
 
-public class Debuff {
+public enum Debuff {
+    SLOW("SLOW", 3, 0, 2),
+    FIRE("FIRE", 4, 1, 1);
 
-    int duration;
-    float damage;
-    float speedmulti;
+    private final String value;
+    private final int duration, damage, speedDivider;
 
-    Debuff(Debuff d){
-        this.duration = d.duration;
-        this.damage = d.damage;
-        this.speedmulti = d.speedmulti;
-    }
 
-    Debuff() {
-        duration = 60;
-        damage = 0;
-        speedmulti = 0.9f;
+    Debuff(String value, int duration, int damage, int speedDivider){
+        this.value = value;
+        this.duration = duration;
+        this.damage = damage;
+        this.speedDivider = speedDivider;
     }
 }

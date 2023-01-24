@@ -6,11 +6,12 @@ import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.enemies.Farmer;
 import com.mygdx.actors.enemies.Mage;
 import com.mygdx.actors.enemies.Thief;
+import com.mygdx.actors.towers.Debuff;
 
 import java.util.HashMap;
 
 /**
- * Clase que almacena diversas constantes del juego
+ * Clase que almacena diversas constantes del juego para fácil acceso
  */
 public class Stats {
 
@@ -27,6 +28,18 @@ public class Stats {
 
     public static int TIME_BETWEEN_SPAWNS = 2;
 
+    //Enemies and Tower ID reference:
+    //
+    //FARMER = 0
+    //BARBARIAN = 1
+    //THIEF = 2
+    //MAGE = 3
+    //
+    //ARROW_TOWER = 0
+    //WITCH_TOWER = 1
+    //STICKY_TOWER = 2
+    //CYCLOP_TOWER = 3
+
     //Waves
     public static int[] LEVEL_1_WAVE = {0,0,0,1,2,3};
 
@@ -37,18 +50,12 @@ public class Stats {
     public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4);
 
     //Towers
-    public static TowerStats ARROW_TOWER = new TowerStats();
+    public static TowerStats ARROW_TOWER = new TowerStats(1, 10, 10, 3, 10, null);
+    public static TowerStats WITCH_TOWER = new TowerStats(3, 8, 20, 2, 10, Debuff.FIRE);
+    public static TowerStats STICKY_TOWER = new TowerStats(0, 5, 10, 2, 10, Debuff.SLOW);
+    public static TowerStats CYCLOP_TOWER = new TowerStats(6, 12, 30, 1, 8, null);
 
-
-    /*public static HashMap<Class<? extends Enemy>, EnemyStats> ALL_ENEMY_STATS = new HashMap<>();
-
-    static {
-        ALL_ENEMY_STATS.put(Farmer.class, FARMER);
-        ALL_ENEMY_STATS.put(Barbarian.class, BARBARIAN);
-        ALL_ENEMY_STATS.put(Thief.class, THIEF);
-        ALL_ENEMY_STATS.put(Mage.class, MAGE);
-    }*/
-
+    //Constructor EnemyStats
     public static class EnemyStats {
         public int hp, damage, speed, reward;
 
@@ -60,8 +67,18 @@ public class Stats {
         }
     }
 
-
+    //Constructor TowerStats
     public static class TowerStats {
+        public int damage, range, price, fireRate, projectileSpeed;
+        public Debuff debuff;
 
+        public TowerStats(int damage, int range, int price, int fireRate, int projectileSpeed, Debuff debuff){
+            this.damage = damage;
+            this.range = range;
+            this.price = price;
+            this.fireRate = fireRate;
+            this.projectileSpeed = projectileSpeed;
+            this.debuff = debuff;
+        }
     }
 }

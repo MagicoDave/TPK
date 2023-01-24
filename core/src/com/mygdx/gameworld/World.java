@@ -7,6 +7,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.tiles.Tile;
+import com.mygdx.actors.towers.ArrowTower;
+import com.mygdx.actors.towers.Tower;
+import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
 import com.mygdx.helpers.WaveManager;
@@ -30,11 +33,12 @@ public class World extends Stage {
     WaveManager waveManager;
 
     public Array<Enemy> enemiesInScreen = new Array<Enemy>();
+    public Array<Tower> constructedTowers = new Array<Tower>();
 
     public Tile spawnPoint;
     public Tile finishPoint;
-    public Array<Tile> roadTiles = new Array<Tile>();
-    public Array<Tile> fundationTiles = new Array<Tile>();
+    public Array<Tile> roadTiles;
+    public Array<Tile> fundationTiles;
 
     float timeSinceLastSpawn = 0;
 
@@ -49,6 +53,11 @@ public class World extends Stage {
 
         enemyManager = new EnemyManager(this);
         waveManager = new WaveManager(this, LEVEL_1_WAVE);
+
+        //Test code
+        Tile testFundation = fundationTiles.get(5);
+        WitchTower testTower = new WitchTower(this, testFundation);
+        constructedTowers.add(testTower);
     }
 
     /**

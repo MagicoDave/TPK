@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.mygdx.actors.enemies.Enemy;
+import com.mygdx.actors.towers.Tower;
 import com.mygdx.helpers.AssetLoader;
 
 /**
@@ -25,6 +26,7 @@ public class Renderer {
     private SpriteBatch batcher;
 
     private Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
+    private Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
 
     /**
      * Inicializar variables en el constructor
@@ -34,7 +36,6 @@ public class Renderer {
         this.world = world;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 160, 284);
-        //camera.position.set(80, 100, 0);
         batcher = new SpriteBatch();
         batcher.setProjectionMatrix(camera.combined);
         shapeRenderer = new ShapeRenderer();
@@ -46,6 +47,11 @@ public class Renderer {
         barbarianAnimation = AssetLoader.barbarianAnimation;
         mageAnimation = AssetLoader.mageAnimation;
         thiefAnimation = AssetLoader.thiefAnimation;
+
+        arrowTowerAnimation = AssetLoader.arrowTowerAnimation;
+        witchTowerAnimation = AssetLoader.witchTowerAnimation;
+        stickyTowerAnimation = AssetLoader.stickyTowerAnimation;
+        cyclopTowerAnimation = AssetLoader.cyclopTowerAnimation;
     }
 
     /**
@@ -64,8 +70,14 @@ public class Renderer {
         tiledMapRenderer.setView(camera);
 
         batcher.begin();
+        renderEnemies(runTime);
+        renderTowers(runTime);
+        batcher.end();
+    }
+
+    public void renderEnemies(float runTime){
         for (Enemy enemy: world.enemiesInScreen) {
-            switch (enemy.getID()){
+            switch (enemy.getID()) {
                 case 0:
                     batcher.draw(
                             (TextureRegion) farmerAnimation.getKeyFrame(runTime, true),
@@ -123,9 +135,69 @@ public class Renderer {
                     );
                     break;
             }
-
         }
+    }
 
-        batcher.end();
+    public void renderTowers(float runTime){
+        for (Tower tower: world.constructedTowers) {
+            switch (tower.getID()) {
+                case 0:
+                    batcher.draw(
+                            (TextureRegion) arrowTowerAnimation.getKeyFrame(runTime, true),
+                            tower.getX(),
+                            tower.getY(),
+                            tower.getWidth() / 2.0f,
+                            tower.getHeight() / 2.0f,
+                            tower.getWidth(),
+                            tower.getHeight(),
+                            1,
+                            1,
+                            tower.getRotation()
+                    );
+                    break;
+                case 1:
+                    batcher.draw(
+                            (TextureRegion) witchTowerAnimation.getKeyFrame(runTime, true),
+                            tower.getX(),
+                            tower.getY(),
+                            tower.getWidth() / 2.0f,
+                            tower.getHeight() / 2.0f,
+                            tower.getWidth(),
+                            tower.getHeight(),
+                            1,
+                            1,
+                            tower.getRotation()
+                    );
+                    break;
+                case 2:
+                    batcher.draw(
+                            (TextureRegion) stickyTowerAnimation.getKeyFrame(runTime, true),
+                            tower.getX(),
+                            tower.getY(),
+                            tower.getWidth() / 2.0f,
+                            tower.getHeight() / 2.0f,
+                            tower.getWidth(),
+                            tower.getHeight(),
+                            1,
+                            1,
+                            tower.getRotation()
+                    );
+                    break;
+                case 3:
+                    batcher.draw(
+                            (TextureRegion) cyclopTowerAnimation.getKeyFrame(runTime, true),
+                            tower.getX(),
+                            tower.getY(),
+                            tower.getWidth() / 2.0f,
+                            tower.getHeight() / 2.0f,
+                            tower.getWidth(),
+                            tower.getHeight(),
+                            1,
+                            1,
+                            tower.getRotation()
+                    );
+                    break;
+            }
+        }
     }
 }
