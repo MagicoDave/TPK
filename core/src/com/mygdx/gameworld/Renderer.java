@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.mygdx.actors.enemies.Enemy;
+import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.helpers.AssetLoader;
 
@@ -27,6 +28,7 @@ public class Renderer {
 
     private Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
     private Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
+    private TextureRegion redBullet;
 
     /**
      * Inicializar variables en el constructor
@@ -52,6 +54,8 @@ public class Renderer {
         witchTowerAnimation = AssetLoader.witchTowerAnimation;
         stickyTowerAnimation = AssetLoader.stickyTowerAnimation;
         cyclopTowerAnimation = AssetLoader.cyclopTowerAnimation;
+
+        redBullet = AssetLoader.redBullet1;
     }
 
     /**
@@ -72,6 +76,7 @@ public class Renderer {
         batcher.begin();
         renderEnemies(runTime);
         renderTowers(runTime);
+        renderBullets(runTime);
         batcher.end();
     }
 
@@ -198,6 +203,23 @@ public class Renderer {
                     );
                     break;
             }
+        }
+    }
+
+    public void renderBullets(float runTime){
+        for (Bullet bullet : world.bulletsInScreen){
+            batcher.draw(
+                    redBullet,
+                    bullet.getX(),
+                    bullet.getY(),
+                    bullet.getWidth() / 2.0f,
+                    bullet.getHeight() / 2.0f,
+                    bullet.getWidth(),
+                    bullet.getHeight(),
+                    1,
+                    1,
+                    bullet.getRotation()
+            );
         }
     }
 }

@@ -13,7 +13,7 @@ public class EnemyManager {
 
     public void update(float delta){
         for (Enemy enemy : world.enemiesInScreen) {
-            enemy.move(delta);
+            enemy.update(delta);
         }
     }
 }

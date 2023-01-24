@@ -7,6 +7,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.tiles.Direction;
 import com.mygdx.actors.tiles.Tile;
+import com.mygdx.actors.towers.Debuff;
+import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
 
 /**
@@ -20,8 +22,7 @@ public abstract class Enemy extends Image {
     Direction direction;
 
     protected int ID, hp, damage, speed, reward;
-
-    //protected Rectangle hitbox; //No parece necesario, seguramente lo borre
+    protected Debuff debuff;
 
     protected boolean alive;
 
@@ -35,6 +36,16 @@ public abstract class Enemy extends Image {
         this.setBounds(world.spawnPoint.getHitbox().getX(), world.spawnPoint.getHitbox().getY(), 16, 16);
 
         alive = true;
+    }
+
+    public void update(float delta){
+        if (hp <= 0){
+            alive = false;
+            world.gold += reward;
+            world.enemiesInScreen.removeValue(this, true);
+        } else {
+            move(delta);
+        }
     }
 
     public void move(float delta){
@@ -72,8 +83,14 @@ public abstract class Enemy extends Image {
                 && this.getCenter().y >= world.finishPoint.getHitbox().y + world.finishPoint.getHitbox().height / 2
                 && this.getCenter().y <= world.finishPoint.getHitbox().y + world.finishPoint.getHitbox().height)
         {
+            alive = false;
+            world.health -= damage;
             world.enemiesInScreen.removeValue(this, true);
         }
+    }
+
+    public boolean inRange(Tower tower){
+        return this.getCenter().dst(tower.getPosition()) <= tower.getRange();
     }
 
     public Vector2 getCenter(){
@@ -136,13 +153,13 @@ public abstract class Enemy extends Image {
         this.reward = reward;
     }
 
-//    public Rectangle getHitbox() {
-//        return hitbox;
-//    }
-//
-//    public void setHitbox(Rectangle hitbox) {
-//        this.hitbox = hitbox;
-//    }
+    public Debuff getDebuff() {
+        return debuff;
+    }
+
+    public void setDebuff(Debuff debuff) {
+        this.debuff = debuff;
+    }
 
     public boolean isAlive(){
         return alive;

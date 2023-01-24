@@ -25,6 +25,9 @@ public class AssetLoader {
     public static TextureRegion arrowTower1, arrowTower2, arrowTower3, arrowTower4, witchTower1, witchTower2, witchTower3, witchTower4, stickyTower1, stickyTower2, stickyTower3, stickyTower4, cyclopTower1, cyclopTower2, cyclopTower3, cyclopTower4;
     public static Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
 
+    public static Texture redBullet;
+    public static TextureRegion redBullet1;
+
     public static void load(){
 
         //Levels
@@ -118,6 +121,11 @@ public class AssetLoader {
         TextureRegion[] ctowers = {cyclopTower1, cyclopTower2, cyclopTower3, cyclopTower4};
         cyclopTowerAnimation = new Animation(0.1f, ctowers);
         cyclopTowerAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
+        //Redbullet
+        redBullet = new Texture(Gdx.files.internal("bullets/redbullet.png"));
+        redBullet.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        redBullet1 = new TextureRegion(redBullet, 0, 0, 24, 24);
     }
 
     public static void dispose(){

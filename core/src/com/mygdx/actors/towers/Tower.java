@@ -14,7 +14,9 @@ import com.mygdx.gameworld.World;
  */
 public abstract class Tower extends Image {
 
-    protected int damage, range, price, fireRate, projectileSpeed;
+    protected Vector2 position;
+
+    protected int damage, range, price, fireRate, projectileSpeed, cooldown;
     Debuff debuff;
     Enemy target;
 
@@ -30,8 +32,42 @@ public abstract class Tower extends Image {
         this.fundation = fundation;
 
         this.setBounds(fundation.getHitbox().getX(), fundation.getHitbox().getY(), fundation.getHitbox().getWidth(), fundation.getHitbox().getHeight());
+        this.position.x = fundation.getHitbox().getX() + (fundation.getHitbox().getWidth() / 2);
+        this.position.y = fundation.getHitbox().getY() + (fundation.getHitbox().getHeight() / 2);
+
+        this.cooldown = 0;
     }
 
+    public void adquireTarget(){
+
+        if (world.enemiesInScreen.isEmpty()) return;
+
+        if (target != null && !target.inRange(this)){
+            target = null;
+        } else {
+            for (Enemy enemy: world.enemiesInScreen) {
+                if (enemy.inRange(this) && target == null){
+                    target = enemy;
+                }
+            }
+        }
+    }
+
+    public void fire(){
+
+        if (target == null) return;
+
+        if (cooldown <=0){
+            cooldown = fireRate;
+            world.bulletsInScreen.add(new Bullet(world, this, target));
+        } else {
+            cooldown--;
+        }
+    }
+
+    public Vector2 getPosition() {
+        return position;
+    }
 
     public int getDamage() {
         return damage;
@@ -51,10 +87,6 @@ public abstract class Tower extends Image {
 
     public int getPrice() {
         return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public int getFireRate() {
@@ -100,82 +132,5 @@ public abstract class Tower extends Image {
     public int getID() {
         return ID;
     }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    /*Tower(Tower model){
-        this.position.set(model.position);
-        this.damage = model.damage;
-        this.debuff = new Debuff(model.debuff);
-        this.range = model.range;
-        this.projectileSpeed = model.projectileSpeed;
-        this.cost = model.cost;
-        this.fireRate = model.fireRate;
-        this.ID = model.ID;
-        this.projectileSize = model.projectileSize;
-        this.projectileColor = model.projectileColor.cpy();
-    }*/
-
-//    Tower(float x, float y, int ID){
-//        this.position.x = x + 15;
-//        this.position.y = y + 15;
-//        setToTower(ID);
-//    }
-//
-//    public void setToTower(int ID) {
-//        this.ID = ID;
-//        if (ID == 1) {
-//            damage = 25;
-//            debuff.damage = 0;
-//            debuff.duration = 60;
-//            debuff.speedmulti = 1;
-//            projectileSpeed = 5;
-//            //fireRate = 0.5f;
-//            range = 300;
-//            //projectileColor.set(Color.RED);
-//            //projectileSize = 3;
-//        } else if (ID == 2) {
-//            damage = 0;
-//            debuff.damage = 0.05f;
-//            debuff.duration = 60;
-//            debuff.speedmulti = 0.2f;
-//            projectileSpeed = 1;
-//            fireRate = 1;
-//            range = 150;
-//            //projectileColor.set(Color.CYAN);
-//            //projectileSize = 5;
-//        } else if (ID == 3) {
-//            damage = 0;
-//            debuff.damage = 0.2f;
-//            debuff.duration = 60;
-//            debuff.speedmulti = 0.7f;
-//            //projectileSpeed = 1f;
-//            fireRate = 30;
-//            range = 100;
-//            //projectileColor.set(Color.ORANGE);
-//            //projectileSize = 8;
-//        } else if (ID == 4) {
-//            //damage = 0.5f;
-//            debuff.damage = 0.05f;
-//            debuff.duration = 60;
-//            debuff.speedmulti = 0.7f;
-//            projectileSpeed = 10;
-//            fireRate = 30;
-//            range = 300;
-//            //projectileColor.set(Color.YELLOW);
-//            //projectileSize = 2;
-//        } else if (ID == 5) {
-//            damage = 0;
-//            debuff.damage = 0f;
-//            debuff.duration = 600;
-//            debuff.speedmulti = 0f;
-//            //projectileSpeed = 2f;
-//            //fireRate = 0.3f;
-//            range = 1000;
-//            //projectileColor.set(Color.YELLOW);
-//        }
-
 
 }
