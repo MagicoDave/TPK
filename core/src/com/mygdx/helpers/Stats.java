@@ -25,6 +25,7 @@ public class Stats {
     public static int POISON_PRICE = 30;
 
     public static int BASE_ENEMY_SPEED = 10;
+    public static int BASE_BULLET_SPEED = 10;
 
     public static int TIME_BETWEEN_SPAWNS = 2;
 
@@ -41,7 +42,7 @@ public class Stats {
     //CYCLOP_TOWER = 3
 
     //Waves
-    public static int[] LEVEL_1_WAVE = {0,0,0,1,2,3};
+    public static int[] LEVEL_1_WAVE = {0,1,2,3};
 
     //Enemies
     public static EnemyStats FARMER = new EnemyStats(4, 1, 1, 1);
@@ -50,10 +51,10 @@ public class Stats {
     public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4);
 
     //Towers
-    public static TowerStats ARROW_TOWER = new TowerStats(1, 10, 10, 3, 10, null);
-    public static TowerStats WITCH_TOWER = new TowerStats(3, 8, 20, 2, 10, Debuff.FIRE);
-    public static TowerStats STICKY_TOWER = new TowerStats(0, 5, 10, 2, 10, Debuff.SLOW);
-    public static TowerStats CYCLOP_TOWER = new TowerStats(6, 12, 30, 1, 8, null);
+    public static TowerStats ARROW_TOWER = new TowerStats(1, 64, 10, 300, 3, null);
+    public static TowerStats WITCH_TOWER = new TowerStats(3, 64, 20, 2, 10, Debuff.FIRE);
+    public static TowerStats STICKY_TOWER = new TowerStats(0, 64, 10, 2, 10, Debuff.SLOW);
+    public static TowerStats CYCLOP_TOWER = new TowerStats(6, 64, 30, 1, 8, null);
 
     //Constructor EnemyStats
     public static class EnemyStats {

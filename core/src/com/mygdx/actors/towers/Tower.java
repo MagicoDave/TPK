@@ -1,6 +1,6 @@
 package com.mygdx.actors.towers;
 
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.enemies.Enemy;
@@ -19,7 +19,6 @@ public abstract class Tower extends Image {
     protected int damage, range, price, fireRate, projectileSpeed, cooldown;
     Debuff debuff;
     Enemy target;
-
     protected World world;
     protected Tile fundation;
 
@@ -27,27 +26,30 @@ public abstract class Tower extends Image {
 
     public Tower (World world, Tile fundation) {
         super();
-
         this.world = world;
         this.fundation = fundation;
 
         this.setBounds(fundation.getHitbox().getX(), fundation.getHitbox().getY(), fundation.getHitbox().getWidth(), fundation.getHitbox().getHeight());
+        position = new Vector2();
         this.position.x = fundation.getHitbox().getX() + (fundation.getHitbox().getWidth() / 2);
         this.position.y = fundation.getHitbox().getY() + (fundation.getHitbox().getHeight() / 2);
 
         this.cooldown = 0;
+        this.target = null;
     }
 
     public void adquireTarget(){
 
         if (world.enemiesInScreen.isEmpty()) return;
-
-        if (target != null && !target.inRange(this)){
-            target = null;
-        } else {
+        if (target != null){
+            Gdx.app.log("tower target in range?: ", target.inRange(this) + "");
+        }
+        if (target == null || !target.isAlive() || !target.inRange(this)){
             for (Enemy enemy: world.enemiesInScreen) {
-                if (enemy.inRange(this) && target == null){
+                if (enemy.inRange(this)){
                     target = enemy;
+                    Gdx.app.log("New tower target: ", target.toString());
+                    return;
                 }
             }
         }
@@ -55,10 +57,11 @@ public abstract class Tower extends Image {
 
     public void fire(){
 
-        if (target == null) return;
+        if (target == null || !target.isAlive()) return;
 
         if (cooldown <=0){
             cooldown = fireRate;
+            Gdx.app.log("tower fires to: ", target.toString());
             world.bulletsInScreen.add(new Bullet(world, this, target));
         } else {
             cooldown--;

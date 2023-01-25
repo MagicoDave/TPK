@@ -216,8 +216,8 @@ public class Renderer {
                     bullet.getHeight() / 2.0f,
                     bullet.getWidth(),
                     bullet.getHeight(),
-                    1,
-                    1,
+                    0.5f,
+                    0.5f,
                     bullet.getRotation()
             );
         }

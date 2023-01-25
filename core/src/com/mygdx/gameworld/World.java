@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.tiles.Tile;
+import com.mygdx.actors.towers.ArrowTower;
 import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.actors.towers.WitchTower;
@@ -66,8 +67,8 @@ public class World extends Stage {
         towerManager = new TowerManager(this);
 
         //Test code
-        Tile test = fundationTiles.get(0);
-        WitchTower testTower = new WitchTower(this, test);
+        Tile test = fundationTiles.get(5);
+        ArrowTower testTower = new ArrowTower(this, test);
         constructedTowers.add(testTower);
     }
 
@@ -78,7 +79,7 @@ public class World extends Stage {
     public void update(float delta){
         runTime += delta;
         timeSinceLastSpawn += delta;
-        System.out.println(timeSinceLastSpawn);
+        //System.out.println(timeSinceLastSpawn);
         enemyManager.update(delta);
         towerManager.update(delta);
 

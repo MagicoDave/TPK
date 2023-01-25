@@ -90,7 +90,11 @@ public abstract class Enemy extends Image {
     }
 
     public boolean inRange(Tower tower){
-        return this.getCenter().dst(tower.getPosition()) <= tower.getRange();
+        if (getCenter().dst(tower.getPosition()) <= tower.getRange()){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public Vector2 getCenter(){

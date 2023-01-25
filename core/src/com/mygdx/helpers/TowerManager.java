@@ -18,8 +18,11 @@ public class TowerManager {
             tower.fire();
         }
 
+
         for (Bullet bullet : world.bulletsInScreen) {
-            bullet.update();
+            bullet.update(delta);
         }
+
+
     }
 }
