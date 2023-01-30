@@ -37,3 +37,11 @@
 24/01/23
     Spritesheets para todas las torres.
     Definición de clases para las torres WitchTower, StickyTower y CyclopTower, con sus correspondientes estadísticas en Stats.
+28/01/23
+    Los proyectiles de las torres, tras mucho esfuerzo, vuelan gracilmente de la torre a su objetivo sin problema. Un hurra para mí.
+    Prueba y error para encontrar un balance provisional para las stats de las torres. Necesitaré seguir toqueteandolo a medida que avanza el desarrollo.
+30/01/23
+    He descubierto una forma de aprovechar mejor libGDX y la gestión de eventos sin tantas clases auxiliares gracias a las clases Stage y Actor propias del framework.
+    El core gameplay más básico esta listo: Los enemigos se mueven, las torres disparan, el jugador puede construir nuevas torres.
+    Añadida la clase GameUi para gestionar las acciones del jugador, botones y demás.
+    ¿Como va a ser el menu desplegable para seleccionar que torreta construir? Probablemente use una table de libgdx con cuatro botones, pero a ver como se porta.

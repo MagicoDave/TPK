@@ -18,6 +18,7 @@ import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
 import com.mygdx.helpers.TowerManager;
 import com.mygdx.helpers.WaveManager;
+import com.mygdx.ui.GameUi;
 
 
 /**
@@ -37,6 +38,7 @@ public class World extends Stage {
     EnemyManager enemyManager;
     WaveManager waveManager;
     TowerManager towerManager;
+    GameUi gameUi;
 
     public Array<Enemy> enemiesInScreen = new Array<Enemy>();
     public Array<Tower> constructedTowers = new Array<Tower>();
@@ -65,6 +67,7 @@ public class World extends Stage {
         enemyManager = new EnemyManager(this);
         waveManager = new WaveManager(this, LEVEL_1_WAVE);
         towerManager = new TowerManager(this);
+
 
         //Test code
         Tile test = fundationTiles.get(5);

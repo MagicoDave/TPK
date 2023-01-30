@@ -4,6 +4,9 @@ import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
 
+/**
+ * Gestiona el comportamiento de las torres y las balas
+ */
 public class TowerManager {
 
     private World world;

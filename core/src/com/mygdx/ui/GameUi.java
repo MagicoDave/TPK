@@ -1,33 +1,58 @@
 package com.mygdx.ui;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.actors.tiles.Tile;
+import com.mygdx.actors.towers.ArrowTower;
+import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
 import com.mygdx.ui.buttons.Button;
-
-import java.util.ArrayList;
 
 public class GameUi extends Stage {
 
     private final World world;
-    private final Table table;
-    private final ArrayList<Button> buttons = new ArrayList<>();
+    private final Array<Button> buttons;
+    private final Array<Tile> fundations;
 
-    public GameUi (World world) {
-        super(new FitViewport(160, 280));
+    public GameUi (final World world) {
+        super(new StretchViewport(160,288));
 
         Gdx.input.setInputProcessor(this);
 
         this.world = world;
 
-        /*Table root = new Table();
-        root.setFillParent(true);*/
+        buttons = new Array<Button>();
+        fundations = world.fundationTiles;
 
-        table = new Table();
+        for (final Tile fundation: fundations) {
+            fundation.setBounds(fundation.getHitbox().getX(), fundation.getHitbox().getY(), fundation.getHitbox().getWidth(), fundation.getHitbox().getHeight());
+            fundation.addListener(new InputListener(){
+
+                public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                    Gdx.app.log("Example", "touch started at (" + x + ", " + y + ")");
+                    ArrowTower t = new ArrowTower(world, fundation);
+                    fundation.setTower(t);
+                    world.constructedTowers.add(t);
+                    return true;
+                }
+
+                public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                    Gdx.app.log("Example", "touch done at (" + x + ", " + y + ")");
+                }
+
+            });
+            addActor(fundation);
+        }
+    }
+
+    public void TowerSelect(Tile fundation){
+        Table t = new Table();
 
 
     }
-
 }

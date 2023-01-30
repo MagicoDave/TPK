@@ -2,9 +2,10 @@ package com.mygdx.actors.tiles;
 
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.mygdx.actors.towers.Tower;
 
-public class Tile {
+public class Tile extends Actor {
 
     private Direction direction;
     private Type type;

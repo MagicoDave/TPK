@@ -37,7 +37,7 @@ public class Renderer {
     public Renderer(World world, TiledMap map){
         this.world = world;
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 160, 284);
+        camera.setToOrtho(false, 160, 288);
         batcher = new SpriteBatch();
         batcher.setProjectionMatrix(camera.combined);
         shapeRenderer = new ShapeRenderer();

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Screen;
 import com.mygdx.gameworld.Renderer;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.ui.GameUi;
 
 /**
  * Clase que controla la pantalla de juego
@@ -12,6 +13,7 @@ public class GameScreen implements Screen {
 
     private World world;
     private Renderer renderer;
+    private GameUi gameUi;
 
     private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
 
@@ -20,6 +22,7 @@ public class GameScreen implements Screen {
      */
     public GameScreen(){
         world = new World(AssetLoader.getLevelCreator());
+        gameUi = new GameUi(world);
         renderer = new Renderer(world, AssetLoader.level1);
     }
 
@@ -38,6 +41,7 @@ public class GameScreen implements Screen {
         runTime += delta;
         world.update(delta);
         renderer.render(delta, runTime);
+
     }
 
     @Override
