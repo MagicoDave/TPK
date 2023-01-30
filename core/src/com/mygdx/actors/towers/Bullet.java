@@ -26,7 +26,9 @@ public class Bullet extends Image {
         this.tower = tower;
         this.target = target;
 
-        this.position = tower.getPosition();
+        this.position = new Vector2();
+        this.position.x = tower.getX() + (tower.getWidth() / 2);
+        this.position.y = tower.getY() + (tower.getHeight() / 2);
         this.setBounds(this.position.x, this.position.y, 12, 12);
 
         this.moveVec = new Vector2();
@@ -42,21 +44,27 @@ public class Bullet extends Image {
         if (target.isAlive()){
             fly(delta);
         } else {
-            world.bulletsInScreen.removeValue(this, true);
+            alive = false;
         }
     }
 
     public void fly(float delta){
-        if (this.position.dst(target.getCenter()) <= speed && this.alive) {
+        if (this.position.dst(target.getCenter()) <= speed && alive) {
             target.setDebuff(debuff);
             target.setHp(target.getHp() - damage);
             this.alive = false;
-        } else if (!alive) {
-            world.bulletsInScreen.removeValue(this, true);
         } else {
             moveVec.set(BASE_BULLET_SPEED * speed * delta, 0);
             moveVec.setAngleRad((float) Math.atan2(target.getCenter().y - this.position.y, target.getCenter().x - this.position.x));
             position.add(moveVec);
         }
+    }
+
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 }

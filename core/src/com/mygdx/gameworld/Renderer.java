@@ -210,8 +210,8 @@ public class Renderer {
         for (Bullet bullet : world.bulletsInScreen){
             batcher.draw(
                     redBullet,
-                    bullet.getX(),
-                    bullet.getY(),
+                    bullet.getPosition().x,
+                    bullet.getPosition().y,
                     bullet.getWidth() / 2.0f,
                     bullet.getHeight() / 2.0f,
                     bullet.getWidth(),

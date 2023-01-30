@@ -13,16 +13,26 @@ public class TowerManager {
     }
 
     public void update(float delta){
+
+        //Borrar balas 'muertas'
+        for (int i = 0; i < world.bulletsInScreen.size; i++) {
+            Bullet e = world.bulletsInScreen.get(i);
+            if (!e.isAlive()) {
+                world.bulletsInScreen.removeIndex(i);
+                i--;
+            }
+        }
+
+        //Actualizar torres
         for (Tower tower : world.constructedTowers) {
             tower.adquireTarget();
             tower.fire();
         }
 
-
+        //Actualizar balas
         for (Bullet bullet : world.bulletsInScreen) {
             bullet.update(delta);
         }
-
-
+        
     }
 }

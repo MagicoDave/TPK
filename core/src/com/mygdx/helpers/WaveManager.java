@@ -8,6 +8,9 @@ import com.mygdx.actors.enemies.Mage;
 import com.mygdx.actors.enemies.Thief;
 import com.mygdx.gameworld.World;
 
+/**
+ * Esta clase gestiona la aparición de oleadas en el nivel
+ */
 public class WaveManager {
 
     private World world;
@@ -18,6 +21,9 @@ public class WaveManager {
         setWave(wave);
     }
 
+    /**
+     * Spawnea el siguente enemigo de la oleada al nivel
+     */
     public void spawn(){
         if (array.size > 0){
             this.world.enemiesInScreen.add(array.first());
@@ -30,6 +36,10 @@ public class WaveManager {
         return array;
     }
 
+    /**
+     * Establece la oleada (wave)
+     * @param wave Un array de ints con las referencias del tipo de cada enemigo de la oleada. Consultar Stats para ver las referencias (ID)
+     */
     public void setWave(int[] wave) {
 
         array = new Array<Enemy>();

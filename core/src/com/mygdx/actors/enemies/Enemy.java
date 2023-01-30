@@ -2,6 +2,7 @@ package com.mygdx.actors.enemies;
 
 import static com.mygdx.helpers.Stats.BASE_ENEMY_SPEED;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -91,6 +92,7 @@ public abstract class Enemy extends Image {
 
     public boolean inRange(Tower tower){
         if (getCenter().dst(tower.getPosition()) <= tower.getRange()){
+            Gdx.app.log("Distance: ", this.getCenter().dst(tower.getPosition()) + "");
             return true;
         } else {
             return false;

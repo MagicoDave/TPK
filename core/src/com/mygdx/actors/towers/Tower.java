@@ -38,6 +38,9 @@ public abstract class Tower extends Image {
         this.target = null;
     }
 
+    /**
+     * La torre adquiere un nuevo objetivo si no hay ninguno valido (no tiene, está muerto o no está en rango)
+     */
     public void adquireTarget(){
 
         if (world.enemiesInScreen.isEmpty()) return;
@@ -55,9 +58,12 @@ public abstract class Tower extends Image {
         }
     }
 
+    /**
+     * La torre dispara si existe un objetivo válido
+     */
     public void fire(){
 
-        if (target == null || !target.isAlive()) return;
+        if (target == null || !target.isAlive() || !target.inRange(this)) return;
 
         if (cooldown <=0){
             cooldown = fireRate;

@@ -29,32 +29,20 @@ public class Stats {
 
     public static int TIME_BETWEEN_SPAWNS = 2;
 
-    //Enemies and Tower ID reference:
-    //
-    //FARMER = 0
-    //BARBARIAN = 1
-    //THIEF = 2
-    //MAGE = 3
-    //
-    //ARROW_TOWER = 0
-    //WITCH_TOWER = 1
-    //STICKY_TOWER = 2
-    //CYCLOP_TOWER = 3
-
     //Waves
     public static int[] LEVEL_1_WAVE = {0,1,2,3};
 
     //Enemies
-    public static EnemyStats FARMER = new EnemyStats(4, 1, 1, 1);
-    public static EnemyStats BARBARIAN = new EnemyStats(15, 2, 1, 5);
-    public static EnemyStats THIEF = new EnemyStats(6, 3, 2, 3);
-    public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4);
+    public static EnemyStats FARMER = new EnemyStats(4, 1, 1, 1); //ID: 0
+    public static EnemyStats BARBARIAN = new EnemyStats(15, 2, 1, 5); //ID: 1
+    public static EnemyStats THIEF = new EnemyStats(6, 3, 2, 3); //ID: 2
+    public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4); //ID: 3
 
     //Towers
-    public static TowerStats ARROW_TOWER = new TowerStats(1, 64, 10, 300, 3, null);
-    public static TowerStats WITCH_TOWER = new TowerStats(3, 64, 20, 2, 10, Debuff.FIRE);
-    public static TowerStats STICKY_TOWER = new TowerStats(0, 64, 10, 2, 10, Debuff.SLOW);
-    public static TowerStats CYCLOP_TOWER = new TowerStats(6, 64, 30, 1, 8, null);
+    public static TowerStats ARROW_TOWER = new TowerStats(1, 64, 10, 100, 6, null); //ID: 0
+    public static TowerStats WITCH_TOWER = new TowerStats(4, 48, 20, 200, 5, Debuff.FIRE); //ID: 1
+    public static TowerStats STICKY_TOWER = new TowerStats(0, 32, 10, 150, 5, Debuff.SLOW); //ID: 2
+    public static TowerStats CYCLOP_TOWER = new TowerStats(8, 80, 40, 400, 4, null); //ID: 3
 
     //Constructor EnemyStats
     public static class EnemyStats {
