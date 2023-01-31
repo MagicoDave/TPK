@@ -70,9 +70,9 @@ public class World extends Stage {
 
 
         //Test code
-        Tile test = fundationTiles.get(5);
-        ArrowTower testTower = new ArrowTower(this, test);
-        constructedTowers.add(testTower);
+//        Tile test = fundationTiles.get(5);
+//        ArrowTower testTower = new ArrowTower(this, test);
+//        constructedTowers.add(testTower);
     }
 
     /**

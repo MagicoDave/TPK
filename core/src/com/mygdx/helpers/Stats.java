@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class Stats {
 
     public static int START_HEALTH = 20;
-    public static int START_GOLD = 0;
+    public static int START_GOLD = 50;
     public static int STAR_LOOT = 0;
     public static int START_MULTIPLIER = 1;
     public static int START_SCORE = 0;
@@ -30,7 +30,7 @@ public class Stats {
     public static int TIME_BETWEEN_SPAWNS = 2;
 
     //Waves
-    public static int[] LEVEL_1_WAVE = {0,1,2,3};
+    public static int[] LEVEL_1_WAVE = {0,0,0,0,1,1,0,0,1,1,2,2,0,0,2,3,3,3,0,0,1,1,1,1,3,3,3,0,2,2,2,2,1,1};
 
     //Enemies
     public static EnemyStats FARMER = new EnemyStats(4, 1, 1, 1); //ID: 0

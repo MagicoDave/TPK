@@ -13,6 +13,8 @@ import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.ui.GameUi;
+import com.mygdx.ui.buttons.Button;
 
 /**
  * Esta clase gestiona el dibujado de elementos
@@ -20,6 +22,7 @@ import com.mygdx.helpers.AssetLoader;
 public class Renderer {
 
     private World world;
+    private GameUi gameUi;
     private OrthographicCamera camera;
     private ShapeRenderer shapeRenderer;
     private OrthogonalTiledMapRenderer tiledMapRenderer;
@@ -34,7 +37,7 @@ public class Renderer {
      * Inicializar variables en el constructor
      * @param world Referencia del GameWorld para actualizar el estado/posición de los elementos cada vez que se dibujan
      */
-    public Renderer(World world, TiledMap map){
+    public Renderer(World world, GameUi gameUi, TiledMap map){
         this.world = world;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 160, 288);
