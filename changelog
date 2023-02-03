@@ -51,3 +51,4 @@
     Es demasiado fácil construir una torre encima de otra por error, voy a meter un botón de "destruir" en función de que el fundation tenga o no tenga torre.
 03/02/23
     Botón para destruir torre (DestroyButton) añadido! Devuelve la mitad del coste original de la torre y despeja el fundation para poder construir una nueva torre.
+    Añadidos ficheros de localización de idiomas. Se va a usar la clase de libGDX I18NBundle en vez del xml de string de android para que sea multiplataforma.

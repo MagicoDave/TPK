@@ -1,10 +1,14 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.utils.I18NBundle;
+
+import java.util.Locale;
 
 /**
  * AssetLoader
@@ -12,6 +16,8 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
  * Esta clase gestiona la carga de assets
  */
 public class AssetLoader {
+
+    public static I18NBundle enBundle, esBundle, glBundle, myBundle;
 
     public static TiledMap level1;
 
@@ -29,6 +35,16 @@ public class AssetLoader {
     public static TextureRegion redBullet1;
 
     public static void load(){
+
+        //Languages
+        FileHandle baseFileHandler = Gdx.files.internal("i18n/strings");
+        Locale locale = new Locale("es", "ES");
+        esBundle = I18NBundle.createBundle(baseFileHandler, locale);
+        locale = new Locale("en", "GB");
+        enBundle = I18NBundle.createBundle(baseFileHandler, locale);
+        locale = new Locale("gl", "ES");
+        glBundle = I18NBundle.createBundle(baseFileHandler, locale);
+        myBundle = glBundle;
 
         //Levels
         levelCreator = new LevelCreator();

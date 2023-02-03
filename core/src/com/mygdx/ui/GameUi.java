@@ -18,6 +18,7 @@ import com.mygdx.actors.tiles.Tile;
 import com.mygdx.actors.towers.ArrowTower;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
 import com.mygdx.ui.buttons.DestroyButton;
@@ -79,9 +80,10 @@ public class GameUi extends Stage {
     }
 
     public void update(float delta){
-        gold.setText("Gold: " + world.gold);
-        score.setText("Score: " + world.score);
-        lifes.setText("Lifes: " + world.health);
+        //gold.setText("Gold: " + world.gold);
+        gold.setText(AssetLoader.myBundle.format("gold", world.gold));
+        score.setText(AssetLoader.myBundle.format("score", world.score));
+        lifes.setText(AssetLoader.myBundle.format("lifes", world.health));
     }
 
     public void TowerSelect(Tile fundation){

@@ -2,5 +2,9 @@
 <resources>
 
     <string name="app_name">TPK</string>
+    <string name="score">Score</string>
+    <string name="gold">Gold</string>
+    <string name="lifes">Lifes</string>
+    <string name="loot">Loot</string>
 
 </resources>
