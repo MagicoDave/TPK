@@ -45,3 +45,9 @@
     El core gameplay más básico esta listo: Los enemigos se mueven, las torres disparan, el jugador puede construir nuevas torres.
     Añadida la clase GameUi para gestionar las acciones del jugador, botones y demás.
     ¿Como va a ser el menu desplegable para seleccionar que torreta construir? Probablemente use una table de libgdx con cuatro botones, pero a ver como se porta.
+01/02/23
+    Terminado el menu desplegable de construcción de torreta! Excepto que no es desplegable. Pero es perfectamente funcional!
+    Haciendo el menu de construcción de torres, me preocupa que los botones sean demasiado pequeños así que los hago más grandes.
+    Es demasiado fácil construir una torre encima de otra por error, voy a meter un botón de "destruir" en función de que el fundation tenga o no tenga torre.
+03/02/23
+    Botón para destruir torre (DestroyButton) añadido! Devuelve la mitad del coste original de la torre y despeja el fundation para poder construir una nueva torre.

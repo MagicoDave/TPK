@@ -14,7 +14,7 @@ public class Button extends Actor {
     public Button(World world){
         this.world = world;
         texture = new Texture(Gdx.files.internal("bullets/redbullet.png"));
-        setBounds(0, 0, 16, 16);
+        setBounds(0, 0, 20, 20);
     }
 
     @Override

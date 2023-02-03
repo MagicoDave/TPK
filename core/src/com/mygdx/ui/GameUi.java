@@ -5,6 +5,7 @@ import static com.mygdx.helpers.Stats.TIME_BETWEEN_SPAWNS;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -19,6 +20,7 @@ import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
 import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
+import com.mygdx.ui.buttons.DestroyButton;
 
 public class GameUi extends Stage {
 
@@ -28,6 +30,9 @@ public class GameUi extends Stage {
     private final Label score;
     private final Label gold;
     private final Label lifes;
+
+    private Table t;
+    private Table root;
 
     public GameUi (final World world) {
         super(new StretchViewport(160,288));
@@ -81,27 +86,48 @@ public class GameUi extends Stage {
 
     public void TowerSelect(Tile fundation){
 
-        Table t = new Table();
+        for (Actor actor : this.getActors()){
+            if (actor.getClass() == Table.class || actor.getClass() == Button.class){
+                actor.remove();
+            }
+        }
 
-        BuildTowerButton btb = new BuildTowerButton(this.world, 0, fundation);
-        t.add(btb).pad(2);
-        buttons.add(btb);
+        t = new Table();
+        root = new Table();
+        buttons.clear();
 
-        btb = new BuildTowerButton(this.world, 1, fundation);
-        t.add(btb).pad(2).row();
-        buttons.add(btb);
+        if (fundation.getTower() == null) {
 
-        btb = new BuildTowerButton(this.world, 2, fundation);
-        t.add(btb).pad(2);
-        buttons.add(btb);
+            BuildTowerButton btb = new BuildTowerButton(this.world, 0, fundation);
+            t.add(btb).pad(1);
+            buttons.add(btb);
 
-        btb = new BuildTowerButton(this.world, 3, fundation);
-        t.add(btb).pad(2).row();
-        buttons.add(btb);
+            btb = new BuildTowerButton(this.world, 1, fundation);
+            t.add(btb).pad(1);
+            buttons.add(btb);
 
-        Table root = new Table();
-        root.setFillParent(true);
-        root.add(t).expand().center().bottom().padBottom(5);
-        addActor(root);
+            btb = new BuildTowerButton(this.world, 2, fundation);
+            t.add(btb).pad(1);
+            buttons.add(btb);
+
+            btb = new BuildTowerButton(this.world, 3, fundation);
+            t.add(btb).pad(1).row();
+            buttons.add(btb);
+
+            root.setFillParent(true);
+            root.add(t).expand().left().bottom().padBottom(12).padLeft(12);
+            addActor(root);
+
+        } else {
+
+            DestroyButton db = new DestroyButton(this.world, fundation);
+            t.add(db).pad(1);
+            buttons.add(db);
+
+            root.setFillParent(true);
+            root.add(t).expand().left().bottom().padBottom(12).padLeft(12);
+            addActor(root);
+        }
+
     }
 }
