@@ -50,7 +50,10 @@ public class Bullet extends Image {
 
     public void fly(float delta){
         if (this.position.dst(target.getCenter()) <= speed && alive) {
-            target.setDebuff(debuff);
+            if (this.debuff != null){
+                target.setTimeDebuffed(0);
+                target.setDebuff(debuff);
+            }
             target.setHp(target.getHp() - damage);
             this.alive = false;
         } else {

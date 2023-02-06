@@ -24,6 +24,7 @@ public abstract class Enemy extends Image {
 
     protected int ID, hp, damage, speed, reward;
     protected Debuff debuff;
+    protected float timeDebuffed = 0;
 
     protected boolean alive;
 
@@ -46,25 +47,38 @@ public abstract class Enemy extends Image {
             world.score++;
             world.enemiesInScreen.removeValue(this, true);
         } else {
+            if (debuff != null){
+                timeDebuffed += delta;
+                Gdx.app.log("I have a debuff: ", debuff.getValue() + ". Time with debuff: " + timeDebuffed + ". debuff duration: " + debuff.getDuration() + ". Delta: " + delta);
+                if (timeDebuffed >= debuff.getDuration()) {
+                    debuff = null;
+                }
+            }
             move(delta);
         }
     }
 
     public void move(float delta){
+
+        float totalSpeed = BASE_ENEMY_SPEED * speed * delta;
+        if (debuff != null){
+            totalSpeed = totalSpeed / debuff.getSpeedDivider();
+        }
+
         switch (direction){
             case UP:
-                this.setY(this.getY() + (BASE_ENEMY_SPEED * speed * delta));
+                this.setY(this.getY() + totalSpeed);
                 break;
             case DOWN:
-                this.setY(this.getY() + (-BASE_ENEMY_SPEED * speed * delta));
+                this.setY(this.getY() - totalSpeed);
                 break;
             case LEFT:
                 position.x += -10 * delta;
-                this.setX(this.getX() + (-BASE_ENEMY_SPEED * speed * delta));
+                this.setX(this.getX() - totalSpeed);
                 break;
             case RIGHT:
                 position.x += 10 * delta;
-                this.setX(this.getX() + (BASE_ENEMY_SPEED * speed * delta));
+                this.setX(this.getX() + totalSpeed);
                 break;
         }
 
@@ -89,6 +103,14 @@ public abstract class Enemy extends Image {
             world.health -= damage;
             world.enemiesInScreen.removeValue(this, true);
         }
+    }
+
+    public float getTimeDebuffed() {
+        return timeDebuffed;
+    }
+
+    public void setTimeDebuffed(float timeDebuffed) {
+        this.timeDebuffed = timeDebuffed;
     }
 
     public boolean inRange(Tower tower){

@@ -6,14 +6,17 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.mygdx.gameworld.World;
 
-public class Button extends Actor {
+/**
+ * Clase base para botones, de esta clase heredan el resto de botones
+ */
+public abstract class Button extends Actor {
 
     World world;
     Texture texture;
 
     public Button(World world){
         this.world = world;
-        texture = new Texture(Gdx.files.internal("bullets/redbullet.png"));
+        texture = new Texture(Gdx.files.internal("bullets/redbullet.png")); //Textura placeholder para testear botones
         setBounds(0, 0, 20, 20);
     }
 

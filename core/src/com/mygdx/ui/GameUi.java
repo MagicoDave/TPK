@@ -23,6 +23,9 @@ import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
 import com.mygdx.ui.buttons.DestroyButton;
 
+/**
+ * Esta clase gestiona la IU y los inputs del jugador
+ */
 public class GameUi extends Stage {
 
     private final World world;
@@ -47,13 +50,13 @@ public class GameUi extends Stage {
 
         Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
 
-        score = new Label("Score: " + world.score, skin, "default");
+        score = new Label(AssetLoader.myBundle.format("score", world.score), skin, "default");
         score.setBounds(110,280,10,4);
         score.setFontScale(0.3f);
-        gold = new Label("Gold: " + world.gold, skin, "default");
+        gold = new Label(AssetLoader.myBundle.format("gold", world.gold), skin, "default");
         gold.setBounds(110,270,10,4);
         gold.setFontScale(0.3f);
-        lifes = new Label("Lifes: " + world.health, skin, "default");
+        lifes = new Label(AssetLoader.myBundle.format("lifes", world.health), skin, "default");
         lifes.setBounds(110,260,10,4);
         lifes.setFontScale(0.3f);
         addActor(score);
@@ -80,7 +83,6 @@ public class GameUi extends Stage {
     }
 
     public void update(float delta){
-        //gold.setText("Gold: " + world.gold);
         gold.setText(AssetLoader.myBundle.format("gold", world.gold));
         score.setText(AssetLoader.myBundle.format("score", world.score));
         lifes.setText(AssetLoader.myBundle.format("lifes", world.health));

@@ -52,3 +52,6 @@
 03/02/23
     Botón para destruir torre (DestroyButton) añadido! Devuelve la mitad del coste original de la torre y despeja el fundation para poder construir una nueva torre.
     Añadidos ficheros de localización de idiomas. Se va a usar la clase de libGDX I18NBundle en vez del xml de string de android para que sea multiplataforma.
+06/02/23
+    Sticky tower ahora ralentiza a los enemigos, que cambian de color cuando sufren sus efectos.
+    Rebalance de stats.

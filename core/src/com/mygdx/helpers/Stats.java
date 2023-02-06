@@ -40,9 +40,9 @@ public class Stats {
 
     //Towers
     public static TowerStats ARROW_TOWER = new TowerStats(1, 64, 10, 100, 6, null); //ID: 0
-    public static TowerStats WITCH_TOWER = new TowerStats(4, 48, 20, 200, 5, Debuff.FIRE); //ID: 1
-    public static TowerStats STICKY_TOWER = new TowerStats(0, 32, 10, 150, 5, Debuff.SLOW); //ID: 2
-    public static TowerStats CYCLOP_TOWER = new TowerStats(8, 80, 40, 400, 4, null); //ID: 3
+    public static TowerStats WITCH_TOWER = new TowerStats(4, 48, 20, 200, 5, null); //ID: 1
+    public static TowerStats STICKY_TOWER = new TowerStats(1, 32, 15, 150, 5, Debuff.SLOW); //ID: 2
+    public static TowerStats CYCLOP_TOWER = new TowerStats(8, 80, 30, 400, 4, null); //ID: 3
 
     //Constructor EnemyStats
     public static class EnemyStats {
@@ -70,4 +70,5 @@ public class Stats {
             this.debuff = debuff;
         }
     }
+
 }

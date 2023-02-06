@@ -11,6 +11,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.towers.Bullet;
+import com.mygdx.actors.towers.Debuff;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.ui.GameUi;
@@ -29,7 +30,7 @@ public class Renderer {
 
     private SpriteBatch batcher;
 
-    private Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
+    private Animation farmerAnimation, farmerSlowedAnimation, barbarianAnimation, barbarianSlowedAnimation, mageAnimation, mageSlowedAnimation, thiefAnimation, thiefSlowedAnimation;
     private Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
     private TextureRegion redBullet;
 
@@ -52,6 +53,11 @@ public class Renderer {
         barbarianAnimation = AssetLoader.barbarianAnimation;
         mageAnimation = AssetLoader.mageAnimation;
         thiefAnimation = AssetLoader.thiefAnimation;
+
+        farmerSlowedAnimation = AssetLoader.farmerSlowedAnimation;
+        barbarianSlowedAnimation = AssetLoader.barbarianSlowedAnimation;
+        mageSlowedAnimation = AssetLoader.mageSlowedAnimation;
+        thiefSlowedAnimation = AssetLoader.thiefSlowedAnimation;
 
         arrowTowerAnimation = AssetLoader.arrowTowerAnimation;
         witchTowerAnimation = AssetLoader.witchTowerAnimation;
@@ -87,8 +93,12 @@ public class Renderer {
         for (Enemy enemy: world.enemiesInScreen) {
             switch (enemy.getID()) {
                 case 0:
+                    Animation farmer = farmerAnimation;
+                    if (enemy.getDebuff() == Debuff.SLOW){
+                        farmer = farmerSlowedAnimation;
+                    }
                     batcher.draw(
-                            (TextureRegion) farmerAnimation.getKeyFrame(runTime, true),
+                            (TextureRegion) farmer.getKeyFrame(runTime, true),
                             enemy.getX(),
                             enemy.getY(),
                             enemy.getWidth() / 2.0f,
@@ -101,8 +111,12 @@ public class Renderer {
                     );
                     break;
                 case 1:
+                    Animation barbarian = barbarianAnimation;
+                    if (enemy.getDebuff() == Debuff.SLOW){
+                        barbarian = barbarianSlowedAnimation;
+                    }
                     batcher.draw(
-                            (TextureRegion) barbarianAnimation.getKeyFrame(runTime, true),
+                            (TextureRegion) barbarian.getKeyFrame(runTime, true),
                             enemy.getX(),
                             enemy.getY(),
                             enemy.getWidth() / 2.0f,
@@ -115,8 +129,12 @@ public class Renderer {
                     );
                     break;
                 case 2:
+                    Animation mage = mageAnimation;
+                    if (enemy.getDebuff() == Debuff.SLOW){
+                        mage = mageSlowedAnimation;
+                    }
                     batcher.draw(
-                            (TextureRegion) mageAnimation.getKeyFrame(runTime, true),
+                            (TextureRegion) mage.getKeyFrame(runTime, true),
                             enemy.getX(),
                             enemy.getY(),
                             enemy.getWidth() / 2.0f,
@@ -129,8 +147,12 @@ public class Renderer {
                     );
                     break;
                 case 3:
+                    Animation thief = thiefAnimation;
+                    if (enemy.getDebuff() == Debuff.SLOW){
+                        thief = thiefSlowedAnimation;
+                    }
                     batcher.draw(
-                            (TextureRegion) thiefAnimation.getKeyFrame(runTime, true),
+                            (TextureRegion) thief.getKeyFrame(runTime, true),
                             enemy.getX(),
                             enemy.getY(),
                             enemy.getWidth() / 2.0f,

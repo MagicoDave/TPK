@@ -11,8 +11,6 @@ import com.badlogic.gdx.utils.I18NBundle;
 import java.util.Locale;
 
 /**
- * AssetLoader
- *
  * Esta clase gestiona la carga de assets
  */
 public class AssetLoader {
@@ -23,9 +21,11 @@ public class AssetLoader {
 
     public static LevelCreator levelCreator;
 
-    public static Texture farmer, barbarian, mage, thief;
+    public static Texture farmer, farmerSlowed, barbarian, barbarianSlowed, mage, mageSlowed, thief, thiefSlowed;
     public static TextureRegion farmer1, farmer2, farmer3, farmer4, barbarian1, barbarian2, barbarian3, barbarian4, mage1, mage2, mage3, mage4, thief1, thief2, thief3, thief4;
+    public static TextureRegion farmerSlowed1, farmerSlowed2, farmerSlowed3, farmerSlowed4, barbarianSlowed1, barbarianSlowed2, barbarianSlowed3, barbarianSlowed4, mageSlowed1, mageSlowed2, mageSlowed3, mageSlowed4, thiefSlowed1, thiefSlowed2, thiefSlowed3, thiefSlowed4;
     public static Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
+    public static Animation farmerSlowedAnimation, barbarianSlowedAnimation, mageSlowedAnimation, thiefSlowedAnimation;
 
     public static Texture arrowTower, witchTower, stickyTower, cyclopTower;
     public static TextureRegion arrowTower1, arrowTower2, arrowTower3, arrowTower4, witchTower1, witchTower2, witchTower3, witchTower4, stickyTower1, stickyTower2, stickyTower3, stickyTower4, cyclopTower1, cyclopTower2, cyclopTower3, cyclopTower4;
@@ -61,6 +61,16 @@ public class AssetLoader {
         farmerAnimation = new Animation(0.1f, farmers);
         farmerAnimation.setPlayMode(Animation.PlayMode.LOOP);
 
+        farmerSlowed = new Texture(Gdx.files.internal("enemies/farmerSlowed.png"));
+        farmerSlowed.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        farmerSlowed1 = new TextureRegion(farmerSlowed, 0, 0, 24, 24);
+        farmerSlowed2 = new TextureRegion(farmerSlowed, 24, 0, 24, 24);
+        farmerSlowed3 = new TextureRegion(farmerSlowed, 48, 0, 24, 24);
+        farmerSlowed4 = new TextureRegion(farmerSlowed, 72, 0, 24, 24);
+        TextureRegion[] farmersSlowed = {farmerSlowed1, farmerSlowed2, farmerSlowed3, farmerSlowed4};
+        farmerSlowedAnimation = new Animation(0.1f, farmersSlowed);
+        farmerSlowedAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
         //Barbarian
         barbarian = new Texture(Gdx.files.internal("enemies/barbarian.png"));
         barbarian.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -71,6 +81,16 @@ public class AssetLoader {
         TextureRegion[] barbarians = {barbarian1, barbarian2, barbarian3, barbarian4};
         barbarianAnimation = new Animation(0.1f, barbarians);
         barbarianAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
+        barbarianSlowed = new Texture(Gdx.files.internal("enemies/barbarianSlowed.png"));
+        barbarianSlowed.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        barbarianSlowed1 = new TextureRegion(barbarianSlowed, 0, 0, 24, 24);
+        barbarianSlowed2 = new TextureRegion(barbarianSlowed, 24, 0, 24, 24);
+        barbarianSlowed3 = new TextureRegion(barbarianSlowed, 48, 0, 24, 24);
+        barbarianSlowed4 = new TextureRegion(barbarianSlowed, 72, 0, 24, 24);
+        TextureRegion[] barbariansSlowed = {barbarianSlowed1, barbarianSlowed2, barbarianSlowed3, barbarianSlowed4};
+        barbarianSlowedAnimation = new Animation(0.1f, barbariansSlowed);
+        barbarianSlowedAnimation.setPlayMode(Animation.PlayMode.LOOP);
 
         //Mage
         mage = new Texture(Gdx.files.internal("enemies/mage.png"));
@@ -83,6 +103,16 @@ public class AssetLoader {
         mageAnimation = new Animation(0.1f, mages);
         mageAnimation.setPlayMode(Animation.PlayMode.LOOP);
 
+        mageSlowed = new Texture(Gdx.files.internal("enemies/mageSlowed.png"));
+        mageSlowed.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        mageSlowed1 = new TextureRegion(mageSlowed, 0, 0, 24, 24);
+        mageSlowed2 = new TextureRegion(mageSlowed, 24, 0, 24, 24);
+        mageSlowed3 = new TextureRegion(mageSlowed, 48, 0, 24, 24);
+        mageSlowed4 = new TextureRegion(mageSlowed, 72, 0, 24, 24);
+        TextureRegion[] magesSlowed = {mageSlowed1, mageSlowed2, mageSlowed3, mageSlowed4};
+        mageSlowedAnimation = new Animation(0.1f, magesSlowed);
+        mageSlowedAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
         //Thief
         thief = new Texture(Gdx.files.internal("enemies/thief.png"));
         thief.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -93,6 +123,16 @@ public class AssetLoader {
         TextureRegion[] thiefs = {thief1, thief2, thief3, thief4};
         thiefAnimation = new Animation(0.1f, thiefs);
         thiefAnimation.setPlayMode(Animation.PlayMode.LOOP);
+
+        thiefSlowed = new Texture(Gdx.files.internal("enemies/thiefSlowed.png"));
+        thiefSlowed.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        thiefSlowed1 = new TextureRegion(thiefSlowed, 0, 0, 24, 24);
+        thiefSlowed2 = new TextureRegion(thiefSlowed, 24, 0, 24, 24);
+        thiefSlowed3 = new TextureRegion(thiefSlowed, 48, 0, 24, 24);
+        thiefSlowed4 = new TextureRegion(thiefSlowed, 72, 0, 24, 24);
+        TextureRegion[] thiefsSlowed = {thiefSlowed1, thiefSlowed2, thiefSlowed3, thiefSlowed4};
+        thiefSlowedAnimation = new Animation(0.1f, thiefsSlowed);
+        thiefSlowedAnimation.setPlayMode(Animation.PlayMode.LOOP);
 
         //ArrowTower
         arrowTower = new Texture(Gdx.files.internal("towers/arrowtower.png"));
@@ -151,6 +191,11 @@ public class AssetLoader {
         barbarian.dispose();
         thief.dispose();
         mage.dispose();
+
+        farmerSlowed.dispose();
+        barbarianSlowed.dispose();
+        thiefSlowed.dispose();
+        mageSlowed.dispose();
 
         arrowTower.dispose();
         witchTower.dispose();
