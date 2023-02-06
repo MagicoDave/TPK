@@ -10,10 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.tiles.Tile;
-import com.mygdx.actors.towers.ArrowTower;
 import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
-import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
 import com.mygdx.helpers.TowerManager;
@@ -26,7 +24,7 @@ import com.mygdx.ui.GameUi;
  */
 public class World extends Stage {
 
-    public int score, health, gold;
+    public int score, lifes, gold;
 
     private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
 
@@ -38,7 +36,6 @@ public class World extends Stage {
     EnemyManager enemyManager;
     WaveManager waveManager;
     TowerManager towerManager;
-    GameUi gameUi;
 
     public Array<Enemy> enemiesInScreen = new Array<Enemy>();
     public Array<Tower> constructedTowers = new Array<Tower>();
@@ -54,7 +51,7 @@ public class World extends Stage {
     public World(LevelCreator levelCreator){
 
         score = START_SCORE;
-        health = START_HEALTH;
+        lifes = START_HEALTH;
         gold = START_GOLD;
 
         spawnPoint = levelCreator.getSpawnTile();
@@ -68,11 +65,6 @@ public class World extends Stage {
         waveManager = new WaveManager(this, LEVEL_1_WAVE);
         towerManager = new TowerManager(this);
 
-
-        //Test code
-//        Tile test = fundationTiles.get(5);
-//        ArrowTower testTower = new ArrowTower(this, test);
-//        constructedTowers.add(testTower);
     }
 
     /**
@@ -80,19 +72,20 @@ public class World extends Stage {
      * @param delta Tasa de refresco
      */
     public void update(float delta){
-        runTime += delta;
-        timeSinceLastSpawn += delta;
-        //System.out.println(timeSinceLastSpawn);
-        enemyManager.update(delta);
-        towerManager.update(delta);
 
-        if (timeSinceLastSpawn >= TIME_BETWEEN_SPAWNS){
-            waveManager.spawn();
-            timeSinceLastSpawn = 0;
-        }
+        runTime += delta;
+
         switch (currentState) {
             case READY:
             case RUNNING:
+                timeSinceLastSpawn += delta;
+                enemyManager.update(delta);
+                towerManager.update(delta);
+
+                if (timeSinceLastSpawn >= TIME_BETWEEN_SPAWNS){
+                    waveManager.spawn();
+                    timeSinceLastSpawn = 0;
+                }
             case GAMEOVER:
             case HIGHSCORE:
             default:

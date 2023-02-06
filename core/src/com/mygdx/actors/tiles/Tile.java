@@ -13,22 +13,34 @@ public class Tile extends Actor {
 
     private Tower tower;
 
+    private boolean isPressed;
+
     public Tile(Direction direction, Type type, Rectangle hitbox) {
         this.direction = direction;
         this.type = type;
         this.hitbox = hitbox;
 
         tower = null;
+
+        isPressed = false;
     }
 
-    public void onClick(){
-        if (type == Type.FUNDATION && tower == null){
-            
+    public boolean isTouchDown(float screenX, float screenY) {
+        if (hitbox.contains(screenX, screenY)) {
+            isPressed = true;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isTouchUp(float screenX, float screenY) {
+        if (hitbox.contains(screenX, screenY) /*&& isPressed*/) {
+            isPressed = false;
+            return true;
         }
 
-        if (type == Type.FUNDATION && tower != null){
-
-        }
+        isPressed = false;
+        return false;
     }
 
     public Direction getDirection() {

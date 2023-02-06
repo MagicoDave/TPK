@@ -3,7 +3,6 @@ package com.mygdx.actors.enemies;
 import static com.mygdx.helpers.Stats.BASE_ENEMY_SPEED;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.tiles.Direction;
@@ -100,7 +99,7 @@ public abstract class Enemy extends Image {
                 && this.getCenter().y <= world.finishPoint.getHitbox().y + world.finishPoint.getHitbox().height)
         {
             alive = false;
-            world.health -= damage;
+            world.lifes -= damage;
             world.enemiesInScreen.removeValue(this, true);
         }
     }

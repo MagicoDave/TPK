@@ -1,11 +1,9 @@
 package com.mygdx.ui;
 
-import static com.mygdx.helpers.Stats.TIME_BETWEEN_SPAWNS;
-
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,8 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.actors.tiles.Tile;
-import com.mygdx.actors.towers.ArrowTower;
-import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.ui.buttons.BuildTowerButton;
@@ -26,7 +22,7 @@ import com.mygdx.ui.buttons.DestroyButton;
 /**
  * Esta clase gestiona la IU y los inputs del jugador
  */
-public class GameUi extends Stage {
+public class GameUi extends Stage{
 
     private final World world;
     public final Array<Button> buttons;
@@ -56,7 +52,7 @@ public class GameUi extends Stage {
         gold = new Label(AssetLoader.myBundle.format("gold", world.gold), skin, "default");
         gold.setBounds(110,270,10,4);
         gold.setFontScale(0.3f);
-        lifes = new Label(AssetLoader.myBundle.format("lifes", world.health), skin, "default");
+        lifes = new Label(AssetLoader.myBundle.format("lifes", world.lifes), skin, "default");
         lifes.setBounds(110,260,10,4);
         lifes.setFontScale(0.3f);
         addActor(score);
@@ -69,6 +65,7 @@ public class GameUi extends Stage {
 
                 public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                     Gdx.app.log("Example", "touch started at (" + x + ", " + y + ")");
+                    fundation.isTouchDown(x, y);
                     TowerSelect(fundation);
                     return true;
                 }
@@ -80,16 +77,44 @@ public class GameUi extends Stage {
             });
             addActor(fundation);
         }
+
+        addListener(new InputListener(){
+
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.app.log("Dedo abajo", "touch done at (" + x + ", " + y + ")");
+                if (world.isReady()){
+                    world.start();
+                }
+                return true;
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.app.log("Dedo arriba", "touch done at (" + x + ", " + y + ")");
+
+                boolean touchingF = false;
+                for (final Tile f: fundations){
+                    if (f.isTouchUp(x, y)){
+                        touchingF = true;
+                    }
+                }
+
+                if (!touchingF){
+                    Gdx.app.log("Dedo borrador", touchingF + "");
+                    clearUI();
+                }
+            }
+
+        });
+
     }
 
     public void update(float delta){
         gold.setText(AssetLoader.myBundle.format("gold", world.gold));
         score.setText(AssetLoader.myBundle.format("score", world.score));
-        lifes.setText(AssetLoader.myBundle.format("lifes", world.health));
+        lifes.setText(AssetLoader.myBundle.format("lifes", world.lifes));
     }
 
-    public void TowerSelect(Tile fundation){
-
+    public void clearUI(){
         for (Actor actor : this.getActors()){
             if (actor.getClass() == Table.class || actor.getClass() == Button.class){
                 actor.remove();
@@ -99,6 +124,11 @@ public class GameUi extends Stage {
         t = new Table();
         root = new Table();
         buttons.clear();
+    }
+
+    public void TowerSelect(Tile fundation){
+
+        clearUI();
 
         if (fundation.getTower() == null) {
 
@@ -134,4 +164,5 @@ public class GameUi extends Stage {
         }
 
     }
+
 }
