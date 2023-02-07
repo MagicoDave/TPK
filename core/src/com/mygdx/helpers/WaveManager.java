@@ -61,4 +61,8 @@ public class WaveManager {
             }
         }
     }
+
+    public boolean isEmpty() {
+        return array.isEmpty();
+    }
 }

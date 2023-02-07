@@ -43,7 +43,7 @@ public abstract class Enemy extends Image {
         if (hp <= 0){
             alive = false;
             world.gold += reward;
-            world.score++;
+            world.score += reward;
             world.enemiesInScreen.removeValue(this, true);
         } else {
             if (debuff != null){

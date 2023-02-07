@@ -30,7 +30,7 @@ public class World extends Stage {
 
     private GameState currentState;
     public enum GameState{
-        READY, RUNNING, GAMEOVER, HIGHSCORE
+        READY, RUNNING, GAMEOVER, VICTORY, HIGHSCORE
     }
 
     EnemyManager enemyManager;
@@ -68,7 +68,7 @@ public class World extends Stage {
     }
 
     /**
-     * Actualiza el juego según su estado
+     * Actualiza el juego según su estado (@currentState)
      * @param delta Tasa de refresco
      */
     public void update(float delta){
@@ -77,20 +77,36 @@ public class World extends Stage {
 
         switch (currentState) {
             case READY:
+                break;
             case RUNNING:
                 timeSinceLastSpawn += delta;
                 enemyManager.update(delta);
                 towerManager.update(delta);
-
                 if (timeSinceLastSpawn >= TIME_BETWEEN_SPAWNS){
                     waveManager.spawn();
                     timeSinceLastSpawn = 0;
                 }
+                if (lifes <= 0){
+                    currentState = GameState.GAMEOVER;
+                }
+                if (waveManager.isEmpty() && enemiesInScreen.isEmpty()){
+                    currentState = GameState.VICTORY;
+                }
+                break;
             case GAMEOVER:
+            case VICTORY:
             case HIGHSCORE:
             default:
                 break;
         }
+    }
+
+    public GameState getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(GameState currentState) {
+        this.currentState = currentState;
     }
 
     public boolean isReady() {

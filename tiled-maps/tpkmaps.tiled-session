@@ -6,7 +6,7 @@
     "activeFile": "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx",
     "expandedProjectPaths": [
         "tilesets",
-        "."
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -28,11 +28,19 @@
             "scaleInDock": 1
         },
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx": {
-            "scale": 3.4120833333333334,
+            "scale": 2.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 85.13860056172915,
-                "y": 188.1548418610331
+                "x": 85,
+                "y": 150.4
+            }
+        },
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx": {
+            "scale": 2.84,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 80.10563380281691,
+                "y": 144.36619718309862
             }
         },
         "C:/Users/David Casalderrey/Downloads/assetsTPK/1bitpack_kenney_1.2/Tilemap/sample_fantasy.tmx": {
@@ -62,7 +70,15 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 85.5,
-                "y": 122
+                "y": 80
+            }
+        },
+        "level2.tmx": {
+            "scale": 3.4120833333333334,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 80.15630724142143,
+                "y": 120.16119184271585
             }
         },
         "plains.tsx": {
@@ -78,13 +94,16 @@
     "map.tileWidth": 16,
     "map.width": 10,
     "openFiles": [
-        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx"
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx",
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx"
     ],
     "project": "tpkmaps.tiled-project",
     "recentFiles": [
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx",
-        "C:/Users/David Casalderrey/Documents/Moviles/OnGuard/On-Guard/assets/maps/Map1.tmx",
         "level1.tmx",
+        "level2.tmx",
+        "C:/Users/David Casalderrey/Documents/Moviles/OnGuard/On-Guard/assets/maps/Map1.tmx",
         "colored.tsx",
         "C:/Users/David Casalderrey/Downloads/assetsTPK/1bitpack_kenney_1.2/Tilemap/sample_fantasy.tmx",
         "TX Tileset Grass.tsx",

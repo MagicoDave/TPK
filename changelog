@@ -54,4 +54,9 @@
     Añadidos ficheros de localización de idiomas. Se va a usar la clase de libGDX I18NBundle en vez del xml de string de android para que sea multiplataforma.
 06/02/23
     Sticky tower ahora ralentiza a los enemigos, que cambian de color cuando sufren sus efectos.
-    Rebalance de stats.
+    Rebalance de stats. Ganar no resulta complicado, pero sacar una puntuación perfecta tiene más truco.
+    Cambios en la gestión de inputs de GameUi para hacer las interacciones más fluidas.
+07/02/23
+    Ahora hay una pantalla de "ready" para que el jugador pueda prepararse y otras dos de game over y de victoria.
+    Para mejorar la usabilidad, los botones de construir torre ahora indican el precio de la misma. En amarillo si se tiene suficiente oro y en rojo si no.
+    Mejoras generales de claridad y simplicidad de código. Le hacía falta.

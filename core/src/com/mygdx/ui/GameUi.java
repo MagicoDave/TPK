@@ -27,9 +27,7 @@ public class GameUi extends Stage{
     private final World world;
     public final Array<Button> buttons;
     private final Array<Tile> fundations;
-    private final Label score;
-    private final Label gold;
-    private final Label lifes;
+    private final Label score, gold, lifes, ready, gameOver;
 
     private Table t;
     private Table root;
@@ -46,6 +44,13 @@ public class GameUi extends Stage{
 
         Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
 
+        ready = new Label(AssetLoader.myBundle.format("tapToStart"), skin, "default");
+        ready.setBounds(10, 150, 10, 4);
+        ready.setFontScale(0.5f);
+        gameOver = new Label(AssetLoader.myBundle.format("gameOver"), skin, "default");
+        gameOver.setBounds(30, 150, 20, 8);
+        gameOver.setFontScale(0.6f);
+        gameOver.setVisible(false);
         score = new Label(AssetLoader.myBundle.format("score", world.score), skin, "default");
         score.setBounds(110,280,10,4);
         score.setFontScale(0.3f);
@@ -55,6 +60,8 @@ public class GameUi extends Stage{
         lifes = new Label(AssetLoader.myBundle.format("lifes", world.lifes), skin, "default");
         lifes.setBounds(110,260,10,4);
         lifes.setFontScale(0.3f);
+        addActor(ready);
+        addActor(gameOver);
         addActor(score);
         addActor(gold);
         addActor(lifes);
@@ -65,9 +72,12 @@ public class GameUi extends Stage{
 
                 public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                     Gdx.app.log("Example", "touch started at (" + x + ", " + y + ")");
-                    fundation.isTouchDown(x, y);
-                    TowerSelect(fundation);
-                    return true;
+                    if (world.isRunning()){
+                        fundation.isTouchDown(x, y);
+                        TowerSelect(fundation);
+                        return true;
+                    }
+                    return false;
                 }
 
                 public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -90,17 +100,18 @@ public class GameUi extends Stage{
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.log("Dedo arriba", "touch done at (" + x + ", " + y + ")");
-
-                boolean touchingF = false;
-                for (final Tile f: fundations){
-                    if (f.isTouchUp(x, y)){
-                        touchingF = true;
+                if (world.isRunning()){
+                    boolean touchingF = false;
+                    for (final Tile f: fundations){
+                        if (f.isTouchUp(x, y)){
+                            touchingF = true;
+                        }
                     }
-                }
 
-                if (!touchingF){
-                    Gdx.app.log("Dedo borrador", touchingF + "");
-                    clearUI();
+                    if (!touchingF){
+                        Gdx.app.log("Dedo borrador", touchingF + "");
+                        clearUI();
+                    }
                 }
             }
 
@@ -109,9 +120,39 @@ public class GameUi extends Stage{
     }
 
     public void update(float delta){
-        gold.setText(AssetLoader.myBundle.format("gold", world.gold));
-        score.setText(AssetLoader.myBundle.format("score", world.score));
-        lifes.setText(AssetLoader.myBundle.format("lifes", world.lifes));
+
+        switch (world.getCurrentState()){
+            case READY:
+                ready.setText(AssetLoader.myBundle.format("tapToStart"));
+                break;
+            case RUNNING:
+                if (ready.isVisible()){
+                    ready.setVisible(false);
+                }
+                break;
+            case GAMEOVER:
+                if (!gameOver.isVisible()){
+                    gameOver.setVisible(true);
+                }
+                gameOver.setText(AssetLoader.myBundle.format("gameOver", world.score));
+                break;
+            case VICTORY:
+                if (!gameOver.isVisible()){
+                    gameOver.setVisible(true);
+                }
+                gameOver.setText(AssetLoader.myBundle.format("victory", world.score));
+
+                break;
+            case HIGHSCORE:
+                break;
+        }
+
+        if(!world.isReady()){
+            gold.setText(AssetLoader.myBundle.format("gold", world.gold));
+            score.setText(AssetLoader.myBundle.format("score", world.score));
+            lifes.setText(AssetLoader.myBundle.format("lifes", world.lifes));
+        }
+
     }
 
     public void clearUI(){
