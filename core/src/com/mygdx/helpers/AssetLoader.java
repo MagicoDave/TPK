@@ -50,6 +50,9 @@ public class AssetLoader {
         levelCreator = new LevelCreator();
         level1 = levelCreator.setLevel("maps/level1.tmx");
 
+        //UI
+
+
         //Farmer
         farmer = new Texture(Gdx.files.internal("enemies/farmer.png"));
         farmer.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);

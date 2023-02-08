@@ -18,6 +18,9 @@ import com.mygdx.helpers.AssetLoader;
 import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
 import com.mygdx.ui.buttons.DestroyButton;
+import com.mygdx.ui.icons.SimpleIcon;
+
+import sun.java2d.pipe.SpanShapeRenderer;
 
 /**
  * Esta clase gestiona la IU y los inputs del jugador
@@ -27,7 +30,8 @@ public class GameUi extends Stage{
     private final World world;
     public final Array<Button> buttons;
     private final Array<Tile> fundations;
-    private final Label score, gold, lifes, ready, gameOver;
+    private final Label score, ready, gameOver;
+    private final SimpleIcon lifes, gold;
 
     private Table t;
     private Table root;
@@ -54,12 +58,18 @@ public class GameUi extends Stage{
         score = new Label(AssetLoader.myBundle.format("score", world.score), skin, "default");
         score.setBounds(110,280,10,4);
         score.setFontScale(0.3f);
-        gold = new Label(AssetLoader.myBundle.format("gold", world.gold), skin, "default");
-        gold.setBounds(110,270,10,4);
-        gold.setFontScale(0.3f);
-        lifes = new Label(AssetLoader.myBundle.format("lifes", world.lifes), skin, "default");
-        lifes.setBounds(110,260,10,4);
-        lifes.setFontScale(0.3f);
+//        gold = new Label(AssetLoader.myBundle.format("gold", world.gold), skin, "default");
+//        gold.setBounds(110,270,10,4);
+//        gold.setFontScale(0.3f);
+//        lifes = new Label(AssetLoader.myBundle.format("lifes", world.lifes), skin, "default");
+//        lifes.setBounds(110,260,10,4);
+//        lifes.setFontScale(0.3f);
+        gold = new SimpleIcon("ui/gold.png", world.gold + "", 10);
+        gold.setX(110);
+        gold.setY(265);
+        lifes = new SimpleIcon("ui/lifes.png", world.lifes + "", 10);
+        lifes.setX(110);
+        lifes.setY(255);
         addActor(ready);
         addActor(gameOver);
         addActor(score);
@@ -148,9 +158,9 @@ public class GameUi extends Stage{
         }
 
         if(!world.isReady()){
-            gold.setText(AssetLoader.myBundle.format("gold", world.gold));
+            gold.setText(world.gold + "");
             score.setText(AssetLoader.myBundle.format("score", world.score));
-            lifes.setText(AssetLoader.myBundle.format("lifes", world.lifes));
+            lifes.setText(world.lifes + "");
         }
 
     }

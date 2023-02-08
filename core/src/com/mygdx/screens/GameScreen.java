@@ -41,6 +41,7 @@ public class GameScreen implements Screen {
         runTime += delta;
         world.update(delta);
         renderer.render(delta, runTime);
+        gameUi.act(delta);
         gameUi.draw();
         gameUi.update(delta);
 
