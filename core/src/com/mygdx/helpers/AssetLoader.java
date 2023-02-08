@@ -44,7 +44,7 @@ public class AssetLoader {
         enBundle = I18NBundle.createBundle(baseFileHandler, locale);
         locale = new Locale("gl", "ES");
         glBundle = I18NBundle.createBundle(baseFileHandler, locale);
-        myBundle = glBundle;
+        myBundle = enBundle;
 
         //Levels
         levelCreator = new LevelCreator();

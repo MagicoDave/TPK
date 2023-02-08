@@ -7,16 +7,19 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
 
-public class SimpleIcon extends Actor {
+public class SimpleIcon extends Image {
 
     Texture texture;
     Label label;
     Animation animation;
     TextureRegion currentFrame;
+
+    float statetime = 0;
     int height;
 
     public SimpleIcon (String texturePath, String text, int height){
@@ -33,7 +36,7 @@ public class SimpleIcon extends Actor {
                 new TextureRegion(texture, 24, 0, 24, 24),
                 new TextureRegion(texture, 48, 0, 24, 24)
         };
-        animation = new Animation(1, textures);
+        animation = new Animation(0.3f, textures);
         animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
     }
 
@@ -43,7 +46,8 @@ public class SimpleIcon extends Actor {
 
     @Override
     public void act(float delta){
-        currentFrame = (TextureRegion) animation.getKeyFrame(delta, true);
+        currentFrame = (TextureRegion) animation.getKeyFrame(statetime += delta, true);
+        super.act(delta);
         //Gdx.app.log("Current frame: ", animation.getKeyFrame(delta, true).toString());
     }
 

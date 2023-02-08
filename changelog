@@ -60,3 +60,5 @@
     Ahora hay una pantalla de "ready" para que el jugador pueda prepararse y otras dos de game over y de victoria.
     Para mejorar la usabilidad, los botones de construir torre ahora indican el precio de la misma. En amarillo si se tiene suficiente oro y en rojo si no.
     Mejoras generales de claridad y simplicidad de código. Le hacía falta.
+08/02/23
+    Mejoras generales de la UI, ahora hay iconos animados para el oro y las vidas gracias a la clase SimpleIcon.
