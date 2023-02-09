@@ -12,6 +12,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
 
+/**
+ * Esta clase permite hacer iconos animados con un label, para elementos de la interfaz como el oro o las vidas
+ */
 public class SimpleIcon extends Image {
 
     Texture texture;

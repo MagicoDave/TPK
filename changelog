@@ -62,3 +62,6 @@
     Mejoras generales de claridad y simplicidad de código. Le hacía falta.
 08/02/23
     Mejoras generales de la UI, ahora hay iconos animados para el oro y las vidas gracias a la clase SimpleIcon.
+09/02/23
+    Ahora las fundation reproducen una pequeña animación al seleccionarse para que sea más claro cual es la que ha pulsado el jugador.
+    ¡Nueva habilidad! Al pulsar el botón Rage (o agitar el movil), si se tiene suficiente oro, las torres atacarán mucho más rapido durante unos segundos.

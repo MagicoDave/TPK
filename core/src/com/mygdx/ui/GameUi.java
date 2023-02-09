@@ -174,6 +174,10 @@ public class GameUi extends Stage{
             }
         }
 
+        for (Tile fundation : fundations){
+            fundation.setSelected(false);
+        }
+
         t = new Table();
         root = new Table();
         buttons.clear();
@@ -182,6 +186,7 @@ public class GameUi extends Stage{
     public void TowerSelect(Tile fundation){
 
         clearUI();
+        fundation.setSelected(true);
 
         if (fundation.getTower() == null) {
 

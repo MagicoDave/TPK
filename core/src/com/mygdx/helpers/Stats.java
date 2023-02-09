@@ -21,8 +21,7 @@ public class Stats {
     public static int START_MULTIPLIER = 1;
     public static int START_SCORE = 0;
 
-    public static int BOOST_PRICE = 50;
-    public static int POISON_PRICE = 30;
+    public static int RAGE_PRICE = 50;
 
     public static int BASE_ENEMY_SPEED = 10;
     public static int BASE_BULLET_SPEED = 10;
