@@ -44,7 +44,6 @@ public class GameScreen implements Screen {
         gameUi.act(delta);
         gameUi.draw();
         gameUi.update(delta);
-
     }
 
     @Override
@@ -69,6 +68,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
+        world.dispose();
         gameUi.dispose();
     }
 }

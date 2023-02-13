@@ -187,6 +187,10 @@ public class Renderer {
         }
     }
 
+    /**
+     * Renderizado de los proyectiles de las torres
+     * @param runTime En las animaciones, se usa para devolver el frame adecuado según el tiempo que lleve
+     */
     public void renderBullets(float runTime){
         for (Bullet bullet : world.bulletsInScreen){
             batcher.draw(

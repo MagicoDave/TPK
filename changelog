@@ -72,3 +72,4 @@
     Mejoras en el código del renderizado, ahora es más eficiente.
     Ahora los enemigos y las torres se 'mueven' (velocidad de la animación) más rápido o lento según el estado (rage/ralentizado).
     Ahora el botón Rage puede activarse agitandose!
+    Añadida nueva pantalla, MainMenuScreen! Ahora el juego se iniciará al menú en vez de directamente al juego.

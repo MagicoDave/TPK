@@ -3,6 +3,7 @@ package com.mygdx.tpk;
 import com.badlogic.gdx.Game;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
+import com.mygdx.screens.MainMenuScreen;
 
 /**
  * Clase principal
@@ -15,8 +16,7 @@ public class TpkGame extends Game {
 	@Override
 	public void create () {
 		AssetLoader.load();
-		//this.setScreen(new SplashScreen(this));
-		this.setScreen(new GameScreen()); // Temporal
+		this.setScreen(new MainMenuScreen(this));
 	}
 
 	/**
