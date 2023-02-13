@@ -16,7 +16,7 @@ public class TpkGame extends Game {
 	@Override
 	public void create () {
 		AssetLoader.load();
-		this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new GameScreen());
 	}
 
 	/**

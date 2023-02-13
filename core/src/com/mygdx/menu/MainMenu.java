@@ -61,6 +61,7 @@ public class MainMenu extends Stage {
 
         addActor(label);
         addActor(table);
+
     }
 
 }
