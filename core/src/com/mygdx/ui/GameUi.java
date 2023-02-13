@@ -162,7 +162,7 @@ public class GameUi extends Stage{
 
             if (currentTimeMillis - lastUpdate > 200){
                 lastUpdate = currentTimeMillis;
-                float speed = x+y+z - lastX - lastY - lastZ;
+                float speed = x+y+z - lastX-lastY-lastZ;
                 if (speed > SHAKE_THRESHOLD || speed < -SHAKE_THRESHOLD){
                     Gdx.app.log("shake", "shaked! speed: " + speed );
                     rageButton.rage();
@@ -218,6 +218,9 @@ public class GameUi extends Stage{
 
     }
 
+    /**
+     * Limpia la interfaz de construcción de torres
+     */
     public void clearUI(){
         for (Actor actor : this.getActors()){
             if (actor.getClass() == Table.class || actor.getClass() == Button.class){
@@ -234,6 +237,10 @@ public class GameUi extends Stage{
         buttons.clear();
     }
 
+    /**
+     * Despliega la interfaz para la construcción de torres
+     * @param fundation La fundation en la cual se va a construir la torre
+     */
     public void TowerSelect(Tile fundation){
 
         clearUI();

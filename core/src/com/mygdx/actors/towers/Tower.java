@@ -10,8 +10,6 @@ import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
 
 /**
- * Tower
- *
  * Esta clase abstracta contiene las propiedades comunes de todas las torres
  */
 public abstract class Tower extends Image {

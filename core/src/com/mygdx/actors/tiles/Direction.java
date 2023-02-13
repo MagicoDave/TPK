@@ -1,5 +1,8 @@
 package com.mygdx.actors.tiles;
 
+/**
+ * Enumerado con las posibles direcciones en las que pueden moverse los enemigos
+ */
 public enum Direction {
     DOWN("DOWN",0,-1),
     RIGHT("RIGHT",1,0),

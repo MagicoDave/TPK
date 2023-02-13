@@ -10,6 +10,9 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.towers.Tower;
 
+/**
+ * Clase con las propiedades comunes de los objetos del mapa
+ */
 public class Tile extends Image {
 
     private Direction direction;
@@ -48,6 +51,12 @@ public class Tile extends Image {
 
     }
 
+    /**
+     * Devuelve si se esta presionando el objeto
+     * @param screenX Coordenada x de la pantalla
+     * @param screenY Coordenada y de la pantalla
+     * @return true si esta presionado, false en caso contrario
+     */
     public boolean isTouchDown(float screenX, float screenY) {
         if (hitbox.contains(screenX, screenY)) {
             return true;
@@ -55,6 +64,12 @@ public class Tile extends Image {
         return false;
     }
 
+    /**
+     * Devuelve si se ha levantado el dedo sobre el objeto tras pulsarlo
+     * @param screenX Coordenada x de la pantalla
+     * @param screenY Coordenada y de la pantalla
+     * @return true si esta sobre el objeto, false en caso contrario
+     */
     public boolean isTouchUp(float screenX, float screenY) {
         if (hitbox.contains(screenX, screenY) /*&& isPressed*/) {
             return true;
@@ -63,12 +78,21 @@ public class Tile extends Image {
         return false;
     }
 
+    /**
+     * Sobreescribe el metodo original para actualizar el frame de la animación de selección cuando es relevante
+     * @param delta Tasa de refresco
+     */
     @Override
     public void act(float delta){
         currentFrame = (TextureRegion) animation.getKeyFrame(statetime += delta, true);
         super.act(delta);
     }
 
+    /**
+     * Sobreescribe el metodo original para dibujar la animación de selección cuando es relevante
+     * @param batch Herramienta para dibujar
+     * @param parentAlpha El alfa del elemento padre
+     */
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if (type == Type.FUNDATION && isSelected){

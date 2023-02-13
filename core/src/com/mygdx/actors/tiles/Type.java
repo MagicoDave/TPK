@@ -1,5 +1,8 @@
 package com.mygdx.actors.tiles;
 
+/**
+ * Enumerado del tipo de Tiles existentes
+ */
 public enum Type {
     SPAWN("SPAWN"),
     ROAD("ROAD"),

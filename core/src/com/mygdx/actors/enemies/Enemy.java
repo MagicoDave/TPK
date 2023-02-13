@@ -39,6 +39,10 @@ public abstract class Enemy extends Image {
         alive = true;
     }
 
+    /**
+     * Actualiza el estado del enemigo en el mundo, la posición, debuffs y si está vivo o muerto
+     * @param delta Tasa de refresco
+     */
     public void update(float delta){
         if (hp <= 0){
             alive = false;
@@ -57,6 +61,10 @@ public abstract class Enemy extends Image {
         }
     }
 
+    /**
+     * Mueve al enemigo en función de la direction, comprueba colisiones y si ha llegado al final del recorrido
+     * @param delta Tasa de refresco
+     */
     public void move(float delta){
 
         float totalSpeed = BASE_ENEMY_SPEED * speed * delta;
@@ -112,6 +120,11 @@ public abstract class Enemy extends Image {
         this.timeDebuffed = timeDebuffed;
     }
 
+    /**
+     * Comprueba si está en rango de tiro de una torre determinada
+     * @param tower La torre con la que se comprueba el rango
+     * @return true si está dentro del rango, false en caso contrario
+     */
     public boolean inRange(Tower tower){
         if (getCenter().dst(tower.getPosition()) <= tower.getRange()){
             Gdx.app.log("Distance: ", this.getCenter().dst(tower.getPosition()) + "");
@@ -121,6 +134,10 @@ public abstract class Enemy extends Image {
         }
     }
 
+    /**
+     * Obtiene el punto central del cuerpo
+     * @return Un vector con el punto central
+     */
     public Vector2 getCenter(){
         return new Vector2(this.getX() + this.getWidth() / 2, this.getY() + this.getHeight() / 2);
     }

@@ -13,6 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
 
+/**
+ * Este botón activa el modo Rage de las torretas construidas
+ */
 public class RageButton extends Button{
 
     Label labelCost;
@@ -38,6 +41,9 @@ public class RageButton extends Button{
         });
     }
 
+    /**
+     * Activa el modo Rage de las torretas construidas
+     */
     public void rage(){
         if (world.gold >= RAGE_PRICE){
             for (Tower t : world.constructedTowers) {
@@ -47,6 +53,11 @@ public class RageButton extends Button{
         }
     }
 
+    /**
+     * Dibuja el componente. Se sobreescribe para añadirle una label con el precio de la mejora que cambia de color según el oro disponible
+     * @param batch El batch que se usa para dibujar el elemento
+     * @param parentAlpha El alfa del elemento padre, que se multiplica con el del actor
+     */
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
