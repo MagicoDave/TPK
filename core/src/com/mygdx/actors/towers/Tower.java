@@ -1,5 +1,7 @@
 package com.mygdx.actors.towers;
 
+import static com.mygdx.helpers.Stats.RAGE_DURATION;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -17,6 +19,8 @@ public abstract class Tower extends Image {
     protected Vector2 position;
 
     protected int damage, range, price, fireRate, projectileSpeed, cooldown;
+    protected boolean enraged;
+    protected float timeEnraged = 0;
     Debuff debuff;
     Enemy target;
     protected World world;
@@ -36,6 +40,22 @@ public abstract class Tower extends Image {
 
         this.cooldown = 0;
         this.target = null;
+    }
+
+    /**
+     * Actualiza el estado de la torre: Rage, adquirir target y disparar
+     * @param delta Tasa de refresco
+     */
+    public void update (float delta) {
+        if (isEnraged()){
+            timeEnraged += delta;
+            if (timeEnraged >= RAGE_DURATION) {
+                setEnraged(false);
+                timeEnraged = 0;
+            }
+        }
+        adquireTarget();
+        fire();
     }
 
     /**
@@ -66,7 +86,11 @@ public abstract class Tower extends Image {
         if (target == null || !target.isAlive() || !target.inRange(this)) return;
 
         if (cooldown <=0){
-            cooldown = fireRate;
+            if (isEnraged()){
+                cooldown = fireRate / 2;
+            } else {
+                cooldown = fireRate;
+            }
             Gdx.app.log("tower fires to: ", target.toString());
             world.bulletsInScreen.add(new Bullet(world, this, target));
         } else {
@@ -112,6 +136,14 @@ public abstract class Tower extends Image {
 
     public void setProjectileSpeed(int projectileSpeed) {
         this.projectileSpeed = projectileSpeed;
+    }
+
+    public boolean isEnraged() {
+        return enraged;
+    }
+
+    public void setEnraged(boolean enraged) {
+        this.enraged = enraged;
     }
 
     public Debuff getDebuff() {

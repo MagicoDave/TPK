@@ -65,3 +65,9 @@
 09/02/23
     Ahora las fundation reproducen una pequeña animación al seleccionarse para que sea más claro cual es la que ha pulsado el jugador.
     ¡Nueva habilidad! Al pulsar el botón Rage (o agitar el movil), si se tiene suficiente oro, las torres atacarán mucho más rapido durante unos segundos.
+13/02/23
+    Se descarta la mecánica del Loot. Rage es más interesante y más intuitivo, y requiere que el usuario maree menos el teléfono agitandolo.
+    Se borran las clases y menciones a la mecánica del Loot en el código.
+    Mejoras en el código del renderizado, ahora es más eficiente.
+    Ahora los enemigos y las torres se 'mueven' (velocidad de la animación) más rápido o lento según el estado (rage/ralentizado).
+    Ahora el botón Rage puede activarse agitandose!

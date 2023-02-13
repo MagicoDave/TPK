@@ -1,7 +1,11 @@
 package com.mygdx.ui;
 
+import static com.mygdx.helpers.Stats.SHAKE_THRESHOLD;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -19,6 +23,7 @@ import com.mygdx.helpers.AssetLoader;
 import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
 import com.mygdx.ui.buttons.DestroyButton;
+import com.mygdx.ui.buttons.RageButton;
 import com.mygdx.ui.icons.SimpleIcon;
 
 import sun.java2d.pipe.SpanShapeRenderer;
@@ -37,6 +42,14 @@ public class GameUi extends Stage{
     private Table t;
     private Table root;
 
+    private RageButton rageButton;
+
+    boolean accelerometerAvailability;
+    long lastUpdate = 0;
+    float lastX = 0;
+    float lastY = 0;
+    float lastZ = 0;
+
     public GameUi (final World world) {
         super(new StretchViewport(160,288));
 
@@ -47,8 +60,11 @@ public class GameUi extends Stage{
         buttons = new Array<Button>();
         fundations = world.fundationTiles;
 
-        Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
+        accelerometerAvailability = Gdx.input.isPeripheralAvailable(Input.Peripheral.Accelerometer);
+        Gdx.app.log("accelReady: ", accelerometerAvailability + "");
 
+        //Labels y elementos informativos de la UI
+        Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
         ready = new Label(AssetLoader.myBundle.format("tapToStart"), skin, "default");
         ready.setBounds(70, 150, 10, 4);
         ready.setFontScale(0.5f);
@@ -60,12 +76,6 @@ public class GameUi extends Stage{
         score = new Label(AssetLoader.myBundle.format("score", world.score), skin, "default");
         score.setBounds(105,270,10,4);
         score.setFontScale(0.3f);
-//        gold = new Label(AssetLoader.myBundle.format("gold", world.gold), skin, "default");
-//        gold.setBounds(110,270,10,4);
-//        gold.setFontScale(0.3f);
-//        lifes = new Label(AssetLoader.myBundle.format("lifes", world.lifes), skin, "default");
-//        lifes.setBounds(110,260,10,4);
-//        lifes.setFontScale(0.3f);
         gold = new SimpleIcon("ui/gold.png", world.gold + "", 10);
         gold.setX(105);
         gold.setY(275);
@@ -77,6 +87,13 @@ public class GameUi extends Stage{
         addActor(score);
         addActor(gold);
         addActor(lifes);
+
+        //Botón Rage
+        rageButton = new RageButton(world);
+        rageButton.setX(125);
+        rageButton.setY(13);
+        rageButton.setVisible(false);
+        addActor(rageButton);
 
         for (final Tile fundation: fundations) {
             fundation.setBounds(fundation.getHitbox().getX(), fundation.getHitbox().getY(), fundation.getHitbox().getWidth(), fundation.getHitbox().getHeight());
@@ -131,8 +148,38 @@ public class GameUi extends Stage{
 
     }
 
-    public void update(float delta){
+    /**
+     * Detecta si se agita el móvil (Pulsa el RageButton)
+     */
+    public void shakeDetection(){
+        if (accelerometerAvailability){
 
+            float x = Gdx.input.getAccelerometerX();
+            float y = Gdx.input.getAccelerometerY();
+            float z = Gdx.input.getAccelerometerZ();
+
+            long currentTimeMillis = System.currentTimeMillis();
+
+            if (currentTimeMillis - lastUpdate > 200){
+                lastUpdate = currentTimeMillis;
+                float speed = x+y+z - lastX - lastY - lastZ;
+                if (speed > SHAKE_THRESHOLD || speed < -SHAKE_THRESHOLD){
+                    Gdx.app.log("shake", "shaked! speed: " + speed );
+                    rageButton.rage();
+                }
+            }
+
+            lastX = x;
+            lastY = y;
+            lastZ = z;
+        }
+    }
+
+    /**
+     * Actualiza los elementos de la UI
+     * @param delta Tasa de refresco
+     */
+    public void update(float delta){
         switch (world.getCurrentState()){
             case READY:
                 ready.setText(AssetLoader.myBundle.format("tapToStart"));
@@ -140,17 +187,21 @@ public class GameUi extends Stage{
             case RUNNING:
                 if (ready.isVisible()){
                     ready.setVisible(false);
+                    rageButton.setVisible(true);
                 }
+                shakeDetection();
                 break;
             case GAMEOVER:
                 if (!gameOver.isVisible()){
                     gameOver.setVisible(true);
+                    rageButton.setVisible(false);
                 }
                 gameOver.setText(AssetLoader.myBundle.format("gameOver", world.score));
                 break;
             case VICTORY:
                 if (!gameOver.isVisible()){
                     gameOver.setVisible(true);
+                    rageButton.setVisible(false);
                 }
                 gameOver.setText(AssetLoader.myBundle.format("victory", world.score));
 

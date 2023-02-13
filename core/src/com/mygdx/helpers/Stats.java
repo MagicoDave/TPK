@@ -17,16 +17,17 @@ public class Stats {
 
     public static int START_HEALTH = 20;
     public static int START_GOLD = 50;
-    public static int STAR_LOOT = 0;
-    public static int START_MULTIPLIER = 1;
     public static int START_SCORE = 0;
 
-    public static int RAGE_PRICE = 50;
+    public static int RAGE_PRICE = 10;
+    public static int RAGE_DURATION = 5;
 
     public static int BASE_ENEMY_SPEED = 10;
     public static int BASE_BULLET_SPEED = 10;
 
     public static int TIME_BETWEEN_SPAWNS = 2;
+
+    public static int SHAKE_THRESHOLD = 20;
 
     //Waves
     public static int[] LEVEL_1_WAVE = {0,0,0,0,1,1,0,0,1,1,2,2,0,0,2,3,3,3,0,0,1,1,1,1,3,3,3,0,2,2,2,2,1,1};
@@ -43,7 +44,9 @@ public class Stats {
     public static TowerStats STICKY_TOWER = new TowerStats(1, 32, 15, 150, 5, Debuff.SLOW); //ID: 2
     public static TowerStats CYCLOP_TOWER = new TowerStats(8, 80, 30, 400, 4, null); //ID: 3
 
-    //Constructor EnemyStats
+    /**
+     * Esta clase hace de plantilla para almacenar las estadísticas de los enemigos
+     */
     public static class EnemyStats {
         public int hp, damage, speed, reward;
 
@@ -55,7 +58,9 @@ public class Stats {
         }
     }
 
-    //Constructor TowerStats
+    /**
+     * Esta clase hace de plantilla para almacenar las estadísticas de las torres
+     */
     public static class TowerStats {
         public int damage, range, price, fireRate, projectileSpeed;
         public Debuff debuff;

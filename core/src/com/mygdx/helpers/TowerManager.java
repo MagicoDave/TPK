@@ -28,8 +28,7 @@ public class TowerManager {
 
         //Actualizar torres
         for (Tower tower : world.constructedTowers) {
-            tower.adquireTarget();
-            tower.fire();
+            tower.update(delta);
         }
 
         //Actualizar balas

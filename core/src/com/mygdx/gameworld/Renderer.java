@@ -89,145 +89,101 @@ public class Renderer {
         batcher.end();
     }
 
+    /**
+     * Renderización de los enemigos
+     * @param runTime En las animaciones, se usa para devolver el frame adecuado según el tiempo que lleve
+     */
     public void renderEnemies(float runTime){
         for (Enemy enemy: world.enemiesInScreen) {
+            Animation animation = null;
             switch (enemy.getID()) {
                 case 0:
-                    Animation farmer = farmerAnimation;
                     if (enemy.getDebuff() == Debuff.SLOW){
-                        farmer = farmerSlowedAnimation;
+                        animation = farmerSlowedAnimation;
+                    } else {
+                        animation = farmerAnimation;
                     }
-                    batcher.draw(
-                            (TextureRegion) farmer.getKeyFrame(runTime, true),
-                            enemy.getX(),
-                            enemy.getY(),
-                            enemy.getWidth() / 2.0f,
-                            enemy.getHeight() / 2.0f,
-                            enemy.getWidth(),
-                            enemy.getHeight(),
-                            1,
-                            1,
-                            enemy.getRotation()
-                    );
                     break;
                 case 1:
-                    Animation barbarian = barbarianAnimation;
                     if (enemy.getDebuff() == Debuff.SLOW){
-                        barbarian = barbarianSlowedAnimation;
+                        animation = barbarianSlowedAnimation;
+                    } else {
+                        animation = barbarianAnimation;
                     }
-                    batcher.draw(
-                            (TextureRegion) barbarian.getKeyFrame(runTime, true),
-                            enemy.getX(),
-                            enemy.getY(),
-                            enemy.getWidth() / 2.0f,
-                            enemy.getHeight() / 2.0f,
-                            enemy.getWidth(),
-                            enemy.getHeight(),
-                            1,
-                            1,
-                            enemy.getRotation()
-                    );
                     break;
                 case 2:
-                    Animation mage = mageAnimation;
                     if (enemy.getDebuff() == Debuff.SLOW){
-                        mage = mageSlowedAnimation;
+                        animation = thiefSlowedAnimation;
+                    } else {
+                        animation = thiefAnimation;
                     }
-                    batcher.draw(
-                            (TextureRegion) mage.getKeyFrame(runTime, true),
-                            enemy.getX(),
-                            enemy.getY(),
-                            enemy.getWidth() / 2.0f,
-                            enemy.getHeight() / 2.0f,
-                            enemy.getWidth(),
-                            enemy.getHeight(),
-                            1,
-                            1,
-                            enemy.getRotation()
-                    );
                     break;
                 case 3:
-                    Animation thief = thiefAnimation;
                     if (enemy.getDebuff() == Debuff.SLOW){
-                        thief = thiefSlowedAnimation;
+                        animation = mageSlowedAnimation;
+                    } else {
+                        animation = mageAnimation;
                     }
-                    batcher.draw(
-                            (TextureRegion) thief.getKeyFrame(runTime, true),
-                            enemy.getX(),
-                            enemy.getY(),
-                            enemy.getWidth() / 2.0f,
-                            enemy.getHeight() / 2.0f,
-                            enemy.getWidth(),
-                            enemy.getHeight(),
-                            1,
-                            1,
-                            enemy.getRotation()
-                    );
                     break;
             }
+            if (enemy.getDebuff() == Debuff.SLOW){
+                animation.setFrameDuration(0.2f);
+            } else {
+                animation.setFrameDuration(0.1f);
+            }
+            batcher.draw(
+                    (TextureRegion) animation.getKeyFrame(runTime, true),
+                    enemy.getX(),
+                    enemy.getY(),
+                    enemy.getWidth() / 2.0f,
+                    enemy.getHeight() / 2.0f,
+                    enemy.getWidth(),
+                    enemy.getHeight(),
+                    1,
+                    1,
+                    enemy.getRotation()
+            );
         }
     }
 
+    /**
+     * Renderizado de las torres
+     * @param runTime En las animaciones, se usa para devolver el frame adecuado según el tiempo que lleve
+     */
     public void renderTowers(float runTime){
         for (Tower tower: world.constructedTowers) {
+            Animation animation = null;
             switch (tower.getID()) {
                 case 0:
-                    batcher.draw(
-                            (TextureRegion) arrowTowerAnimation.getKeyFrame(runTime, true),
-                            tower.getX(),
-                            tower.getY(),
-                            tower.getWidth() / 2.0f,
-                            tower.getHeight() / 2.0f,
-                            tower.getWidth(),
-                            tower.getHeight(),
-                            1,
-                            1,
-                            tower.getRotation()
-                    );
+                    animation = arrowTowerAnimation;
                     break;
                 case 1:
-                    batcher.draw(
-                            (TextureRegion) witchTowerAnimation.getKeyFrame(runTime, true),
-                            tower.getX(),
-                            tower.getY(),
-                            tower.getWidth() / 2.0f,
-                            tower.getHeight() / 2.0f,
-                            tower.getWidth(),
-                            tower.getHeight(),
-                            1,
-                            1,
-                            tower.getRotation()
-                    );
+                    animation = witchTowerAnimation;
                     break;
                 case 2:
-                    batcher.draw(
-                            (TextureRegion) stickyTowerAnimation.getKeyFrame(runTime, true),
-                            tower.getX(),
-                            tower.getY(),
-                            tower.getWidth() / 2.0f,
-                            tower.getHeight() / 2.0f,
-                            tower.getWidth(),
-                            tower.getHeight(),
-                            1,
-                            1,
-                            tower.getRotation()
-                    );
+                    animation = stickyTowerAnimation;
                     break;
                 case 3:
-                    batcher.draw(
-                            (TextureRegion) cyclopTowerAnimation.getKeyFrame(runTime, true),
-                            tower.getX(),
-                            tower.getY(),
-                            tower.getWidth() / 2.0f,
-                            tower.getHeight() / 2.0f,
-                            tower.getWidth(),
-                            tower.getHeight(),
-                            1,
-                            1,
-                            tower.getRotation()
-                    );
+                    animation = cyclopTowerAnimation;
                     break;
             }
+            if (tower.isEnraged()){
+                animation.setFrameDuration(0.05f);
+            } else {
+                animation.setFrameDuration(0.1f);
+            }
+            batcher.draw(
+                    (TextureRegion) animation.getKeyFrame(runTime, true),
+                    tower.getX(),
+                    tower.getY(),
+                    tower.getWidth() / 2.0f,
+                    tower.getHeight() / 2.0f,
+                    tower.getWidth(),
+                    tower.getHeight(),
+                    1,
+                    1,
+                    tower.getRotation()
+            );
         }
     }
 

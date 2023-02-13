@@ -48,7 +48,7 @@ public abstract class Enemy extends Image {
         } else {
             if (debuff != null){
                 timeDebuffed += delta;
-                Gdx.app.log("I have a debuff: ", debuff.getValue() + ". Time with debuff: " + timeDebuffed + ". debuff duration: " + debuff.getDuration() + ". Delta: " + delta);
+                //Gdx.app.log("I have a debuff: ", debuff.getValue() + ". Time with debuff: " + timeDebuffed + ". debuff duration: " + debuff.getDuration() + ". Delta: " + delta);
                 if (timeDebuffed >= debuff.getDuration()) {
                     debuff = null;
                 }
