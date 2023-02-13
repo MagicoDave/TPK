@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 /**
  * Este botón activa el modo Rage de las torretas construidas
@@ -23,7 +24,7 @@ public class RageButton extends Button{
     public RageButton(final World world) {
         super(world);
 
-        Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
+        Skin skin = AssetLoader.skinArcade;
         labelCost = new Label("", skin);
         labelCost.setBounds(this.getX(),this.getY(),this.getWidth(), (this.getHeight() * 0.75f));
         labelCost.setFontScale(0.3f);

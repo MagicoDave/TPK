@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Align;
+import com.mygdx.helpers.AssetLoader;
 
 /**
  * Esta clase permite hacer iconos animados con un label, para elementos de la interfaz como el oro o las vidas
@@ -28,7 +29,7 @@ public class SimpleIcon extends Image {
     public SimpleIcon (String texturePath, String text, int height){
         this.height = height;
 
-        Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
+        Skin skin = AssetLoader.skinArcade;
         label = new Label(text, skin, "default");
         label.setAlignment(Align.left);
         label.setFontScale(0.3f);

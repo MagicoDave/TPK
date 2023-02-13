@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 
 import java.util.Locale;
@@ -34,6 +35,8 @@ public class AssetLoader {
     public static Texture redBullet;
     public static TextureRegion redBullet1;
 
+    public static Skin skinArcade, skinMother;
+
     public static void load(){
 
         //Languages
@@ -50,8 +53,9 @@ public class AssetLoader {
         levelCreator = new LevelCreator();
         level1 = levelCreator.setLevel("maps/level1.tmx");
 
-        //UI
-
+        //Skin
+        skinArcade = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
+        skinMother = new Skin(Gdx.files.internal("skin/mother/terra-mother-ui.json"));
 
         //Farmer
         farmer = new Texture(Gdx.files.internal("enemies/farmer.png"));

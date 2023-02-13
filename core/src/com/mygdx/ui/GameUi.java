@@ -64,7 +64,7 @@ public class GameUi extends Stage{
         Gdx.app.log("accelReady: ", accelerometerAvailability + "");
 
         //Labels y elementos informativos de la UI
-        Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
+        Skin skin = AssetLoader.skinArcade;
         ready = new Label(AssetLoader.myBundle.format("tapToStart"), skin, "default");
         ready.setBounds(70, 150, 10, 4);
         ready.setFontScale(0.5f);
