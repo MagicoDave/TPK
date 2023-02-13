@@ -113,16 +113,16 @@ public class Renderer {
                     break;
                 case 2:
                     if (enemy.getDebuff() == Debuff.SLOW){
-                        animation = thiefSlowedAnimation;
+                        animation = mageSlowedAnimation;
                     } else {
-                        animation = thiefAnimation;
+                        animation = mageAnimation;
                     }
                     break;
                 case 3:
                     if (enemy.getDebuff() == Debuff.SLOW){
-                        animation = mageSlowedAnimation;
+                        animation = thiefSlowedAnimation;
                     } else {
-                        animation = mageAnimation;
+                        animation = thiefAnimation;
                     }
                     break;
             }

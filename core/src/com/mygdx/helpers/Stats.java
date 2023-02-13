@@ -35,8 +35,8 @@ public class Stats {
     //Enemies
     public static EnemyStats FARMER = new EnemyStats(4, 1, 1, 1); //ID: 0
     public static EnemyStats BARBARIAN = new EnemyStats(15, 2, 1, 5); //ID: 1
-    public static EnemyStats THIEF = new EnemyStats(6, 3, 2, 3); //ID: 2
-    public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4); //ID: 3
+    public static EnemyStats MAGE = new EnemyStats(4, 5, 1, 4); //ID: 2
+    public static EnemyStats THIEF = new EnemyStats(6, 3, 2, 3); //ID: 3
 
     //Towers
     public static TowerStats ARROW_TOWER = new TowerStats(1, 64, 10, 100, 6, null); //ID: 0
