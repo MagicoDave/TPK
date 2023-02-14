@@ -5,8 +5,8 @@
     },
     "activeFile": "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx",
     "expandedProjectPaths": [
-        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps",
-        "tilesets"
+        "tilesets",
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -51,8 +51,8 @@
             "scale": 2.84,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 91.5492957746479,
-                "y": 196.6549295774648
+                "x": 90.84507042253523,
+                "y": 155.63380281690144
             }
         },
         "C:/Users/David Casalderrey/Downloads/assetsTPK/1bitpack_kenney_1.2/Tilemap/sample_fantasy.tmx": {
