@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.screens.ChooseLevelScreen;
 import com.mygdx.screens.GameScreen;
 import com.mygdx.tpk.TpkGame;
 
@@ -42,7 +43,7 @@ public class MainMenu extends Stage {
             }
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new GameScreen());
+                game.setScreen(new ChooseLevelScreen(game));
             }
         });
 

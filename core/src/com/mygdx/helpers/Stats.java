@@ -15,18 +15,49 @@ import java.util.HashMap;
  */
 public class Stats {
 
+    /**
+     * Vidas iniciales
+     */
     public static int START_HEALTH = 20;
+
+    /**
+     * Oro inicial
+     */
     public static int START_GOLD = 50;
+
+    /**
+     * Puntuación incial
+     */
     public static int START_SCORE = 0;
 
+    /**
+     * Coste del Rage
+     */
     public static int RAGE_PRICE = 10;
+
+    /**
+     * Duración del Rage
+     */
     public static int RAGE_DURATION = 5;
 
+    /**
+     * Velocidad base de los enemigos
+     */
     public static int BASE_ENEMY_SPEED = 10;
+
+    /**
+     * Velocidad base de los proyectiles
+     */
     public static int BASE_BULLET_SPEED = 10;
 
+    /**
+     * Tiempo que pasa entre que aparece un enemigo y el siguiente
+     */
     public static int TIME_BETWEEN_SPAWNS = 2;
 
+    /**
+     * Aceleración mínima para detectar si se ha agitado el móvil
+     */
     public static int SHAKE_THRESHOLD = 15;
 
     //Waves

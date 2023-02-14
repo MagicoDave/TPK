@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 
@@ -18,7 +19,7 @@ public class AssetLoader {
 
     public static I18NBundle enBundle, esBundle, glBundle, myBundle;
 
-    public static TiledMap selectedLevel, level1, level2;
+    public static TiledMap level1, level2;
 
     public static LevelCreator levelCreator;
 
@@ -37,6 +38,9 @@ public class AssetLoader {
 
     public static Skin skinArcade, skinMother;
 
+    /**
+     * Carga de assets
+     */
     public static void load(){
 
         //Languages
@@ -51,9 +55,10 @@ public class AssetLoader {
 
         //Levels
         levelCreator = new LevelCreator();
-        selectedLevel = levelCreator.setLevel("maps/level2.tmx");
+        level1 = new TmxMapLoader().load("maps/level1.tmx");
+        level2 = new TmxMapLoader().load("maps/level2.tmx");
 
-        //Skin
+        //Skins
         skinArcade = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
         skinMother = new Skin(Gdx.files.internal("skin/mother/terra-mother-ui.json"));
 
@@ -191,8 +196,15 @@ public class AssetLoader {
         redBullet1 = new TextureRegion(redBullet, 0, 0, 24, 24);
     }
 
+    /**
+     * Liberación de recursos
+     */
     public static void dispose(){
         level1.dispose();
+        level2.dispose();
+
+        skinArcade.dispose();
+        skinMother.dispose();
 
         farmer.dispose();
         barbarian.dispose();
@@ -208,6 +220,8 @@ public class AssetLoader {
         witchTower.dispose();
         stickyTower.dispose();
         cyclopTower.dispose();
+
+        redBullet.dispose();
     }
 
     public static LevelCreator getLevelCreator() {

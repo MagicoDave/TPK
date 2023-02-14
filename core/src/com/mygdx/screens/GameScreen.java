@@ -4,6 +4,7 @@ import com.badlogic.gdx.Screen;
 import com.mygdx.gameworld.Renderer;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.helpers.LevelCreator;
 import com.mygdx.ui.GameUi;
 
 /**
@@ -23,7 +24,7 @@ public class GameScreen implements Screen {
     public GameScreen(){
         world = new World(AssetLoader.getLevelCreator());
         gameUi = new GameUi(world);
-        renderer = new Renderer(world, gameUi, AssetLoader.selectedLevel);
+        renderer = new Renderer(world, gameUi, AssetLoader.getLevelCreator().getMap());
     }
 
     @Override

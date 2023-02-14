@@ -16,12 +16,29 @@ import com.mygdx.gameworld.World;
  */
 public abstract class Enemy extends Image {
 
+    /**
+     * Referencia del World
+     */
     protected World world;
 
-    protected Vector2 position = new Vector2(); //Como determinamos posición?
+    /**
+     * Según el valor, el enemigo se mueve en una dirección u otra
+     */
     Direction direction;
 
+    /**
+     * Estadísticas:
+     * ID: Identificador de subclase (Farmer = 0, Barbarian = 1, Mage = 2, Thief = 3)
+     * hp: Puntos de vida
+     * damage: Vidas que pierde el jugador si el enemigo llega al final
+     * speed: Multiplicador de velocidad
+     * reward: Cantidad de oro que da al morir
+     */
     protected int ID, hp, damage, speed, reward;
+
+    /**
+     *
+     */
     protected Debuff debuff;
     protected float timeDebuffed = 0;
 
@@ -33,7 +50,6 @@ public abstract class Enemy extends Image {
         this.world = world;
 
         this.direction = Direction.DOWN;
-        //this.hitbox = new Rectangle();
         this.setBounds(world.spawnPoint.getHitbox().getX(), world.spawnPoint.getHitbox().getY(), 16, 16);
 
         alive = true;
@@ -80,11 +96,9 @@ public abstract class Enemy extends Image {
                 this.setY(this.getY() - totalSpeed);
                 break;
             case LEFT:
-                position.x += -10 * delta;
                 this.setX(this.getX() - totalSpeed);
                 break;
             case RIGHT:
-                position.x += 10 * delta;
                 this.setX(this.getX() + totalSpeed);
                 break;
         }
@@ -141,14 +155,6 @@ public abstract class Enemy extends Image {
      */
     public Vector2 getCenter(){
         return new Vector2(this.getX() + this.getWidth() / 2, this.getY() + this.getHeight() / 2);
-    }
-
-    public Vector2 getPosition() {
-        return position;
-    }
-
-    public void setPosition(Vector2 position) {
-        this.position = position;
     }
 
     public Direction getDirection() {
