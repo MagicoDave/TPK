@@ -39,8 +39,8 @@
             "scale": 2.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 46.400000000000006,
-                "y": 150
+                "x": 80.00000000000001,
+                "y": 144
             }
         },
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx": {
@@ -49,9 +49,9 @@
                 2
             ],
             "scale": 2.84,
-            "selectedLayer": 3,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 90.84507042253523,
+                "x": 91.19718309859157,
                 "y": 155.63380281690144
             }
         },

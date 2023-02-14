@@ -76,3 +76,5 @@
 14/02/23
     Añadido vibrador: El móvil vibra al pulsar el botón Rage (o agitar el móvil) y cada vez que un enemigo escapa.
     Corregido problema importante de rendimiento con las Skin: Debo ser más cuidadoso a la hora de gestionar recursos.
+    Añadido el segundo mapa! Es completamente jugable.
+    Trabajando con los menus ahora para permitir escoger mapa desde el propio juego.
