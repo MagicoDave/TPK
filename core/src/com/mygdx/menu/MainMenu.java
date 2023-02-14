@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
 import com.mygdx.tpk.TpkGame;
 
@@ -26,7 +27,7 @@ public class MainMenu extends Stage {
         Gdx.input.setInputProcessor(this);
 
 
-        Skin skin = new Skin(Gdx.files.internal("skin/mother/terra-mother-ui.json"));
+        Skin skin = AssetLoader.skinMother;
         ImageTextButton.ImageTextButtonStyle style = skin.get("default", ImageTextButton.ImageTextButtonStyle.class);
 
         Label label = new Label("TOTAL PARTY KILL", skin, "giygas");

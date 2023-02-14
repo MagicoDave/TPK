@@ -73,3 +73,6 @@
     Ahora los enemigos y las torres se 'mueven' (velocidad de la animación) más rápido o lento según el estado (rage/ralentizado).
     Ahora el botón Rage puede activarse agitandose!
     Añadida nueva pantalla, MainMenuScreen! Ahora el juego se iniciará al menú en vez de directamente al juego.
+14/02/23
+    Añadido vibrador: El móvil vibra al pulsar el botón Rage (o agitar el móvil) y cada vez que un enemigo escapa.
+    Corregido problema importante de rendimiento con las Skin: Debo ser más cuidadoso a la hora de gestionar recursos.

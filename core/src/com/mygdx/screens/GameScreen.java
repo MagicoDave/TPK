@@ -23,7 +23,7 @@ public class GameScreen implements Screen {
     public GameScreen(){
         world = new World(AssetLoader.getLevelCreator());
         gameUi = new GameUi(world);
-        renderer = new Renderer(world, gameUi, AssetLoader.level1);
+        renderer = new Renderer(world, gameUi, AssetLoader.selectedLevel);
     }
 
     @Override
@@ -70,5 +70,6 @@ public class GameScreen implements Screen {
     public void dispose() {
         world.dispose();
         gameUi.dispose();
+
     }
 }

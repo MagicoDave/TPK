@@ -27,7 +27,7 @@ public class Stats {
 
     public static int TIME_BETWEEN_SPAWNS = 2;
 
-    public static int SHAKE_THRESHOLD = 20;
+    public static int SHAKE_THRESHOLD = 15;
 
     //Waves
     public static int[] LEVEL_1_WAVE = {0,0,0,0,1,1,0,0,1,1,2,2,0,0,2,3,3,3,0,0,1,1,1,1,3,3,3,0,2,2,2,2,1,1};

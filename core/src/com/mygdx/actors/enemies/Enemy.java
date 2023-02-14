@@ -109,6 +109,7 @@ public abstract class Enemy extends Image {
             alive = false;
             world.lifes -= damage;
             world.enemiesInScreen.removeValue(this, true);
+            Gdx.input.vibrate(500);
         }
     }
 

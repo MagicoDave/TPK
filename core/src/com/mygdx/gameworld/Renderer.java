@@ -74,7 +74,8 @@ public class Renderer {
      */
     public void render(float delta, float runTime){
         // Establece color verde y rellena el fondo con el
-        Gdx.gl.glClearColor(0, 255, 0, 1);
+        //Gdx.gl.glClearColor(0, 255, 0, 1);
+        Gdx.gl.glClearColor(12.0f/255.0f, 46.0f/255.0f, 0.0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         camera.update();

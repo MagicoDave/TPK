@@ -16,6 +16,7 @@ import com.mygdx.actors.towers.StickyTower;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 public class BuildTowerButton extends Button{
 
@@ -48,7 +49,7 @@ public class BuildTowerButton extends Button{
         }
 
         towerCost = tower.getPrice();
-        Skin skin = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
+        Skin skin = AssetLoader.skinArcade;
         labelCost = new Label("", skin);
         labelCost.setBounds(this.getX(),this.getY(),this.getWidth(), (this.getHeight() * 0.75f));
         labelCost.setFontScale(0.3f);
