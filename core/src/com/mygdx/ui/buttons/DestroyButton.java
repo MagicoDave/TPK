@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 public class DestroyButton extends Button{
 
@@ -25,6 +26,7 @@ public class DestroyButton extends Button{
                     world.gold += fundation.getTower().getPrice() / 2;
                     world.constructedTowers.removeValue(fundation.getTower(), true);
                     fundation.setTower(null);
+                    AssetLoader.soundDestroyTower.play();
                     return true;
                 }
                 return false;

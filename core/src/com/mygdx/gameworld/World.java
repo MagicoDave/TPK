@@ -12,10 +12,12 @@ import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
+import com.mygdx.helpers.AssetLoader;
 import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
 import com.mygdx.helpers.TowerManager;
 import com.mygdx.helpers.WaveManager;
+import com.mygdx.tpk.TpkGame;
 import com.mygdx.ui.GameUi;
 
 
@@ -28,6 +30,7 @@ public class World extends Stage {
 
     private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
 
+    private TpkGame game;
     private GameState currentState;
     public enum GameState{
         READY, RUNNING, GAMEOVER, VICTORY, HIGHSCORE
@@ -48,7 +51,8 @@ public class World extends Stage {
 
     float timeSinceLastSpawn = 0;
 
-    public World(LevelCreator levelCreator){
+    public World(LevelCreator levelCreator, TpkGame game){
+        this.game = game;
 
         score = START_SCORE;
         lifes = START_HEALTH;
@@ -65,6 +69,8 @@ public class World extends Stage {
         waveManager = new WaveManager(this, LEVEL_1_WAVE);
         towerManager = new TowerManager(this);
 
+        game.getMusic().setLooping(true);
+
     }
 
     /**
@@ -79,6 +85,7 @@ public class World extends Stage {
             case READY:
                 break;
             case RUNNING:
+                game.getMusic().play();
                 timeSinceLastSpawn += delta;
                 enemyManager.update(delta);
                 towerManager.update(delta);
@@ -117,6 +124,10 @@ public class World extends Stage {
         return currentState == GameState.GAMEOVER;
     }
 
+    public boolean isVictory() {
+        return currentState == GameState.VICTORY;
+    }
+
     public boolean isRunning() {
         return currentState == GameState.RUNNING;
     }
@@ -127,5 +138,9 @@ public class World extends Stage {
 
     public void start() {
         currentState = GameState.RUNNING;
+    }
+
+    public TpkGame getGame() {
+        return game;
     }
 }

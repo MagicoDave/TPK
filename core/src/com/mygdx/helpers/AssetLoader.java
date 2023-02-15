@@ -1,6 +1,8 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -38,6 +40,9 @@ public class AssetLoader {
 
     public static Skin skinArcade, skinMother;
 
+    public static Music musicMainMenu, musicLeve1, musicLevel2;
+    public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
+
     /**
      * Carga de assets
      */
@@ -52,6 +57,22 @@ public class AssetLoader {
         locale = new Locale("gl", "ES");
         glBundle = I18NBundle.createBundle(baseFileHandler, locale);
         myBundle = enBundle;
+
+        //Music
+        musicMainMenu = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Condemned.mp3"));
+        musicLeve1 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_DeathValley.mp3"));
+        musicLevel2 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Ghost.mp3"));
+
+        //Sounds
+        soundArrow = Gdx.audio.newSound(Gdx.files.internal("sounds/Arrow.mp3"));
+        soundBuiltTower = Gdx.audio.newSound(Gdx.files.internal("sounds/BuiltTower.ogg"));
+        soundCyclop = Gdx.audio.newSound(Gdx.files.internal("sounds/Cyclop.mp3"));
+        soundDead = Gdx.audio.newSound(Gdx.files.internal("sounds/DeadSound.mp3"));
+        soundDestroyTower = Gdx.audio.newSound(Gdx.files.internal("sounds/DestroyTower.ogg"));
+        soundFundationSelected = Gdx.audio.newSound(Gdx.files.internal("sounds/FundationSelected.ogg"));
+        soundRage = Gdx.audio.newSound(Gdx.files.internal("sounds/RageSound.mp3"));
+        soundSticky = Gdx.audio.newSound(Gdx.files.internal("sounds/Sticky.mp3"));
+        soundWitch = Gdx.audio.newSound(Gdx.files.internal("sounds/Witch.mp3"));
 
         //Levels
         levelCreator = new LevelCreator();
@@ -205,6 +226,20 @@ public class AssetLoader {
 
         skinArcade.dispose();
         skinMother.dispose();
+
+        musicMainMenu.dispose();
+        musicLeve1.dispose();
+        musicLevel2.dispose();
+
+        soundArrow.dispose();
+        soundBuiltTower.dispose();
+        soundCyclop.dispose();
+        soundDead.dispose();
+        soundDestroyTower.dispose();
+        soundFundationSelected.dispose();
+        soundRage.dispose();
+        soundSticky.dispose();
+        soundWitch.dispose();
 
         farmer.dispose();
         barbarian.dispose();

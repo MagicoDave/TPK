@@ -1,6 +1,7 @@
 package com.mygdx.menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -49,9 +50,28 @@ public class MainMenu extends Stage {
 
         btnOptions = new ImageTextButton("OPTIONS", style);
         btnOptions.setPosition(40, 110);
+        btnOptions.addListener(new InputListener(){
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+        });
 
         btnCredits = new ImageTextButton("CREDITS", style);
         btnCredits.setPosition(40,90);
+        btnCredits.addListener(new InputListener(){
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+        });
+
         Table table = new Table();
         table.add(btnStart);
         table.row();
@@ -63,6 +83,10 @@ public class MainMenu extends Stage {
 
         addActor(label);
         addActor(table);
+
+        game.setMusic(AssetLoader.musicMainMenu);
+        game.getMusic().setLooping(true);
+        game.getMusic().play();
     }
 
 }

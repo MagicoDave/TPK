@@ -79,3 +79,7 @@
     Añadido el segundo mapa! Es completamente jugable.
     Implementado un selector de nivel un tanto rudimentario con ChooseLevelScreen y ChooseLevel.
     Continuando el trabajo de comentar las clases. Stats y LevelCreator comentadas.
+15/02/23
+    Añadida música para el menú principal y cada uno de los niveles disponibles por el momento.
+    Añadidos varios sonidos: Disparos, muertes, construccion, seleccion fundation, destrucción de torres...
+    Ahora se puede volver al menú principal tras terminar un nivel (ya no hace falta cerrar y volver a abrir el juego).

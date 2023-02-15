@@ -52,6 +52,7 @@ public class RageButton extends Button{
             }
             world.gold -= RAGE_PRICE;
             Gdx.input.vibrate(new long[]{0, 200, 100, 200}, -1);
+            AssetLoader.soundRage.play();
         }
     }
 

@@ -39,7 +39,9 @@ public class ChooseLevel extends Stage {
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level1);
-                game.setScreen(new GameScreen());
+                game.getMusic().stop();
+                game.setMusic(AssetLoader.musicLeve1);
+                game.setScreen(new GameScreen(game));
             }
         });
 
@@ -52,7 +54,9 @@ public class ChooseLevel extends Stage {
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level2);
-                game.setScreen(new GameScreen());
+                game.getMusic().stop();
+                game.setMusic(AssetLoader.musicLevel2);
+                game.setScreen(new GameScreen(game));
             }
         });
 

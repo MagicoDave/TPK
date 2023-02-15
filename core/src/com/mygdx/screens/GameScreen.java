@@ -5,6 +5,7 @@ import com.mygdx.gameworld.Renderer;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.helpers.LevelCreator;
+import com.mygdx.tpk.TpkGame;
 import com.mygdx.ui.GameUi;
 
 /**
@@ -21,8 +22,8 @@ public class GameScreen implements Screen {
     /**
      * Inicializar variables en el constructor
      */
-    public GameScreen(){
-        world = new World(AssetLoader.getLevelCreator());
+    public GameScreen(TpkGame game){
+        world = new World(AssetLoader.getLevelCreator(), game);
         gameUi = new GameUi(world);
         renderer = new Renderer(world, gameUi, AssetLoader.getLevelCreator().getMap());
     }

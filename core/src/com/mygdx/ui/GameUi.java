@@ -20,6 +20,8 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.screens.ChooseLevelScreen;
+import com.mygdx.screens.MainMenuScreen;
 import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
 import com.mygdx.ui.buttons.DestroyButton;
@@ -104,6 +106,7 @@ public class GameUi extends Stage{
                     if (world.isRunning()){
                         fundation.isTouchDown(x, y);
                         TowerSelect(fundation);
+                        AssetLoader.soundFundationSelected.play();
                         return true;
                     }
                     return false;
@@ -123,6 +126,9 @@ public class GameUi extends Stage{
                 Gdx.app.log("Dedo abajo", "touch done at (" + x + ", " + y + ")");
                 if (world.isReady()){
                     world.start();
+                } else if (world.isGameOver() || world.isHighScore() || world.isVictory()){
+                    world.getGame().getMusic().stop();
+                    world.getGame().setScreen(new MainMenuScreen(world.getGame()));
                 }
                 return true;
             }

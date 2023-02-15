@@ -10,6 +10,7 @@ import com.mygdx.actors.tiles.Tile;
 import com.mygdx.actors.towers.Debuff;
 import com.mygdx.actors.towers.Tower;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 /**
  * Esta clase abstracta contiene las propiedades comunes de todos los enemigos
@@ -64,6 +65,7 @@ public abstract class Enemy extends Image {
             alive = false;
             world.gold += reward;
             world.score += reward;
+            AssetLoader.soundDead.play();
             world.enemiesInScreen.removeValue(this, true);
         } else {
             if (debuff != null){

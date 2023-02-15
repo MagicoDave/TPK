@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 /**
  * Esta clase abstracta contiene las propiedades comunes de todas las torres
@@ -91,6 +92,20 @@ public abstract class Tower extends Image {
             }
             Gdx.app.log("tower fires to: ", target.toString());
             world.bulletsInScreen.add(new Bullet(world, this, target));
+            switch (ID){
+                case 0:
+                    AssetLoader.soundArrow.play(0.6f);
+                    break;
+                case 1:
+                    AssetLoader.soundWitch.play();
+                    break;
+                case 2:
+                    AssetLoader.soundSticky.play();
+                    break;
+                case 3:
+                    AssetLoader.soundCyclop.play();
+                    break;
+            }
         } else {
             cooldown--;
         }
