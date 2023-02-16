@@ -22,10 +22,10 @@ public class GameScreen implements Screen {
     /**
      * Inicializar variables en el constructor
      */
-    public GameScreen(TpkGame game){
-        world = new World(AssetLoader.getLevelCreator(), game);
+    public GameScreen(TpkGame game, World.Level level){
+        world = new World(AssetLoader.getLevelCreator(), game, level);
         gameUi = new GameUi(world);
-        renderer = new Renderer(world, gameUi, AssetLoader.getLevelCreator().getMap());
+        renderer = new Renderer(world, AssetLoader.getLevelCreator().getMap());
     }
 
     @Override

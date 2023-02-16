@@ -1,6 +1,7 @@
 package com.mygdx.menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -9,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
 import com.mygdx.tpk.TpkGame;
@@ -17,6 +19,7 @@ public class ChooseLevel extends Stage {
 
     TpkGame game;
     ImageTextButton btnLevel1, btnLevel2;
+
 
     public ChooseLevel(final TpkGame game){
         super(new StretchViewport(160,288));
@@ -38,10 +41,7 @@ public class ChooseLevel extends Stage {
             }
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                AssetLoader.getLevelCreator().setLevel(AssetLoader.level1);
-                game.getMusic().stop();
-                game.setMusic(AssetLoader.musicLeve1);
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new GameScreen(game, World.Level.LEVEL_1));
             }
         });
 
@@ -53,12 +53,11 @@ public class ChooseLevel extends Stage {
             }
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                AssetLoader.getLevelCreator().setLevel(AssetLoader.level2);
-                game.getMusic().stop();
-                game.setMusic(AssetLoader.musicLevel2);
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new GameScreen(game, World.Level.LEVEL_2));
             }
         });
+
+
 
         Table table = new Table();
         table.add(btnLevel1);

@@ -27,16 +27,15 @@ public class MainMenu extends Stage {
         super(new StretchViewport(160,288));
         this.game = game;
         Gdx.input.setInputProcessor(this);
-
-
+        
         Skin skin = AssetLoader.skinMother;
         ImageTextButton.ImageTextButtonStyle style = skin.get("default", ImageTextButton.ImageTextButtonStyle.class);
 
-        Label label = new Label("TOTAL PARTY KILL", skin, "giygas");
+        Label label = new Label(AssetLoader.myBundle.format("gameFullName").toUpperCase(), skin, "giygas");
         label.setPosition(15, 200);
         label.setFontScale(0.5f);
 
-        btnStart = new ImageTextButton("START", style);
+        btnStart = new ImageTextButton(AssetLoader.myBundle.format("start").toUpperCase(), style);
         btnStart.setPosition(40, 130);
         btnStart.addListener(new InputListener(){
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -48,7 +47,7 @@ public class MainMenu extends Stage {
             }
         });
 
-        btnOptions = new ImageTextButton("OPTIONS", style);
+        btnOptions = new ImageTextButton(AssetLoader.myBundle.format("options").toUpperCase(), style);
         btnOptions.setPosition(40, 110);
         btnOptions.addListener(new InputListener(){
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -60,7 +59,7 @@ public class MainMenu extends Stage {
             }
         });
 
-        btnCredits = new ImageTextButton("CREDITS", style);
+        btnCredits = new ImageTextButton(AssetLoader.myBundle.format("credits").toUpperCase(), style);
         btnCredits.setPosition(40,90);
         btnCredits.addListener(new InputListener(){
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {

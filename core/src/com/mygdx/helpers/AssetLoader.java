@@ -40,7 +40,7 @@ public class AssetLoader {
 
     public static Skin skinArcade, skinMother;
 
-    public static Music musicMainMenu, musicLeve1, musicLevel2;
+    public static Music musicMainMenu, musicLevel1, musicLevel2;
     public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
 
     /**
@@ -60,7 +60,7 @@ public class AssetLoader {
 
         //Music
         musicMainMenu = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Condemned.mp3"));
-        musicLeve1 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_DeathValley.mp3"));
+        musicLevel1 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_DeathValley.mp3"));
         musicLevel2 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Ghost.mp3"));
 
         //Sounds
@@ -228,7 +228,7 @@ public class AssetLoader {
         skinMother.dispose();
 
         musicMainMenu.dispose();
-        musicLeve1.dispose();
+        musicLevel1.dispose();
         musicLevel2.dispose();
 
         soundArrow.dispose();

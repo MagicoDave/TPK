@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx",
+    "activeFile": "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level3.tmx",
     "expandedProjectPaths": [
         "tilesets",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps"
@@ -51,8 +51,19 @@
             "scale": 2.84,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 91.19718309859157,
+                "x": 91.5492957746479,
                 "y": 155.63380281690144
+            }
+        },
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level3.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 112.5,
+                "y": 133
             }
         },
         "C:/Users/David Casalderrey/Downloads/assetsTPK/1bitpack_kenney_1.2/Tilemap/sample_fantasy.tmx": {
@@ -108,13 +119,15 @@
     "openFiles": [
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx",
-        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/colored-transparent.tsx"
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/colored-transparent.tsx",
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level3.tmx"
     ],
     "project": "tpkmaps.tiled-project",
     "recentFiles": [
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx",
-        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/colored-transparent.tsx",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx",
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/colored-transparent.tsx",
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level3.tmx",
         "level1.tmx",
         "level2.tmx",
         "C:/Users/David Casalderrey/Documents/Moviles/OnGuard/On-Guard/assets/maps/Map1.tmx",

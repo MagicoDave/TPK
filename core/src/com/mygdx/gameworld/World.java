@@ -1,6 +1,7 @@
 package com.mygdx.gameworld;
 
 import static com.mygdx.helpers.Stats.LEVEL_1_WAVE;
+import static com.mygdx.helpers.Stats.LEVEL_2_WAVE;
 import static com.mygdx.helpers.Stats.START_GOLD;
 import static com.mygdx.helpers.Stats.START_HEALTH;
 import static com.mygdx.helpers.Stats.START_SCORE;
@@ -18,7 +19,6 @@ import com.mygdx.helpers.LevelCreator;
 import com.mygdx.helpers.TowerManager;
 import com.mygdx.helpers.WaveManager;
 import com.mygdx.tpk.TpkGame;
-import com.mygdx.ui.GameUi;
 
 
 /**
@@ -34,6 +34,10 @@ public class World extends Stage {
     private GameState currentState;
     public enum GameState{
         READY, RUNNING, GAMEOVER, VICTORY, HIGHSCORE
+    }
+    private Level level;
+    public enum Level{
+        LEVEL_1, LEVEL_2
     }
 
     EnemyManager enemyManager;
@@ -51,25 +55,45 @@ public class World extends Stage {
 
     float timeSinceLastSpawn = 0;
 
-    public World(LevelCreator levelCreator, TpkGame game){
+    public World(LevelCreator levelCreator, TpkGame game, Level level){
         this.game = game;
+        this.level = level;
 
         score = START_SCORE;
         lifes = START_HEALTH;
         gold = START_GOLD;
+
+        game.getMusic().stop();
+        switch (level){
+            case LEVEL_1:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level1);
+                game.setMusic(AssetLoader.musicLevel1);
+                break;
+            case LEVEL_2:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level2);
+                game.setMusic(AssetLoader.musicLevel2);
+                break;
+        }
+        game.getMusic().setLooping(true);
 
         spawnPoint = levelCreator.getSpawnTile();
         finishPoint = levelCreator.getFinishTile();
         roadTiles = levelCreator.getDirectionTiles();
         fundationTiles = levelCreator.getFundationTiles();
 
+        switch (level){
+            case LEVEL_1:
+                waveManager = new WaveManager(this, LEVEL_1_WAVE);
+                break;
+            case LEVEL_2:
+                waveManager = new WaveManager(this, LEVEL_2_WAVE);
+                break;
+        }
+
         currentState = GameState.READY;
 
         enemyManager = new EnemyManager(this);
-        waveManager = new WaveManager(this, LEVEL_1_WAVE);
         towerManager = new TowerManager(this);
-
-        game.getMusic().setLooping(true);
 
     }
 
@@ -142,5 +166,13 @@ public class World extends Stage {
 
     public TpkGame getGame() {
         return game;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 }

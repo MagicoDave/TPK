@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="10" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="104">
+ <tileset firstgid="1" source="colored.tsx"/>
+ <tileset firstgid="1079" source="colored-transparent.tsx"/>
+ <layer id="3" name="Fix Layer" width="10" height="18">
+  <data encoding="csv">
+0,0,1086,0,0,0,0,0,0,0,
+0,0,1084,1084,1084,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,1085,1086,0,1085,1086,1086,0,0,0,
+0,0,1086,1084,1085,1086,1086,1086,0,0,
+0,0,1086,1084,1085,1086,1084,1085,0,1086,
+0,1084,1084,0,1086,1086,1085,0,0,1086,
+0,0,0,0,0,0,0,0,0,1086,
+0,0,0,1086,1086,1084,1085,1086,1085,0,
+0,0,1084,0,0,0,0,1086,1086,0,
+0,0,1084,0,0,0,1084,0,0,1674,
+0,0,0,0,1084,0,1084,0,0,0,
+0,0,1084,0,1084,0,1084,1084,0,1583,
+0,0,0,0,0,0,0,0,0,1084,
+0,0,0,0,1085,1086,1084,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="1" name="Tile Layer" width="10" height="18">
+  <data encoding="csv">
+1129,1081,0,1129,1129,1129,1129,1129,1129,1129,
+1129,1081,0,0,0,1129,1129,1129,1129,1129,
+1129,1081,1081,1081,1081,1081,1081,1081,1081,1129,
+1129,0,0,1200,1231,1231,1232,1200,1081,1129,
+1129,1129,0,3221227549,1766,0,1765,2077,1081,1129,
+1129,1129,0,3221227549,0,0,1814,2077,1081,0,
+1129,0,0,1200,1232,1280,1231,1200,1081,0,
+1129,1081,1081,1081,1081,1081,1081,1081,1081,0,
+1129,1081,1200,0,0,0,0,0,0,1129,
+1129,1081,0,1081,1081,1081,1200,0,0,1129,
+1129,1081,0,1081,1200,1081,0,1672,1673,0,
+1129,1081,1200,1081,0,1081,0,1873,1874,1875,
+1129,1081,0,1081,0,1081,0,1814,1081,1770,
+1129,1081,1081,1081,1200,1081,1081,1081,1081,0,
+1129,1129,1129,1129,0,0,0,1129,1129,1129,
+785,786,786,786,786,786,786,786,786,787,
+834,835,835,835,835,835,835,835,835,836,
+883,884,884,884,884,884,884,884,884,885
+</data>
+ </layer>
+ <objectgroup id="2" name="Metadata">
+  <object id="68" name="SPAWN" x="16" y="0" width="16" height="16"/>
+  <object id="69" name="FINISH_LINE" x="128" y="176" width="16" height="16"/>
+  <object id="70" name="FUNDATION" x="48" y="96" width="16" height="16"/>
+  <object id="71" name="FUNDATION" x="48" y="48" width="16" height="16"/>
+  <object id="72" name="FUNDATION" x="112" y="48" width="16" height="16"/>
+  <object id="73" name="FUNDATION" x="112" y="96" width="16" height="16"/>
+  <object id="74" name="FUNDATION" x="32" y="128" width="16" height="16"/>
+  <object id="75" name="FUNDATION" x="63.6056" y="159.493" width="16" height="16"/>
+  <object id="76" name="FUNDATION" x="96" y="144" width="16" height="16"/>
+  <object id="77" name="FUNDATION" x="32" y="176" width="16" height="16"/>
+  <object id="78" name="FUNDATION" x="64" y="208" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="4" name="Directions">
+  <object id="84" name="RIGHT" x="15.8451" y="40.1408" width="16.1549" height="7.85915"/>
+  <object id="85" name="DOWN" x="135.563" y="32.7465" width="8.43662" height="15.2535"/>
+  <object id="88" name="LEFT" x="128.521" y="120.07" width="15.4789" height="7.92958"/>
+  <object id="90" name="DOWN" x="16" y="111.972" width="6.88732" height="16.0282"/>
+  <object id="79" name="RIGHT" x="16" y="216" width="16" height="8"/>
+  <object id="92" name="UP" x="55.6338" y="207.746" width="8.3662" height="16.2535"/>
+  <object id="94" name="RIGHT" x="47.8873" y="144" width="16.1127" height="7.76056"/>
+  <object id="96" name="DOWN" x="87.3239" y="143.662" width="8.67606" height="16.338"/>
+  <object id="100" name="RIGHT" x="79.9296" y="215.141" width="16.0704" height="8.85915"/>
+  <object id="103" name="UP" x="135.563" y="208.099" width="8.43662" height="15.9014"/>
+ </objectgroup>
+</map>

@@ -23,7 +23,6 @@ import com.mygdx.ui.buttons.Button;
 public class Renderer {
 
     private World world;
-    private GameUi gameUi;
     private OrthographicCamera camera;
     private ShapeRenderer shapeRenderer;
     private OrthogonalTiledMapRenderer tiledMapRenderer;
@@ -38,7 +37,7 @@ public class Renderer {
      * Inicializar variables en el constructor
      * @param world Referencia del GameWorld para actualizar el estado/posición de los elementos cada vez que se dibujan
      */
-    public Renderer(World world, GameUi gameUi, TiledMap map){
+    public Renderer(World world, TiledMap map){
         this.world = world;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 160, 288);
@@ -74,10 +73,15 @@ public class Renderer {
      */
     public void render(float delta, float runTime){
         // Establece color verde y rellena el fondo con el
-        //Gdx.gl.glClearColor(0, 255, 0, 1);
-        Gdx.gl.glClearColor(12.0f/255.0f, 46.0f/255.0f, 0.0f, 1);
+        switch (world.getLevel()){
+            case LEVEL_1:
+                Gdx.gl.glClearColor(0, 255, 0, 1);
+                break;
+            case LEVEL_2:
+                Gdx.gl.glClearColor(12.0f/255.0f, 46.0f/255.0f, 0.0f, 1);
+                break;
+        }
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         camera.update();
 
         tiledMapRenderer.render();
