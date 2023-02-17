@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="10" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="104">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="10" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="155">
  <tileset firstgid="1" source="colored.tsx"/>
  <tileset firstgid="1079" source="colored-transparent.tsx"/>
  <layer id="3" name="Fix Layer" width="10" height="18">
   <data encoding="csv">
-0,0,1086,0,0,0,0,0,0,0,
-0,0,1084,1084,1084,0,0,0,0,0,
+0,0,1129,0,1825,0,0,0,0,0,
+1584,0,2147485134,1584,0,0,0,1584,1584,1584,
+0,0,0,0,0,1770,0,0,0,0,
+0,0,0,0,0,0,0,0,1386,1386,
+0,1826,0,0,0,1129,0,1824,0,0,
 0,0,0,0,0,0,0,0,0,0,
-0,1085,1086,0,1085,1086,1086,0,0,0,
-0,0,1086,1084,1085,1086,1086,1086,0,0,
-0,0,1086,1084,1085,1086,1084,1085,0,1086,
-0,1084,1084,0,1086,1086,1085,0,0,1086,
-0,0,0,0,0,0,0,0,0,1086,
-0,0,0,1086,1086,1084,1085,1086,1085,0,
-0,0,1084,0,0,0,0,1086,1086,0,
-0,0,1084,0,0,0,1084,0,0,1674,
-0,0,0,0,1084,0,1084,0,0,0,
-0,0,1084,0,1084,0,1084,1084,0,1583,
-0,0,0,0,0,0,0,0,0,1084,
-0,0,0,0,1085,1086,1084,0,0,0,
+0,0,0,0,0,0,0,0,0,1769,
+0,0,0,0,0,0,0,0,1386,1386,
+0,0,0,0,0,0,0,0,1386,1386,
+0,0,0,0,0,0,0,0,1388,1388,
+0,0,0,0,0,0,0,0,1388,1388,
+1129,0,0,0,0,0,0,0,0,0,
+1129,0,0,0,0,0,0,0,2147485187,2147485189,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0
@@ -26,49 +26,71 @@
  </layer>
  <layer id="1" name="Tile Layer" width="10" height="18">
   <data encoding="csv">
-1129,1081,0,1129,1129,1129,1129,1129,1129,1129,
-1129,1081,0,0,0,1129,1129,1129,1129,1129,
-1129,1081,1081,1081,1081,1081,1081,1081,1081,1129,
-1129,0,0,1200,1231,1231,1232,1200,1081,1129,
-1129,1129,0,3221227549,1766,0,1765,2077,1081,1129,
-1129,1129,0,3221227549,0,0,1814,2077,1081,0,
-1129,0,0,1200,1232,1280,1231,1200,1081,0,
-1129,1081,1081,1081,1081,1081,1081,1081,1081,0,
-1129,1081,1200,0,0,0,0,0,0,1129,
-1129,1081,0,1081,1081,1081,1200,0,0,1129,
-1129,1081,0,1081,1200,1081,0,1672,1673,0,
-1129,1081,1200,1081,0,1081,0,1873,1874,1875,
-1129,1081,0,1081,0,1081,0,1814,1081,1770,
-1129,1081,1081,1081,1200,1081,1081,1081,1081,0,
-1129,1129,1129,1129,0,0,0,1129,1129,1129,
+1826,1136,0,1824,1584,1826,1136,1824,1825,1826,
+1875,1136,0,1873,1874,1875,1136,1873,1874,1875,
+0,1136,0,1200,1200,0,1136,0,0,0,
+0,1073742961,1610613872,2147484785,1137,1610613872,3221226609,0,0,0,
+1825,1584,0,1136,1136,0,0,1584,1825,1826,
+1874,1875,1137,3221226609,1073742961,2147484785,0,1873,1874,1875,
+0,1137,3221226609,1246,1247,1073742961,2147484785,0,0,0,
+1137,3221226609,1246,1200,1200,1247,1073742961,2147484785,0,0,
+1136,1246,1200,1592,1592,1200,1247,1136,0,0,
+1136,1295,1200,1583,1583,1200,1296,1136,0,0,
+1073742961,2147484785,1295,1200,1200,1296,1137,3221226609,0,0,
+0,1073742961,2147484785,1295,1296,1137,3221226609,0,1824,1825,
+0,0,1073742961,1610613872,2684355649,3221226609,0,2147485187,1873,1874,
+1824,1825,1826,1200,1136,1200,0,1437,2147485186,1640,
+1873,1874,1875,0,1073742961,1610613872,1610613872,1610613872,1610613872,1610613872,
 785,786,786,786,786,786,786,786,786,787,
 834,835,835,835,835,835,835,835,835,836,
 883,884,884,884,884,884,884,884,884,885
 </data>
  </layer>
  <objectgroup id="2" name="Metadata">
-  <object id="68" name="SPAWN" x="16" y="0" width="16" height="16"/>
-  <object id="69" name="FINISH_LINE" x="128" y="176" width="16" height="16"/>
-  <object id="70" name="FUNDATION" x="48" y="96" width="16" height="16"/>
-  <object id="71" name="FUNDATION" x="48" y="48" width="16" height="16"/>
-  <object id="72" name="FUNDATION" x="112" y="48" width="16" height="16"/>
-  <object id="73" name="FUNDATION" x="112" y="96" width="16" height="16"/>
-  <object id="74" name="FUNDATION" x="32" y="128" width="16" height="16"/>
-  <object id="75" name="FUNDATION" x="63.6056" y="159.493" width="16" height="16"/>
-  <object id="76" name="FUNDATION" x="96" y="144" width="16" height="16"/>
-  <object id="77" name="FUNDATION" x="32" y="176" width="16" height="16"/>
-  <object id="78" name="FUNDATION" x="64" y="208" width="16" height="16"/>
+  <object id="104" name="SPAWN" x="16" y="0" width="16" height="16"/>
+  <object id="105" name="SPAWN" x="96" y="0" width="16" height="16"/>
+  <object id="107" name="FINISH_LINE" x="144" y="224" width="16" height="16"/>
+  <object id="108" name="FUNDATION" x="48" y="32" width="16" height="16"/>
+  <object id="109" name="FUNDATION" x="64.4484" y="32.4445" width="16" height="16"/>
+  <object id="110" name="FUNDATION" x="48.2706" y="111.927" width="16" height="16"/>
+  <object id="111" name="FUNDATION" x="64.4484" y="112.63" width="16" height="16"/>
+  <object id="112" name="FUNDATION" x="80.2745" y="128.456" width="16" height="16"/>
+  <object id="113" name="FUNDATION" x="80.6262" y="143.579" width="16" height="16"/>
+  <object id="114" name="FUNDATION" x="64.4484" y="159.405" width="16" height="16"/>
+  <object id="115" name="FUNDATION" x="48.6223" y="160.46" width="16" height="16"/>
+  <object id="116" name="FUNDATION" x="31.7411" y="144.986" width="16" height="16"/>
+  <object id="117" name="FUNDATION" x="33.1479" y="129.511" width="16" height="16"/>
+  <object id="118" name="FUNDATION" x="47.9189" y="207.938" width="16" height="16"/>
+  <object id="119" name="FUNDATION" x="80.6262" y="208.642" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="Directions">
-  <object id="84" name="RIGHT" x="15.8451" y="40.1408" width="16.1549" height="7.85915"/>
-  <object id="85" name="DOWN" x="135.563" y="32.7465" width="8.43662" height="15.2535"/>
-  <object id="88" name="LEFT" x="128.521" y="120.07" width="15.4789" height="7.92958"/>
-  <object id="90" name="DOWN" x="16" y="111.972" width="6.88732" height="16.0282"/>
-  <object id="79" name="RIGHT" x="16" y="216" width="16" height="8"/>
-  <object id="92" name="UP" x="55.6338" y="207.746" width="8.3662" height="16.2535"/>
-  <object id="94" name="RIGHT" x="47.8873" y="144" width="16.1127" height="7.76056"/>
-  <object id="96" name="DOWN" x="87.3239" y="143.662" width="8.67606" height="16.338"/>
-  <object id="100" name="RIGHT" x="79.9296" y="215.141" width="16.0704" height="8.85915"/>
-  <object id="103" name="UP" x="135.563" y="208.099" width="8.43662" height="15.9014"/>
+  <object id="122" name="RIGHT" x="16" y="56" width="16" height="8"/>
+  <object id="123" name="LEFT" x="96" y="56" width="16" height="8"/>
+  <object id="124" name="DOWN" x="48" y="48" width="16" height="16"/>
+  <object id="126" name="DOWN" x="64" y="48" width="16" height="16"/>
+  <object id="127" name="LEFT" x="48" y="80" width="16" height="16"/>
+  <object id="130" name="RIGHT" x="64" y="80" width="16" height="16"/>
+  <object id="131" name="DOWN" x="88" y="80" width="8" height="16"/>
+  <object id="132" name="DOWN" x="104" y="96" width="8" height="16"/>
+  <object id="133" name="DOWN" x="120" y="112" width="8" height="16"/>
+  <object id="134" name="DOWN" x="32" y="80" width="8" height="16"/>
+  <object id="135" name="DOWN" x="16" y="96" width="8" height="16"/>
+  <object id="136" name="DOWN" x="0" y="112" width="8" height="16"/>
+  <object id="137" name="DOWN" x="24" y="160" width="8" height="16"/>
+  <object id="138" name="DOWN" x="40" y="176" width="8" height="16"/>
+  <object id="139" name="DOWN" x="88" y="176" width="8" height="16"/>
+  <object id="140" name="DOWN" x="104" y="160" width="8" height="16"/>
+  <object id="141" name="DOWN" x="70" y="192" width="2" height="16"/>
+  <object id="143" name="LEFT" x="31.3005" y="103.046" width="16.6995" height="8.95445"/>
+  <object id="145" name="LEFT" x="15.8261" y="120.982" width="16.1739" height="7.0182"/>
+  <object id="146" name="RIGHT" x="0.351691" y="167.053" width="15.6483" height="8.94664"/>
+  <object id="147" name="RIGHT" x="15.8261" y="183.935" width="16.1739" height="8.06545"/>
+  <object id="148" name="RIGHT" x="31.6522" y="199.761" width="16.3478" height="8.23935"/>
+  <object id="149" name="RIGHT" x="63.6561" y="230.358" width="16.3439" height="9.6422"/>
+  <object id="150" name="RIGHT" x="79.8339" y="103.046" width="16.1661" height="8.95445"/>
+  <object id="151" name="RIGHT" x="95.3083" y="119.927" width="16.6917" height="8.07327"/>
+  <object id="152" name="LEFT" x="112.541" y="167.405" width="15.4588" height="8.59494"/>
+  <object id="153" name="LEFT" x="96.0117" y="184.286" width="15.9883" height="7.71376"/>
+  <object id="154" name="LEFT" x="79.4822" y="200.464" width="16.5178" height="7.53596"/>
  </objectgroup>
 </map>

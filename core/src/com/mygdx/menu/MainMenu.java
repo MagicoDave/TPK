@@ -32,7 +32,7 @@ public class MainMenu extends Stage {
         ImageTextButton.ImageTextButtonStyle style = skin.get("default", ImageTextButton.ImageTextButtonStyle.class);
 
         Label label = new Label(AssetLoader.myBundle.format("gameFullName").toUpperCase(), skin, "giygas");
-        label.setPosition(15, 200);
+        //label.setPosition(15, 200);
         label.setFontScale(0.5f);
 
         btnStart = new ImageTextButton(AssetLoader.myBundle.format("start").toUpperCase(), style);
@@ -72,15 +72,17 @@ public class MainMenu extends Stage {
         });
 
         Table table = new Table();
+        table.add(label).padBottom(40);
+        table.row();
         table.add(btnStart);
         table.row();
         table.add(btnOptions);
         table.row();
         table.add(btnCredits);
         table.setFillParent(true);
-        table.center().padTop(20);
+        table.setDebug(true);
+        table.center();
 
-        addActor(label);
         addActor(table);
 
         game.setMusic(AssetLoader.musicMainMenu);

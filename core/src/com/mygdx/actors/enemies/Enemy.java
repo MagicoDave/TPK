@@ -45,13 +45,13 @@ public abstract class Enemy extends Image {
 
     protected boolean alive;
 
-    public Enemy(World world){
+    public Enemy(World world, int spawn){
         super();
 
         this.world = world;
 
         this.direction = Direction.DOWN;
-        this.setBounds(world.spawnPoint.getHitbox().getX(), world.spawnPoint.getHitbox().getY(), 16, 16);
+        this.setBounds(world.spawnPoint.get(spawn).getHitbox().getX(), world.spawnPoint.get(spawn).getHitbox().getY(), 16, 16);
 
         alive = true;
     }

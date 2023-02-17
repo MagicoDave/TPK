@@ -29,12 +29,12 @@ public class LevelCreator {
     /**
      * Arrays de los objetos parseados
      */
-    private Array<Tile> directionTiles, fundationTiles;
+    private Array<Tile> directionTiles, fundationTiles, spawnTile;
 
     /**
      * Tiles de spawn de enemigos y final de recorrido
      */
-    private Tile spawnTile, finishTile;
+    private Tile finishTile;
 
     /**
      * Parsea los objetos de un mapa que se le pasa como parámetro
@@ -43,6 +43,7 @@ public class LevelCreator {
     public void setLevel(TiledMap map) {
         this.map = map;
         //Se reasignan los arrays a uno nuevo cada vez que se llama al método
+        spawnTile = new Array<Tile>();
         directionTiles = new Array<Tile>();
         fundationTiles = new Array<Tile>();
         //Se parsean los objetos del mapa. En mis TiledMaps, hay dos capas de objetos: Metadata y Directions, cada una con su método correspondiente
@@ -61,8 +62,8 @@ public class LevelCreator {
 
                 switch (mapObject.getName()) {
                     case "SPAWN":
-                        spawnTile = new Tile(null, Type.SPAWN,
-                                ((RectangleMapObject) mapObject).getRectangle());
+                        spawnTile.add(new Tile(null, Type.SPAWN,
+                                ((RectangleMapObject) mapObject).getRectangle()));
                         break;
                     case "FINISH_LINE":
                         finishTile = new Tile(null, Type.FINISH_LINE,
@@ -124,7 +125,7 @@ public class LevelCreator {
         return fundationTiles;
     }
 
-    public Tile getSpawnTile() {
+    public Array<Tile> getSpawnTile() {
         return spawnTile;
     }
 

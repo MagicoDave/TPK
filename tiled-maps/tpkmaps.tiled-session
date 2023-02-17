@@ -39,7 +39,7 @@
             "scale": 2.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 80.00000000000001,
+                "x": 80.4,
                 "y": 144
             }
         },
@@ -51,19 +51,28 @@
             "scale": 2.84,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 91.5492957746479,
-                "y": 155.63380281690144
+                "x": 91.90140845070424,
+                "y": 110.56338028169016
             }
         },
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level3.tmx": {
             "expandedObjectLayers": [
-                4
+                4,
+                2
             ],
             "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 112.5,
-                "y": 133
+                "x": 62.5,
+                "y": 87
+            }
+        },
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level4.tmx": {
+            "scale": 2.8434027777777775,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 151.93063866161927,
+                "y": 231.76456221760904
             }
         },
         "C:/Users/David Casalderrey/Downloads/assetsTPK/1bitpack_kenney_1.2/Tilemap/sample_fantasy.tmx": {
@@ -124,9 +133,9 @@
     ],
     "project": "tpkmaps.tiled-project",
     "recentFiles": [
+        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/colored-transparent.tsx",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level1.tmx",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level2.tmx",
-        "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/colored-transparent.tsx",
         "C:/Users/David Casalderrey/Documents/Moviles/TPK/assets/maps/level3.tmx",
         "level1.tmx",
         "level2.tmx",

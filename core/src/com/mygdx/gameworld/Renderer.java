@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector3;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Debuff;
@@ -79,6 +80,12 @@ public class Renderer {
                 break;
             case LEVEL_2:
                 Gdx.gl.glClearColor(12.0f/255.0f, 46.0f/255.0f, 0.0f, 1);
+                break;
+            case LEVEL_3:
+                Gdx.gl.glClearColor(99.0f/255.0f, 99.0f/255.0f, 99.0f/255.0f, 1);
+                break;
+            case LEVEL_4:
+                Gdx.gl.glClearColor(87.0f/255.0f, 71.0f/255.0f, 6.0f/255.0f, 1);
                 break;
         }
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

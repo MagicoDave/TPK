@@ -21,7 +21,7 @@ public class AssetLoader {
 
     public static I18NBundle enBundle, esBundle, glBundle, myBundle;
 
-    public static TiledMap level1, level2;
+    public static TiledMap level1, level2, level3, level4;
 
     public static LevelCreator levelCreator;
 
@@ -40,7 +40,7 @@ public class AssetLoader {
 
     public static Skin skinArcade, skinMother;
 
-    public static Music musicMainMenu, musicLevel1, musicLevel2;
+    public static Music musicMainMenu, musicLevel1, musicLevel2, musicLevel3, musicLevel4;
     public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
 
     /**
@@ -62,6 +62,8 @@ public class AssetLoader {
         musicMainMenu = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Condemned.mp3"));
         musicLevel1 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_DeathValley.mp3"));
         musicLevel2 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Ghost.mp3"));
+        musicLevel3 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_LoseYourHead.mp3"));
+        musicLevel4 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_EnemiesOfThePeople.mp3"));
 
         //Sounds
         soundArrow = Gdx.audio.newSound(Gdx.files.internal("sounds/Arrow.mp3"));
@@ -78,6 +80,8 @@ public class AssetLoader {
         levelCreator = new LevelCreator();
         level1 = new TmxMapLoader().load("maps/level1.tmx");
         level2 = new TmxMapLoader().load("maps/level2.tmx");
+        level3= new TmxMapLoader().load("maps/level3.tmx");
+        level4= new TmxMapLoader().load("maps/level4.tmx");
 
         //Skins
         skinArcade = new Skin(Gdx.files.internal("skin/arcade-ui.json"));

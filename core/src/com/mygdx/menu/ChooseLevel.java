@@ -18,7 +18,7 @@ import com.mygdx.tpk.TpkGame;
 public class ChooseLevel extends Stage {
 
     TpkGame game;
-    ImageTextButton btnLevel1, btnLevel2;
+    ImageTextButton btnLevel1, btnLevel2, btnLevel3, btnLevel4;
 
 
     public ChooseLevel(final TpkGame game){
@@ -29,11 +29,11 @@ public class ChooseLevel extends Stage {
         Skin skin = AssetLoader.skinMother;
         ImageTextButton.ImageTextButtonStyle style = skin.get("default", ImageTextButton.ImageTextButtonStyle.class);
 
-        Label label = new Label("SELECT LEVEL", skin, "giygas");
-        label.setPosition(15, 200);
+        Label label = new Label(AssetLoader.myBundle.format("selectLevel").toUpperCase(), skin, "giygas");
+        label.setPosition(20, 200);
         label.setFontScale(0.5f);
 
-        btnLevel1 = new ImageTextButton("Level 1", style);
+        btnLevel1 = new ImageTextButton(AssetLoader.myBundle.format("river").toUpperCase(), style);
         btnLevel1.setPosition(40, 130);
         btnLevel1.addListener(new InputListener(){
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -45,7 +45,7 @@ public class ChooseLevel extends Stage {
             }
         });
 
-        btnLevel2 = new ImageTextButton("Level 2", style);
+        btnLevel2 = new ImageTextButton(AssetLoader.myBundle.format("forest").toUpperCase(), style);
         btnLevel2.setPosition(40, 110);
         btnLevel2.addListener(new InputListener(){
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -57,16 +57,44 @@ public class ChooseLevel extends Stage {
             }
         });
 
+        btnLevel3 = new ImageTextButton(AssetLoader.myBundle.format("dungeon").toUpperCase(), style);
+        btnLevel3.setPosition(40, 110);
+        btnLevel3.addListener(new InputListener(){
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
 
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new GameScreen(game, World.Level.LEVEL_3));
+            }
+        });
+
+        btnLevel4 = new ImageTextButton(AssetLoader.myBundle.format("village").toUpperCase(), style);
+        btnLevel4.setPosition(40, 110);
+        btnLevel4.addListener(new InputListener(){
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new GameScreen(game, World.Level.LEVEL_4));
+            }
+        });
 
         Table table = new Table();
+        table.add(label).padBottom(40);
+        table.row();
         table.add(btnLevel1);
         table.row();
         table.add(btnLevel2);
+        table.row();
+        table.add(btnLevel3);
+        table.row();
+        table.add(btnLevel4);
         table.setFillParent(true);
-        table.center().padTop(20);
+        table.setDebug(true);
+        table.center();
 
-        addActor(label);
         addActor(table);
     }
 }

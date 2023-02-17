@@ -2,6 +2,8 @@ package com.mygdx.gameworld;
 
 import static com.mygdx.helpers.Stats.LEVEL_1_WAVE;
 import static com.mygdx.helpers.Stats.LEVEL_2_WAVE;
+import static com.mygdx.helpers.Stats.LEVEL_3_WAVE;
+import static com.mygdx.helpers.Stats.LEVEL_4_WAVE;
 import static com.mygdx.helpers.Stats.START_GOLD;
 import static com.mygdx.helpers.Stats.START_HEALTH;
 import static com.mygdx.helpers.Stats.START_SCORE;
@@ -37,7 +39,7 @@ public class World extends Stage {
     }
     private Level level;
     public enum Level{
-        LEVEL_1, LEVEL_2
+        LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4
     }
 
     EnemyManager enemyManager;
@@ -48,7 +50,7 @@ public class World extends Stage {
     public Array<Tower> constructedTowers = new Array<Tower>();
     public Array<Bullet> bulletsInScreen = new Array<Bullet>();
 
-    public Tile spawnPoint;
+    public Array<Tile> spawnPoint;
     public Tile finishPoint;
     public Array<Tile> roadTiles;
     public Array<Tile> fundationTiles;
@@ -73,6 +75,14 @@ public class World extends Stage {
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level2);
                 game.setMusic(AssetLoader.musicLevel2);
                 break;
+            case LEVEL_3:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level3);
+                game.setMusic(AssetLoader.musicLevel3);
+                break;
+            case LEVEL_4:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level4);
+                game.setMusic(AssetLoader.musicLevel4);
+                break;
         }
         game.getMusic().setLooping(true);
 
@@ -87,6 +97,12 @@ public class World extends Stage {
                 break;
             case LEVEL_2:
                 waveManager = new WaveManager(this, LEVEL_2_WAVE);
+                break;
+            case LEVEL_3:
+                waveManager = new WaveManager(this, LEVEL_3_WAVE);
+                break;
+            case LEVEL_4:
+                waveManager = new WaveManager(this, LEVEL_4_WAVE);
                 break;
         }
 
@@ -115,6 +131,9 @@ public class World extends Stage {
                 towerManager.update(delta);
                 if (timeSinceLastSpawn >= TIME_BETWEEN_SPAWNS){
                     waveManager.spawn();
+                    if (level == Level.LEVEL_4){
+                        waveManager.spawn();
+                    }
                     timeSinceLastSpawn = 0;
                 }
                 if (lifes <= 0){

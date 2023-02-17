@@ -8,8 +8,8 @@ import com.mygdx.helpers.Stats;
  */
 public class Thief extends Enemy{
 
-    public Thief(World world) {
-        super(world);
+    public Thief(World world, int spawn) {
+        super(world, spawn);
 
         this.ID = 3;
         this.hp = Stats.THIEF.hp;
