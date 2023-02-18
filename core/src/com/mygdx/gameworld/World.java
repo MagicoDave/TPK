@@ -1,6 +1,9 @@
 package com.mygdx.gameworld;
 
 import static com.mygdx.helpers.Stats.LEVEL_1_WAVE;
+import static com.mygdx.helpers.Stats.LEVEL_2_WAVE;
+import static com.mygdx.helpers.Stats.LEVEL_3_WAVE;
+import static com.mygdx.helpers.Stats.LEVEL_4_WAVE;
 import static com.mygdx.helpers.Stats.START_GOLD;
 import static com.mygdx.helpers.Stats.START_HEALTH;
 import static com.mygdx.helpers.Stats.START_SCORE;
@@ -12,11 +15,12 @@ import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.actors.towers.Bullet;
 import com.mygdx.actors.towers.Tower;
+import com.mygdx.helpers.AssetLoader;
 import com.mygdx.helpers.EnemyManager;
 import com.mygdx.helpers.LevelCreator;
 import com.mygdx.helpers.TowerManager;
 import com.mygdx.helpers.WaveManager;
-import com.mygdx.ui.GameUi;
+import com.mygdx.tpk.TpkGame;
 
 
 /**
@@ -28,9 +32,14 @@ public class World extends Stage {
 
     private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
 
+    private TpkGame game;
     private GameState currentState;
     public enum GameState{
         READY, RUNNING, GAMEOVER, VICTORY, HIGHSCORE
+    }
+    private Level level;
+    public enum Level{
+        LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4
     }
 
     EnemyManager enemyManager;
@@ -41,28 +50,65 @@ public class World extends Stage {
     public Array<Tower> constructedTowers = new Array<Tower>();
     public Array<Bullet> bulletsInScreen = new Array<Bullet>();
 
-    public Tile spawnPoint;
+    public Array<Tile> spawnPoint;
     public Tile finishPoint;
     public Array<Tile> roadTiles;
     public Array<Tile> fundationTiles;
 
     float timeSinceLastSpawn = 0;
 
-    public World(LevelCreator levelCreator){
+    public World(LevelCreator levelCreator, TpkGame game, Level level){
+        this.game = game;
+        this.level = level;
 
         score = START_SCORE;
         lifes = START_HEALTH;
         gold = START_GOLD;
+
+        game.getMusic().stop();
+        switch (level){
+            case LEVEL_1:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level1);
+                game.setMusic(AssetLoader.musicLevel1);
+                break;
+            case LEVEL_2:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level2);
+                game.setMusic(AssetLoader.musicLevel2);
+                break;
+            case LEVEL_3:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level3);
+                game.setMusic(AssetLoader.musicLevel3);
+                break;
+            case LEVEL_4:
+                AssetLoader.getLevelCreator().setLevel(AssetLoader.level4);
+                game.setMusic(AssetLoader.musicLevel4);
+                break;
+        }
+        game.getMusic().setLooping(true);
 
         spawnPoint = levelCreator.getSpawnTile();
         finishPoint = levelCreator.getFinishTile();
         roadTiles = levelCreator.getDirectionTiles();
         fundationTiles = levelCreator.getFundationTiles();
 
+        switch (level){
+            case LEVEL_1:
+                waveManager = new WaveManager(this, LEVEL_1_WAVE);
+                break;
+            case LEVEL_2:
+                waveManager = new WaveManager(this, LEVEL_2_WAVE);
+                break;
+            case LEVEL_3:
+                waveManager = new WaveManager(this, LEVEL_3_WAVE);
+                break;
+            case LEVEL_4:
+                waveManager = new WaveManager(this, LEVEL_4_WAVE);
+                break;
+        }
+
         currentState = GameState.READY;
 
         enemyManager = new EnemyManager(this);
-        waveManager = new WaveManager(this, LEVEL_1_WAVE);
         towerManager = new TowerManager(this);
 
     }
@@ -79,11 +125,15 @@ public class World extends Stage {
             case READY:
                 break;
             case RUNNING:
+                game.getMusic().play();
                 timeSinceLastSpawn += delta;
                 enemyManager.update(delta);
                 towerManager.update(delta);
                 if (timeSinceLastSpawn >= TIME_BETWEEN_SPAWNS){
                     waveManager.spawn();
+                    if (level == Level.LEVEL_4){
+                        waveManager.spawn();
+                    }
                     timeSinceLastSpawn = 0;
                 }
                 if (lifes <= 0){
@@ -117,6 +167,10 @@ public class World extends Stage {
         return currentState == GameState.GAMEOVER;
     }
 
+    public boolean isVictory() {
+        return currentState == GameState.VICTORY;
+    }
+
     public boolean isRunning() {
         return currentState == GameState.RUNNING;
     }
@@ -127,5 +181,17 @@ public class World extends Stage {
 
     public void start() {
         currentState = GameState.RUNNING;
+    }
+
+    public TpkGame getGame() {
+        return game;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 }

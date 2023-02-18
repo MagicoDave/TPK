@@ -4,6 +4,7 @@ import static com.mygdx.helpers.Stats.CYCLOP_TOWER;
 
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
+import com.mygdx.helpers.AssetLoader;
 
 /**
  * Esta clase gestiona las propiedades de la Tower CyclopTower

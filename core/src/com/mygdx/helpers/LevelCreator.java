@@ -16,23 +16,45 @@ import com.mygdx.actors.tiles.Direction;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.actors.tiles.Type;
 
+/**
+ * Esta clase gestiona el parseado de objetos del mapa (Tiles)
+ */
 public class LevelCreator {
 
+    /**
+     * Referencia del mapa a parsear
+     */
     private TiledMap map;
 
-    private Array<Tile> directionTiles = new Array<Tile>();
-    private Array<Tile> fundationTiles = new Array<Tile>();
+    /**
+     * Arrays de los objetos parseados
+     */
+    private Array<Tile> directionTiles, fundationTiles, spawnTile;
 
-    private Tile spawnTile;
+    /**
+     * Tiles de spawn de enemigos y final de recorrido
+     */
     private Tile finishTile;
 
-    public TiledMap setLevel(String path) {
-        map = new TmxMapLoader().load(path);
+    /**
+     * Parsea los objetos de un mapa que se le pasa como parámetro
+     * @param map El TiledMap a parsear
+     */
+    public void setLevel(TiledMap map) {
+        this.map = map;
+        //Se reasignan los arrays a uno nuevo cada vez que se llama al método
+        spawnTile = new Array<Tile>();
+        directionTiles = new Array<Tile>();
+        fundationTiles = new Array<Tile>();
+        //Se parsean los objetos del mapa. En mis TiledMaps, hay dos capas de objetos: Metadata y Directions, cada una con su método correspondiente
         parseMetadataObjects(map.getLayers().get("Metadata").getObjects());
         parseDirectionObjects(map.getLayers().get("Directions").getObjects());
-        return map;
     }
 
+    /**
+     * Crea nuevos Tiles de tipo SPAWN, FINISH_LINE y FUNDATION en función de los objetos parseados del mapa
+     * @param mapObjects El array de objetos de la capa escogida del TiledMap
+     */
     private void parseMetadataObjects(MapObjects mapObjects) {
         for (MapObject mapObject : mapObjects) {
 
@@ -40,8 +62,8 @@ public class LevelCreator {
 
                 switch (mapObject.getName()) {
                     case "SPAWN":
-                        spawnTile = new Tile(null, Type.SPAWN,
-                                ((RectangleMapObject) mapObject).getRectangle());
+                        spawnTile.add(new Tile(null, Type.SPAWN,
+                                ((RectangleMapObject) mapObject).getRectangle()));
                         break;
                     case "FINISH_LINE":
                         finishTile = new Tile(null, Type.FINISH_LINE,
@@ -58,6 +80,10 @@ public class LevelCreator {
         }
     }
 
+    /**
+     * Crea nuevos Tiles de tipo ROAD con su correspondiente Direction en función de los objetos parseados del mapa
+     * @param mapObjects El array de objetos de la capa escogida del TiledMap
+     */
     private void parseDirectionObjects(MapObjects mapObjects) {
         for (MapObject mapObject : mapObjects) {
 
@@ -87,6 +113,10 @@ public class LevelCreator {
         }
     }
 
+    public TiledMap getMap() {
+        return map;
+    }
+
     public Array<Tile> getDirectionTiles() {
         return directionTiles;
     }
@@ -95,7 +125,7 @@ public class LevelCreator {
         return fundationTiles;
     }
 
-    public Tile getSpawnTile() {
+    public Array<Tile> getSpawnTile() {
         return spawnTile;
     }
 

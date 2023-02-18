@@ -1,11 +1,17 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+<<<<<<< HEAD
+=======
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+>>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 
@@ -18,7 +24,7 @@ public class AssetLoader {
 
     public static I18NBundle enBundle, esBundle, glBundle, myBundle;
 
-    public static TiledMap level1;
+    public static TiledMap level1, level2, level3, level4;
 
     public static LevelCreator levelCreator;
 
@@ -37,6 +43,15 @@ public class AssetLoader {
 
     public static Skin skinArcade, skinMother;
 
+<<<<<<< HEAD
+=======
+    public static Music musicMainMenu, musicLevel1, musicLevel2, musicLevel3, musicLevel4;
+    public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
+
+    /**
+     * Carga de assets
+     */
+>>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
     public static void load(){
 
         //Languages
@@ -49,11 +64,38 @@ public class AssetLoader {
         glBundle = I18NBundle.createBundle(baseFileHandler, locale);
         myBundle = enBundle;
 
+        //Music
+        musicMainMenu = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Condemned.mp3"));
+        musicLevel1 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_DeathValley.mp3"));
+        musicLevel2 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_Ghost.mp3"));
+        musicLevel3 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_LoseYourHead.mp3"));
+        musicLevel4 = Gdx.audio.newMusic(Gdx.files.internal("music/EggyToast_EnemiesOfThePeople.mp3"));
+
+        //Sounds
+        soundArrow = Gdx.audio.newSound(Gdx.files.internal("sounds/Arrow.mp3"));
+        soundBuiltTower = Gdx.audio.newSound(Gdx.files.internal("sounds/BuiltTower.ogg"));
+        soundCyclop = Gdx.audio.newSound(Gdx.files.internal("sounds/Cyclop.mp3"));
+        soundDead = Gdx.audio.newSound(Gdx.files.internal("sounds/DeadSound.mp3"));
+        soundDestroyTower = Gdx.audio.newSound(Gdx.files.internal("sounds/DestroyTower.ogg"));
+        soundFundationSelected = Gdx.audio.newSound(Gdx.files.internal("sounds/FundationSelected.ogg"));
+        soundRage = Gdx.audio.newSound(Gdx.files.internal("sounds/RageSound.mp3"));
+        soundSticky = Gdx.audio.newSound(Gdx.files.internal("sounds/Sticky.mp3"));
+        soundWitch = Gdx.audio.newSound(Gdx.files.internal("sounds/Witch.mp3"));
+
         //Levels
         levelCreator = new LevelCreator();
+<<<<<<< HEAD
         level1 = levelCreator.setLevel("maps/level1.tmx");
 
         //Skin
+=======
+        level1 = new TmxMapLoader().load("maps/level1.tmx");
+        level2 = new TmxMapLoader().load("maps/level2.tmx");
+        level3= new TmxMapLoader().load("maps/level3.tmx");
+        level4= new TmxMapLoader().load("maps/level4.tmx");
+
+        //Skins
+>>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
         skinArcade = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
         skinMother = new Skin(Gdx.files.internal("skin/mother/terra-mother-ui.json"));
 
@@ -191,8 +233,29 @@ public class AssetLoader {
         redBullet1 = new TextureRegion(redBullet, 0, 0, 24, 24);
     }
 
+    /**
+     * Liberación de recursos
+     */
     public static void dispose(){
         level1.dispose();
+        level2.dispose();
+
+        skinArcade.dispose();
+        skinMother.dispose();
+
+        musicMainMenu.dispose();
+        musicLevel1.dispose();
+        musicLevel2.dispose();
+
+        soundArrow.dispose();
+        soundBuiltTower.dispose();
+        soundCyclop.dispose();
+        soundDead.dispose();
+        soundDestroyTower.dispose();
+        soundFundationSelected.dispose();
+        soundRage.dispose();
+        soundSticky.dispose();
+        soundWitch.dispose();
 
         farmer.dispose();
         barbarian.dispose();
@@ -208,6 +271,8 @@ public class AssetLoader {
         witchTower.dispose();
         stickyTower.dispose();
         cyclopTower.dispose();
+
+        redBullet.dispose();
     }
 
     public static LevelCreator getLevelCreator() {

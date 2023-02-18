@@ -13,18 +13,12 @@ public class MainMenuScreen implements Screen {
 
     MainMenu mainMenu;
     OrthographicCamera camera;
-    SpriteBatch batcher;
-    ShapeRenderer shapeRenderer;
 
     public MainMenuScreen(TpkGame game){
         mainMenu = new MainMenu(game);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 160, 288);
-        batcher = new SpriteBatch();
-        batcher.setProjectionMatrix(camera.combined);
-        shapeRenderer = new ShapeRenderer();
-        shapeRenderer.setProjectionMatrix(camera.combined);
     }
 
     @Override
@@ -58,7 +52,6 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void hide() {
-
     }
 
     @Override

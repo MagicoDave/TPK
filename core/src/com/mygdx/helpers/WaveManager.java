@@ -43,21 +43,27 @@ public class WaveManager {
     public void setWave(int[] wave) {
 
         array = new Array<Enemy>();
+        int spawnNumber =0;
+
 
         for (int i = 0; i < wave.length; i++) {
             switch (wave[i]) {
                 case 0:
-                    array.add(new Farmer(world));
+                    array.add(new Farmer(world, spawnNumber));
                     break;
                 case 1:
-                    array.add(new Barbarian(world));
+                    array.add(new Barbarian(world, spawnNumber));
                     break;
                 case 2:
-                    array.add(new Mage(world));
+                    array.add(new Mage(world, spawnNumber));
                     break;
                 case 3:
-                    array.add(new Thief(world));
+                    array.add(new Thief(world, spawnNumber));
                     break;
+            }
+            spawnNumber++;
+            if (spawnNumber >= world.spawnPoint.size){
+                spawnNumber = 0;
             }
         }
     }

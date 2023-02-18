@@ -65,6 +65,7 @@ public class BuildTowerButton extends Button{
                     fundation.setTower(tower);
                     world.constructedTowers.add(fundation.getTower());
                     world.gold -= towerCost;
+                    AssetLoader.soundBuiltTower.play();
                 }
                 return true;
             }

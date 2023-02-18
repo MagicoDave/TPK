@@ -1,6 +1,7 @@
 package com.mygdx.tpk;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.audio.Music;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
 import com.mygdx.screens.MainMenuScreen;
@@ -9,6 +10,8 @@ import com.mygdx.screens.MainMenuScreen;
  * Clase principal
  */
 public class TpkGame extends Game {
+
+	private Music music;
 
 	/**
 	 * Carga el AssetLoader y manda a la SplashScreen al iniciar el juego
@@ -26,5 +29,13 @@ public class TpkGame extends Game {
 	public void dispose () {
 		super.dispose();
 		AssetLoader.dispose();
+	}
+
+	public Music getMusic() {
+		return music;
+	}
+
+	public void setMusic(Music music) {
+		this.music = music;
 	}
 }

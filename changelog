@@ -73,3 +73,19 @@
     Ahora los enemigos y las torres se 'mueven' (velocidad de la animación) más rápido o lento según el estado (rage/ralentizado).
     Ahora el botón Rage puede activarse agitandose!
     Añadida nueva pantalla, MainMenuScreen! Ahora el juego se iniciará al menú en vez de directamente al juego.
+14/02/23
+    Añadido vibrador: El móvil vibra al pulsar el botón Rage (o agitar el móvil) y cada vez que un enemigo escapa.
+    Corregido problema importante de rendimiento con las Skin: Debo ser más cuidadoso a la hora de gestionar recursos.
+    Añadido el segundo mapa! Es completamente jugable.
+    Implementado un selector de nivel un tanto rudimentario con ChooseLevelScreen y ChooseLevel.
+    Continuando el trabajo de comentar las clases. Stats y LevelCreator comentadas.
+15/02/23
+    Añadida música para el menú principal y cada uno de los niveles disponibles por el momento.
+    Añadidos varios sonidos: Disparos, muertes, construccion, seleccion fundation, destrucción de torres...
+    Ahora se puede volver al menú principal tras terminar un nivel (ya no hace falta cerrar y volver a abrir el juego).
+16/02/23
+    ¡Añadido tercer mapa, la mazmorra! Como twist, el recorrido entra y sale de la pantalla.
+17/02/23
+    ¡Añadido cuarto mapa, la aldea! El primer mapa con doble spawn y doble de enemigos apareciendo al mismo tiempo
+    Ahora los menús deberían quedar bastante mejor cuadrados (pasé a usar la clase table de libgdx para organizarlos)
+    Se crean los strings de localización para los menús y elementos de la interfaz que faltan (por el momento).

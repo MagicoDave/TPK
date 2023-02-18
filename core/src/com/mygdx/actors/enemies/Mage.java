@@ -7,8 +7,8 @@ import com.mygdx.helpers.Stats;
  * Esta clase establece propiedades para el Enemy Mage
  */
 public class Mage extends Enemy{
-    public Mage(World world) {
-        super(world);
+    public Mage(World world, int spawn) {
+        super(world, spawn);
 
         this.ID = 2;
         this.hp = Stats.MAGE.hp;

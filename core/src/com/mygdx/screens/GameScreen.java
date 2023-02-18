@@ -4,6 +4,8 @@ import com.badlogic.gdx.Screen;
 import com.mygdx.gameworld.Renderer;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
+import com.mygdx.helpers.LevelCreator;
+import com.mygdx.tpk.TpkGame;
 import com.mygdx.ui.GameUi;
 
 /**
@@ -20,10 +22,10 @@ public class GameScreen implements Screen {
     /**
      * Inicializar variables en el constructor
      */
-    public GameScreen(){
-        world = new World(AssetLoader.getLevelCreator());
+    public GameScreen(TpkGame game, World.Level level){
+        world = new World(AssetLoader.getLevelCreator(), game, level);
         gameUi = new GameUi(world);
-        renderer = new Renderer(world, gameUi, AssetLoader.level1);
+        renderer = new Renderer(world, AssetLoader.getLevelCreator().getMap());
     }
 
     @Override
@@ -70,5 +72,6 @@ public class GameScreen implements Screen {
     public void dispose() {
         world.dispose();
         gameUi.dispose();
+
     }
 }

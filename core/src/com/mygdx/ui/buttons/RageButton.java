@@ -46,11 +46,13 @@ public class RageButton extends Button{
      * Activa el modo Rage de las torretas construidas
      */
     public void rage(){
-        if (world.gold >= RAGE_PRICE){
+        if (world.gold >= RAGE_PRICE && !world.constructedTowers.isEmpty()){
             for (Tower t : world.constructedTowers) {
                 t.setEnraged(true);
             }
             world.gold -= RAGE_PRICE;
+            Gdx.input.vibrate(new long[]{0, 200, 100, 200}, -1);
+            AssetLoader.soundRage.play();
         }
     }
 

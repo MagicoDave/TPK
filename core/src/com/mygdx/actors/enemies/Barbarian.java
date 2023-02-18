@@ -7,8 +7,8 @@ import com.mygdx.helpers.Stats;
  * Esta clase establece propiedades para el Enemy Barbarian
  */
 public class Barbarian extends Enemy{
-    public Barbarian(World world) {
-        super(world);
+    public Barbarian(World world, int spawn) {
+        super(world, spawn);
 
         this.ID = 1;
         this.hp = Stats.BARBARIAN.hp;
