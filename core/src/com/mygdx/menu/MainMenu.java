@@ -1,7 +1,6 @@
 package com.mygdx.menu;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -9,15 +8,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.helpers.AssetLoader;
-<<<<<<< HEAD
-=======
 import com.mygdx.screens.ChooseLevelScreen;
->>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
-import com.mygdx.screens.GameScreen;
 import com.mygdx.tpk.TpkGame;
 
 
@@ -30,12 +23,6 @@ public class MainMenu extends Stage {
         super(new StretchViewport(160,288));
         this.game = game;
         Gdx.input.setInputProcessor(this);
-<<<<<<< HEAD
-
-
-=======
-        
->>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
         Skin skin = AssetLoader.skinMother;
         ImageTextButton.ImageTextButtonStyle style = skin.get("default", ImageTextButton.ImageTextButtonStyle.class);
 
@@ -93,12 +80,10 @@ public class MainMenu extends Stage {
 
         addActor(table);
 
-<<<<<<< HEAD
-=======
         game.setMusic(AssetLoader.musicMainMenu);
         game.getMusic().setLooping(true);
         game.getMusic().play();
->>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
+
     }
 
 }

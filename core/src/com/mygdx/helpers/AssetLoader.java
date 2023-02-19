@@ -8,10 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-<<<<<<< HEAD
-=======
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
->>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 
@@ -43,15 +40,12 @@ public class AssetLoader {
 
     public static Skin skinArcade, skinMother;
 
-<<<<<<< HEAD
-=======
     public static Music musicMainMenu, musicLevel1, musicLevel2, musicLevel3, musicLevel4;
     public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
 
     /**
      * Carga de assets
      */
->>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
     public static void load(){
 
         //Languages
@@ -84,18 +78,12 @@ public class AssetLoader {
 
         //Levels
         levelCreator = new LevelCreator();
-<<<<<<< HEAD
-        level1 = levelCreator.setLevel("maps/level1.tmx");
-
-        //Skin
-=======
         level1 = new TmxMapLoader().load("maps/level1.tmx");
         level2 = new TmxMapLoader().load("maps/level2.tmx");
         level3= new TmxMapLoader().load("maps/level3.tmx");
         level4= new TmxMapLoader().load("maps/level4.tmx");
 
         //Skins
->>>>>>> dfbd6f94aa7bd9818f4f7b06f8b154ef3b3121fa
         skinArcade = new Skin(Gdx.files.internal("skin/arcade-ui.json"));
         skinMother = new Skin(Gdx.files.internal("skin/mother/terra-mother-ui.json"));
 

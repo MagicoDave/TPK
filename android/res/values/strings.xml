@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">TPK</string>
+    <string name="app_fullname">Total Party Kill</string>
     <string name="score">Score</string>
     <string name="gold">Gold</string>
     <string name="lifes">Lifes</string>
