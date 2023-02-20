@@ -60,6 +60,16 @@ public class Stats {
      */
     public static int SHAKE_THRESHOLD = 15;
 
+    /**
+     * Volumen de la música
+     */
+    public static float MUSIC_VOLUME;
+
+    /**
+     * Volumen del sonido
+     */
+    public static float SOUND_VOLUME;
+
     //Waves
     public static int[] LEVEL_1_WAVE = {0,0,0,0,1,1,0,0,1,1,2,2,0,0,2,3,3,3,0,0,1,1,1,1,3,3,3,0,2,2,2,2,1,1};
     public static int[] LEVEL_2_WAVE = {0,0,0,2,3,3,0,0,0,2,1,1,1,2,3,3,1,1,1,2,3,3,0,0,0,2,0,0,0,2,3,3,1,1,1,2};
@@ -109,4 +119,21 @@ public class Stats {
         }
     }
 
+    public static float musicOn(boolean on){
+        if (on){
+            MUSIC_VOLUME = 1.0f;
+        } else {
+            MUSIC_VOLUME = 0.0f;
+        }
+        return MUSIC_VOLUME;
+    }
+
+    public static float soundOn(boolean on){
+        if (on){
+            SOUND_VOLUME = 0.5f;
+        } else {
+            SOUND_VOLUME = 0.0f;
+        }
+        return SOUND_VOLUME;
+    }
 }

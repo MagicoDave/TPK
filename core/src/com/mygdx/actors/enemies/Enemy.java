@@ -1,6 +1,7 @@
 package com.mygdx.actors.enemies;
 
 import static com.mygdx.helpers.Stats.BASE_ENEMY_SPEED;
+import static com.mygdx.helpers.Stats.SOUND_VOLUME;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
@@ -65,7 +66,7 @@ public abstract class Enemy extends Image {
             alive = false;
             world.gold += reward;
             world.score += reward;
-            AssetLoader.soundDead.play();
+            AssetLoader.soundDead.play(SOUND_VOLUME);
             world.enemiesInScreen.removeValue(this, true);
         } else {
             if (debuff != null){

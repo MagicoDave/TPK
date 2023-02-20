@@ -89,3 +89,6 @@
     ¡Añadido cuarto mapa, la aldea! El primer mapa con doble spawn y doble de enemigos apareciendo al mismo tiempo
     Ahora los menús deberían quedar bastante mejor cuadrados (pasé a usar la clase table de libgdx para organizarlos)
     Se crean los strings de localización para los menús y elementos de la interfaz que faltan (por el momento).
+20/02/23
+    Añadido menú de opciones: Ahora se puede cambiar el idioma y activar/desactivar música y sonidos.
+    Añadida persistencia de datos: Se guardan los records y las preferencias de opciones de usuario.

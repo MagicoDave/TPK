@@ -1,6 +1,7 @@
 package com.mygdx.actors.towers;
 
 import static com.mygdx.helpers.Stats.RAGE_DURATION;
+import static com.mygdx.helpers.Stats.SOUND_VOLUME;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
@@ -94,16 +95,16 @@ public abstract class Tower extends Image {
             world.bulletsInScreen.add(new Bullet(world, this, target));
             switch (ID){
                 case 0:
-                    AssetLoader.soundArrow.play(0.6f);
+                    AssetLoader.soundArrow.play(SOUND_VOLUME);
                     break;
                 case 1:
-                    AssetLoader.soundWitch.play();
+                    AssetLoader.soundWitch.play(SOUND_VOLUME);
                     break;
                 case 2:
-                    AssetLoader.soundSticky.play();
+                    AssetLoader.soundSticky.play(SOUND_VOLUME);
                     break;
                 case 3:
-                    AssetLoader.soundCyclop.play();
+                    AssetLoader.soundCyclop.play(SOUND_VOLUME);
                     break;
             }
         } else {

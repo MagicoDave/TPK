@@ -1,6 +1,7 @@
 package com.mygdx.ui.buttons;
 
 import static com.mygdx.helpers.Stats.RAGE_PRICE;
+import static com.mygdx.helpers.Stats.SOUND_VOLUME;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -52,7 +53,7 @@ public class RageButton extends Button{
             }
             world.gold -= RAGE_PRICE;
             Gdx.input.vibrate(new long[]{0, 200, 100, 200}, -1);
-            AssetLoader.soundRage.play();
+            AssetLoader.soundRage.play(SOUND_VOLUME);
         }
     }
 

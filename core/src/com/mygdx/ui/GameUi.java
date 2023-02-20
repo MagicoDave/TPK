@@ -1,13 +1,11 @@
 package com.mygdx.ui;
 
 import static com.mygdx.helpers.Stats.SHAKE_THRESHOLD;
+import static com.mygdx.helpers.Stats.SOUND_VOLUME;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -20,15 +18,12 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
-import com.mygdx.screens.ChooseLevelScreen;
 import com.mygdx.screens.MainMenuScreen;
 import com.mygdx.ui.buttons.BuildTowerButton;
 import com.mygdx.ui.buttons.Button;
 import com.mygdx.ui.buttons.DestroyButton;
 import com.mygdx.ui.buttons.RageButton;
 import com.mygdx.ui.icons.SimpleIcon;
-
-import sun.java2d.pipe.SpanShapeRenderer;
 
 /**
  * Esta clase gestiona la IU y los inputs del jugador
@@ -106,7 +101,7 @@ public class GameUi extends Stage{
                     if (world.isRunning()){
                         fundation.isTouchDown(x, y);
                         TowerSelect(fundation);
-                        AssetLoader.soundFundationSelected.play();
+                        AssetLoader.soundFundationSelected.play(SOUND_VOLUME);
                         return true;
                     }
                     return false;

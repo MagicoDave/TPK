@@ -4,14 +4,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.mygdx.menu.Settings;
 import com.mygdx.tpk.TpkGame;
 
 public class SettingsScreen implements Screen {
 
     OrthographicCamera camera;
+    Settings settings;
 
     public SettingsScreen(TpkGame game){
-
+        settings = new Settings(game);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 160, 288);
@@ -27,6 +29,9 @@ public class SettingsScreen implements Screen {
         Gdx.gl.glClearColor(242.0f/255.0f, 198.0f/255.0f, 75.0f/255.0f, 1.0f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.update();
+        settings.update(delta);
+        settings.act(delta);
+        settings.draw();
     }
 
     @Override

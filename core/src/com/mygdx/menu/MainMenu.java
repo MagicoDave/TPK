@@ -1,5 +1,9 @@
 package com.mygdx.menu;
 
+
+
+import static com.mygdx.helpers.Stats.MUSIC_VOLUME;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -11,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.ChooseLevelScreen;
+import com.mygdx.screens.SettingsScreen;
 import com.mygdx.tpk.TpkGame;
 
 
@@ -27,7 +32,6 @@ public class MainMenu extends Stage {
         ImageTextButton.ImageTextButtonStyle style = skin.get("default", ImageTextButton.ImageTextButtonStyle.class);
 
         Label label = new Label(AssetLoader.myBundle.format("gameFullName").toUpperCase(), skin, "giygas");
-        //label.setPosition(15, 200);
         label.setFontScale(0.5f);
 
         btnStart = new ImageTextButton(AssetLoader.myBundle.format("start").toUpperCase(), style);
@@ -50,7 +54,7 @@ public class MainMenu extends Stage {
             }
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-
+                game.setScreen(new SettingsScreen(game));
             }
         });
 
@@ -83,6 +87,7 @@ public class MainMenu extends Stage {
         game.setMusic(AssetLoader.musicMainMenu);
         game.getMusic().setLooping(true);
         game.getMusic().play();
+        game.getMusic().setVolume(MUSIC_VOLUME);
 
     }
 

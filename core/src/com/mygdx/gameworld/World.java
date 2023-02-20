@@ -4,6 +4,7 @@ import static com.mygdx.helpers.Stats.LEVEL_1_WAVE;
 import static com.mygdx.helpers.Stats.LEVEL_2_WAVE;
 import static com.mygdx.helpers.Stats.LEVEL_3_WAVE;
 import static com.mygdx.helpers.Stats.LEVEL_4_WAVE;
+import static com.mygdx.helpers.Stats.MUSIC_VOLUME;
 import static com.mygdx.helpers.Stats.START_GOLD;
 import static com.mygdx.helpers.Stats.START_HEALTH;
 import static com.mygdx.helpers.Stats.START_SCORE;
@@ -85,6 +86,7 @@ public class World extends Stage {
                 break;
         }
         game.getMusic().setLooping(true);
+        game.getMusic().setVolume(MUSIC_VOLUME);
 
         spawnPoint = levelCreator.getSpawnTile();
         finishPoint = levelCreator.getFinishTile();

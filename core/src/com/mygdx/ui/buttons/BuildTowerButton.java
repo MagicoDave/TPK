@@ -1,5 +1,7 @@
 package com.mygdx.ui.buttons;
 
+import static com.mygdx.helpers.Stats.SOUND_VOLUME;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -65,7 +67,7 @@ public class BuildTowerButton extends Button{
                     fundation.setTower(tower);
                     world.constructedTowers.add(fundation.getTower());
                     world.gold -= towerCost;
-                    AssetLoader.soundBuiltTower.play();
+                    AssetLoader.soundBuiltTower.play(SOUND_VOLUME);
                 }
                 return true;
             }

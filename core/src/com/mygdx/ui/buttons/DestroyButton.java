@@ -1,5 +1,7 @@
 package com.mygdx.ui.buttons;
 
+import static com.mygdx.helpers.Stats.SOUND_VOLUME;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -26,7 +28,7 @@ public class DestroyButton extends Button{
                     world.gold += fundation.getTower().getPrice() / 2;
                     world.constructedTowers.removeValue(fundation.getTower(), true);
                     fundation.setTower(null);
-                    AssetLoader.soundDestroyTower.play();
+                    AssetLoader.soundDestroyTower.play(SOUND_VOLUME);
                     return true;
                 }
                 return false;

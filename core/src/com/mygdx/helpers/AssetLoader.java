@@ -1,6 +1,7 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.I18NBundle;
 
 import java.util.Locale;
@@ -43,6 +45,9 @@ public class AssetLoader {
     public static Music musicMainMenu, musicLevel1, musicLevel2, musicLevel3, musicLevel4;
     public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
 
+    public static Preferences preferences;
+
+    public static TextureRegionDrawable flagEN, flagES, flagGL;
     /**
      * Carga de assets
      */
@@ -75,6 +80,12 @@ public class AssetLoader {
         soundRage = Gdx.audio.newSound(Gdx.files.internal("sounds/RageSound.mp3"));
         soundSticky = Gdx.audio.newSound(Gdx.files.internal("sounds/Sticky.mp3"));
         soundWitch = Gdx.audio.newSound(Gdx.files.internal("sounds/Witch.mp3"));
+
+        //Flags
+        flagEN = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/EN.png"))));
+        flagES = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/ES.png"))));
+        flagGL = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/GL.png"))));
+
 
         //Levels
         levelCreator = new LevelCreator();
@@ -219,6 +230,49 @@ public class AssetLoader {
         redBullet = new Texture(Gdx.files.internal("bullets/redbullet.png"));
         redBullet.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         redBullet1 = new TextureRegion(redBullet, 0, 0, 24, 24);
+
+        //Preferences
+        //Mediante el siguiente código, recupero las preferencias guardadas (records y opciones)
+        preferences = Gdx.app.getPreferences("TPK");
+            //Sonido
+        if (!preferences.contains("sound")) {
+            preferences.putBoolean("sound", true);
+        }
+        Stats.soundOn(preferences.getBoolean("sound"));
+            //Musica
+        if (!preferences.contains("music")) {
+            preferences.putBoolean("music", true);
+        }
+        Stats.musicOn(preferences.getBoolean("music"));
+            //Idioma
+        if (!preferences.contains("language")) {
+            preferences.putString("language", "EN");
+        }
+        switch (preferences.getString("language")){
+            case "ES":
+                myBundle = esBundle;
+                break;
+            case "EN":
+                myBundle = enBundle;
+                break;
+            case "GL":
+                myBundle = glBundle;
+                break;
+        }
+            //Records
+        if (!preferences.contains("highScore_level1")) {
+            preferences.putInteger("highScore_level1", 0);
+        }
+        if (!preferences.contains("highScore_level2")) {
+            preferences.putInteger("highScore_level2", 0);
+        }
+        if (!preferences.contains("highScore_level3")) {
+            preferences.putInteger("highScore_level3", 0);
+        }
+        if (!preferences.contains("highScore_level4")) {
+            preferences.putInteger("highScore_level4", 0);
+        }
+        preferences.flush();
     }
 
     /**
