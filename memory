@@ -1,0 +1,72 @@
+Título: Total Party Kill
+Autor: David Casalderrey Paz
+
+Resumen: Total Party Kill es un juego del género Tower Defense, donde una serie de enemigos
+tratan de cruzar el mapa de una punta a otra y el jugador debe evitarlo construyendo una serie
+de 'torres' que disparan automaticamente a los enemigos que están dentro de su alcance. El juego
+fuerza el modo portrait (vertical) en android al iniciarse.
+
+Economía: El jugador dispone de dos recursos: Oro y Vidas. El oro se emplea para constuir
+torres y usar power-ups y se obtiene al eliminar enemigos. Las vidas se pierden cada vez que un
+enemigo consigue terminar su recorrido, y el jugador pierde cuando llegan a cero.
+
+Mecánicas: El jugador puede tocar los bloques blancos del mapa, llamados fundaciones, para abrir
+el menú de construcción de torres. Al hacer click en alguno de los botones, si se tiene suficiente
+dinero se construirá una torre del tipo seleccionado. Al sacudir el móvil o al pusar el botón de Rage
+en la esquina inferior derecha puede activar un power-up que hace que todas las torres disparen el
+doble de rápido durante 5 segundos.
+
+Torres: El jugador puede construir cuatro tipos de torres:
+    - Arrow Tower: Una torre barata de buen alcance, daño bajo y buena cadencia de disparo.
+    - Witch Tower: Una torre de medio alcance y coste, daño alto y cadencia de disparo media.
+    - Sticky Tower: Torre de medio alcance y coste, daño bajo, cadencia de disparo media que ralentiza a los enemigos.
+    - Cyclops Tower: Una torre de alto alcance y coste, daño masivo y baja cadencia de disparo.
+Las torres funcionan de forma autónoma, seleccionando automáticamente un objetivo en función de ciertos
+criterios (normalmente de proximidad, pero algunas torres son diferentes. Sticky Tower, por ejemplo,
+prioriza enemigos que no esten ralentizados antes que disparar a uno que ya lo esté). Una vez la torre
+haya escogido un objetivo, dispará contra el en función de su cadencia de fuego, creando proyectiles
+que viajarán hasta el enemigo y le restarán vida al impactar. Las balas que estén en el aire volando hacia
+un objetivo que muera antes de finalizar el impacto desaparecen.
+
+Enemigos: En cada nivel pueden aparecer hasta cuatro tipos diferentes de enemigos:
+    - Farmer: Un enemigo débil que hace daño mínimo a las vidas del jugador.
+    - Barbarian: Un enemigo resistente que hace daño medio a las vidas del jugador.
+    - Thief: Un enemigo débil que hace gran daño y se mueve a gran velocidad.
+    - Mage: Un enemigo débil que hace una cantidad de daño masiva.
+Los enemigos recorren el nivel detectando las colisiones del mapa para cambiar de dirección cuando sea
+necesario de forma automática. Los enemigos eliminan los efectos de ralentización sobre sí mismos cada
+pocos segundos. Los enemigos no tienen colisión entre ellos, de forma que los más rápidos pueden pasar
+a través de los más lentos.
+
+Niveles: El juego dispone de 4 niveles (mapas) diferentes, cada uno con sus propias particularidades y
+oleadas de enemigos. Es necesario plantear diferentes estrategias para cada nivel para completarlos con
+éxito. Al iniciar una nueva partida, se puede escoger el nivel a superar.
+
+Puntuación y records: Según el número de enemigos matados, el número de vidas restantes y el oro sobrante
+el jugador conseguirá una puntuación al final de cada nivel. Si supera el anterior record, su puntuación
+quedará grabada como nuevo record.
+
+Opciones: El jugador puede desde el menú de opciones silenciar por separado música y sonido o
+cambiar el idioma de la aplicación.
+
+Idiomas: El usuario puede escoger entre tres idiomas; castellano, gallego e inglés. Para implementar la
+localización se ha usado la clase propia de libGDX 'i18n', que funciona similar al fichero xml de strings
+de Android pero no es exclusivo de esta plataforma permitiendo su uso en versiones de PC o iOS.
+
+Persistencia de datos: Las preferencias de opciones y los records se guardan y persisten la próxima vez que
+el usuario abra la aplicación.
+
+Tutorial: El jugador puede aprender como jugar desde el botón How To Play disponible en el menú principal.
+
+Hardware: El juego utiliza el vibrador y el acelerómetro. El móvil vibra cuando se pierden vidas o al
+activar el modo Rage (cada evento tiene una vibración característica). El jugador puede darle una sacudida
+al móvil para activar el modo Rage (con cuidado, por favor).
+
+Assets: La música y los sonidos utilizados estan bajo una licencia de Creative Commons. Los sprites utilizados
+son una mezcla de cosecha propia elaborados por el alumno y licencias de Creative Commons de terceros.
+
+
+
+
+
+

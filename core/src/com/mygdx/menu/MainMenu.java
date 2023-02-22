@@ -5,24 +5,31 @@ package com.mygdx.menu;
 import static com.mygdx.helpers.Stats.MUSIC_VOLUME;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.RegionInfluencer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.ChooseLevelScreen;
+import com.mygdx.screens.RecordsScreen;
 import com.mygdx.screens.SettingsScreen;
 import com.mygdx.tpk.TpkGame;
+import com.mygdx.ui.buttons.Button;
 
 
 public class MainMenu extends Stage {
 
     TpkGame game;
-    ImageTextButton btnStart, btnOptions, btnCredits;
+    ImageTextButton btnStart, btnOptions, btnRecords, btnCredits;
+    Button btnHowToPlay;
+    Image witch;
 
     public MainMenu(final TpkGame game){
         super(new StretchViewport(160,288));
@@ -58,6 +65,18 @@ public class MainMenu extends Stage {
             }
         });
 
+        btnRecords = new ImageTextButton(AssetLoader.myBundle.format("records").toUpperCase(), style);
+        btnRecords.setPosition(40, 110);
+        btnRecords.addListener(new InputListener(){
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new RecordsScreen(game));
+            }
+        });
+
         btnCredits = new ImageTextButton(AssetLoader.myBundle.format("credits").toUpperCase(), style);
         btnCredits.setPosition(40,90);
         btnCredits.addListener(new InputListener(){
@@ -76,6 +95,8 @@ public class MainMenu extends Stage {
         table.add(btnStart);
         table.row();
         table.add(btnOptions);
+        table.row();
+        table.add(btnRecords);
         table.row();
         table.add(btnCredits);
         table.setFillParent(true);

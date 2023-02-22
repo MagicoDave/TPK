@@ -47,7 +47,7 @@ public class AssetLoader {
 
     public static Preferences preferences;
 
-    public static TextureRegionDrawable flagEN, flagES, flagGL;
+    public static TextureRegionDrawable flagEN, flagES, flagGL, backArrow;
     /**
      * Carga de assets
      */
@@ -81,10 +81,11 @@ public class AssetLoader {
         soundSticky = Gdx.audio.newSound(Gdx.files.internal("sounds/Sticky.mp3"));
         soundWitch = Gdx.audio.newSound(Gdx.files.internal("sounds/Witch.mp3"));
 
-        //Flags
+        //Menu ui
         flagEN = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/EN.png"))));
         flagES = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/ES.png"))));
         flagGL = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/GL.png"))));
+        backArrow = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/backArrow.png"))));
 
 
         //Levels
@@ -281,6 +282,8 @@ public class AssetLoader {
     public static void dispose(){
         level1.dispose();
         level2.dispose();
+        level3.dispose();
+        level4.dispose();
 
         skinArcade.dispose();
         skinMother.dispose();
@@ -288,6 +291,8 @@ public class AssetLoader {
         musicMainMenu.dispose();
         musicLevel1.dispose();
         musicLevel2.dispose();
+        musicLevel3.dispose();
+        musicLevel4.dispose();
 
         soundArrow.dispose();
         soundBuiltTower.dispose();
@@ -315,6 +320,7 @@ public class AssetLoader {
         cyclopTower.dispose();
 
         redBullet.dispose();
+
     }
 
     public static LevelCreator getLevelCreator() {

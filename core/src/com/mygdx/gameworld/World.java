@@ -225,6 +225,7 @@ public class World extends Stage {
                     AssetLoader.preferences.putInteger("highScore_level4", score);
                     break;
             }
+            AssetLoader.preferences.flush();
         }
     }
 }

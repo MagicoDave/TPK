@@ -2,7 +2,7 @@ package com.mygdx.screens;
 
 import com.badlogic.gdx.Screen;
 
-public class SplashScreen implements Screen {
+public class CreditsScreen implements Screen {
     @Override
     public void show() {
 

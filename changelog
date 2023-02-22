@@ -92,3 +92,6 @@
 20/02/23
     Añadido menú de opciones: Ahora se puede cambiar el idioma y activar/desactivar música y sonidos.
     Añadida persistencia de datos: Se guardan los records y las preferencias de opciones de usuario.
+22/02/23
+    Añadido menú de records: Ahora se pueden consultar las puntuaciones máximas para cada nivel.
+    Añadida memoria del proyecto (archivo 'memory').
