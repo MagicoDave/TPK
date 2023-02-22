@@ -94,4 +94,5 @@
     Añadida persistencia de datos: Se guardan los records y las preferencias de opciones de usuario.
 22/02/23
     Añadido menú de records: Ahora se pueden consultar las puntuaciones máximas para cada nivel.
+    Añadido menú de créditos: Ahora se pueden ver los créditos.
     Añadida memoria del proyecto (archivo 'memory').

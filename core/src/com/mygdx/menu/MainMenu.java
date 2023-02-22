@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.ChooseLevelScreen;
+import com.mygdx.screens.CreditsScreen;
 import com.mygdx.screens.RecordsScreen;
 import com.mygdx.screens.SettingsScreen;
 import com.mygdx.tpk.TpkGame;
@@ -85,7 +86,7 @@ public class MainMenu extends Stage {
             }
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-
+                game.setScreen(new CreditsScreen(game));
             }
         });
 
@@ -100,7 +101,6 @@ public class MainMenu extends Stage {
         table.row();
         table.add(btnCredits);
         table.setFillParent(true);
-        table.setDebug(true);
         table.center();
 
         addActor(table);

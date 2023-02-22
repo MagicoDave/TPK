@@ -92,7 +92,6 @@ public class ChooseLevel extends Stage {
         table.row();
         table.add(btnLevel4);
         table.setFillParent(true);
-        table.setDebug(true);
         table.center();
 
         addActor(table);

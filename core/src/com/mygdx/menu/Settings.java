@@ -152,7 +152,6 @@ public class Settings extends Stage {
         table.row();
         table.add(btnApply).padTop(20);
         table.setFillParent(true);
-        table.setDebug(true);
         table.center();
 
         addActor(table);
