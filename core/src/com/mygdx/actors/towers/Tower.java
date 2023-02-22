@@ -18,7 +18,8 @@ public abstract class Tower extends Image {
 
     protected Vector2 position;
 
-    protected int damage, range, price, fireRate, projectileSpeed, cooldown;
+    protected int damage, range, price, projectileSpeed;
+    protected float fireRate, cooldown;
     protected boolean enraged;
     protected float timeEnraged = 0;
     Debuff debuff;
@@ -83,7 +84,12 @@ public abstract class Tower extends Image {
      */
     public void fire(){
 
-        if (target == null || !target.isAlive() || !target.inRange(this)) return;
+        if (target == null || !target.isAlive() || !target.inRange(this)){
+            if (cooldown > 0){
+                cooldown --;
+            }
+            return;
+        }
 
         if (cooldown <=0){
             if (isEnraged()){
@@ -136,7 +142,7 @@ public abstract class Tower extends Image {
         return price;
     }
 
-    public int getFireRate() {
+    public float getFireRate() {
         return fireRate;
     }
 

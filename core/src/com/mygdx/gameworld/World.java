@@ -29,14 +29,14 @@ import com.mygdx.tpk.TpkGame;
  */
 public class World extends Stage {
 
-    public int score, lifes, gold;
+    public int score, lifes, gold, highscore;
 
     private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
 
     private TpkGame game;
     private GameState currentState;
     public enum GameState{
-        READY, RUNNING, GAMEOVER, VICTORY, HIGHSCORE
+        READY, RUNNING, GAMEOVER, VICTORY
     }
     private Level level;
     public enum Level{
@@ -71,18 +71,22 @@ public class World extends Stage {
             case LEVEL_1:
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level1);
                 game.setMusic(AssetLoader.musicLevel1);
+                highscore = AssetLoader.preferences.getInteger("highScore_level1");
                 break;
             case LEVEL_2:
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level2);
                 game.setMusic(AssetLoader.musicLevel2);
+                highscore = AssetLoader.preferences.getInteger("highScore_level2");
                 break;
             case LEVEL_3:
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level3);
                 game.setMusic(AssetLoader.musicLevel3);
+                highscore = AssetLoader.preferences.getInteger("highScore_level3");
                 break;
             case LEVEL_4:
                 AssetLoader.getLevelCreator().setLevel(AssetLoader.level4);
                 game.setMusic(AssetLoader.musicLevel4);
+                highscore = AssetLoader.preferences.getInteger("highScore_level4");
                 break;
         }
         game.getMusic().setLooping(true);
@@ -139,15 +143,23 @@ public class World extends Stage {
                     timeSinceLastSpawn = 0;
                 }
                 if (lifes <= 0){
+                    score += gold;
                     currentState = GameState.GAMEOVER;
                 }
                 if (waveManager.isEmpty() && enemiesInScreen.isEmpty()){
+                    score += gold;
+                    if (lifes == 20){
+                        score *= 2;
+                    } else if (lifes < 20 && lifes >= 17) {
+                        score = (int)(score * 1.5);
+                    }
                     currentState = GameState.VICTORY;
                 }
                 break;
             case GAMEOVER:
+                saveHighscore();
             case VICTORY:
-            case HIGHSCORE:
+                saveHighscore();
             default:
                 break;
         }
@@ -178,7 +190,7 @@ public class World extends Stage {
     }
 
     public boolean isHighScore() {
-        return currentState == GameState.HIGHSCORE;
+        return score > highscore;
     }
 
     public void start() {
@@ -195,5 +207,24 @@ public class World extends Stage {
 
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    public void saveHighscore(){
+        if (isHighScore()){
+            switch (level){
+                case LEVEL_1:
+                    AssetLoader.preferences.putInteger("highScore_level1", score);
+                    break;
+                case LEVEL_2:
+                    AssetLoader.preferences.putInteger("highScore_level2", score);
+                    break;
+                case LEVEL_3:
+                    AssetLoader.preferences.putInteger("highScore_level3", score);
+                    break;
+                case LEVEL_4:
+                    AssetLoader.preferences.putInteger("highScore_level4", score);
+                    break;
+            }
+        }
     }
 }

@@ -121,7 +121,7 @@ public class GameUi extends Stage{
                 Gdx.app.log("Dedo abajo", "touch done at (" + x + ", " + y + ")");
                 if (world.isReady()){
                     world.start();
-                } else if (world.isGameOver() || world.isHighScore() || world.isVictory()){
+                } else if (world.isGameOver() || world.isVictory()){
                     world.getGame().getMusic().stop();
                     world.getGame().setScreen(new MainMenuScreen(world.getGame()));
                 }
@@ -198,6 +198,9 @@ public class GameUi extends Stage{
                     rageButton.setVisible(false);
                 }
                 gameOver.setText(AssetLoader.myBundle.format("gameOver", world.score));
+                if (world.isHighScore()){
+                    gameOver.setText(gameOver.getText() + AssetLoader.myBundle.format("highscore", world.highscore));
+                }
                 break;
             case VICTORY:
                 if (!gameOver.isVisible()){
@@ -205,9 +208,9 @@ public class GameUi extends Stage{
                     rageButton.setVisible(false);
                 }
                 gameOver.setText(AssetLoader.myBundle.format("victory", world.score));
-
-                break;
-            case HIGHSCORE:
+                if (world.isHighScore()){
+                    gameOver.setText(gameOver.getText() + AssetLoader.myBundle.format("highscore", world.highscore));
+                }
                 break;
         }
 
