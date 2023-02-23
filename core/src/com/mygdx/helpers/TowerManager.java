@@ -11,10 +11,18 @@ public class TowerManager {
 
     private World world;
 
+    /**
+     * Constructor a partir de parámetros
+     * @param world Referencia del nivel
+     */
     public TowerManager(World world){
         this.world = world;
     }
 
+    /**
+     * Retira las bullet 'muertas' y llama el método update de las torres y balas del mapa
+     * @param delta Tasa de refresco
+     */
     public void update(float delta){
 
         //Borrar balas 'muertas'

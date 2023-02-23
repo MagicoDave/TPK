@@ -29,6 +29,12 @@ public class Tile extends Image {
 
     float statetime;
 
+    /**
+     * Inicializa un objeto del tipo Tile
+     * @param direction Direction en caso de que el Tile sea un Road
+     * @param type
+     * @param hitbox
+     */
     public Tile(Direction direction, Type type, Rectangle hitbox) {
         this.direction = direction;
         this.type = type;

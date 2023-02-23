@@ -1,11 +1,8 @@
 package com.mygdx.menu;
 
-
-
 import static com.mygdx.helpers.Stats.MUSIC_VOLUME;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.RegionInfluencer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.ChooseLevelScreen;
 import com.mygdx.screens.CreditsScreen;
@@ -24,14 +20,19 @@ import com.mygdx.screens.SettingsScreen;
 import com.mygdx.tpk.TpkGame;
 import com.mygdx.ui.buttons.Button;
 
-
+/**
+ * Clase del menú principal
+ */
 public class MainMenu extends Stage {
 
     TpkGame game;
     ImageTextButton btnStart, btnOptions, btnRecords, btnCredits;
     Button btnHowToPlay;
-    Image witch;
 
+    /**
+     * Inicializa el menú principal con todos sus elementos
+     * @param game referencia del game para moverse entre pantallas
+     */
     public MainMenu(final TpkGame game){
         super(new StretchViewport(160,288));
         this.game = game;
@@ -105,6 +106,7 @@ public class MainMenu extends Stage {
 
         addActor(table);
 
+        //Se incializa la música del menú principal
         game.setMusic(AssetLoader.musicMainMenu);
         game.getMusic().setLooping(true);
         game.getMusic().play();

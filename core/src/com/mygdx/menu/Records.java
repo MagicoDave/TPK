@@ -13,12 +13,19 @@ import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.MainMenuScreen;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla de records
+ */
 public class Records extends Stage {
 
     TpkGame game;
     Label record1, record2, record3, record4;
     Button btnBack;
 
+    /**
+     * Inicializa la pantalla de records con sus elementos
+     * @param game referencia del game para moverse entre pantallas
+     */
     public Records(final TpkGame game){
         super(new StretchViewport(160,288));
 

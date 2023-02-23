@@ -138,6 +138,8 @@ public class Renderer {
                     }
                     break;
             }
+            //Se cambia la velocidad de la animación en función de si el enemigo
+            //está ralentizado o no
             if (enemy.getDebuff() == Debuff.SLOW){
                 animation.setFrameDuration(0.2f);
             } else {
@@ -159,7 +161,7 @@ public class Renderer {
     }
 
     /**
-     * Renderizado de las torres
+     * Renderizado de las torres.
      * @param runTime En las animaciones, se usa para devolver el frame adecuado según el tiempo que lleve
      */
     public void renderTowers(float runTime){
@@ -179,6 +181,8 @@ public class Renderer {
                     animation = cyclopTowerAnimation;
                     break;
             }
+            //Se cambia la velocidad de la animación en función de si la torre
+            //tiene activada el modo Rage o no
             if (tower.isEnraged()){
                 animation.setFrameDuration(0.05f);
             } else {

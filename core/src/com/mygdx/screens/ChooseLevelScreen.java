@@ -8,11 +8,19 @@ import com.mygdx.menu.ChooseLevel;
 import com.mygdx.menu.MainMenu;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla para selección de nivel
+ * @see ChooseLevel
+ */
 public class ChooseLevelScreen implements Screen {
 
     ChooseLevel chooseLevel;
     OrthographicCamera camera;
 
+    /**
+     * Inicializa la screen con ChooseLevel
+     * @param game referencia del juego
+     */
     public ChooseLevelScreen(TpkGame game){
         chooseLevel = new ChooseLevel(game);
 
@@ -24,6 +32,10 @@ public class ChooseLevelScreen implements Screen {
 
     }
 
+    /**
+     * Renderiza los elementos de ChooseLevel y pone un fondo
+     * @param delta
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(242.0f/255.0f, 198.0f/255.0f, 75.0f/255.0f, 1.0f);
@@ -53,6 +65,9 @@ public class ChooseLevelScreen implements Screen {
         this.dispose();
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
         chooseLevel.dispose();

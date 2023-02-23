@@ -7,11 +7,19 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.mygdx.menu.Records;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla para Records
+ * @see Records
+ */
 public class RecordsScreen implements Screen {
 
     Records records;
     OrthographicCamera camera;
 
+    /**
+     * Inicializa la screen con Records
+     * @param game referencia del juego
+     */
     public RecordsScreen(TpkGame game){
         records = new Records(game);
 
@@ -23,6 +31,10 @@ public class RecordsScreen implements Screen {
 
     }
 
+    /**
+     * Renderiza los elementos de Records y pone un fondo
+     * @param delta
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(242.0f/255.0f, 198.0f/255.0f, 75.0f/255.0f, 1.0f);
@@ -52,6 +64,9 @@ public class RecordsScreen implements Screen {
 
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
         records.dispose();

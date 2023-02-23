@@ -2,12 +2,20 @@ package com.mygdx.screens;
 
 import com.badlogic.gdx.Screen;
 
+/**
+ * Pantalla para HowToPlay
+ * @see com.mygdx.menu.HowToPlay
+ */
 public class HowToPlayScreen implements Screen {
     @Override
     public void show() {
 
     }
 
+    /**
+     * Renderiza los elementos de HowToPlay y pone un fondo
+     * @param delta
+     */
     @Override
     public void render(float delta) {
 
@@ -33,6 +41,9 @@ public class HowToPlayScreen implements Screen {
 
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
 

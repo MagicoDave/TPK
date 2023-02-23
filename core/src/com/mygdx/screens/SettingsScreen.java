@@ -7,11 +7,19 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.mygdx.menu.Settings;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla para Settings
+ * @see Settings
+ */
 public class SettingsScreen implements Screen {
 
     OrthographicCamera camera;
     Settings settings;
 
+    /**
+     * Inicializa la pantalla con Settings
+     * @param game referencia del juego
+     */
     public SettingsScreen(TpkGame game){
         settings = new Settings(game);
 
@@ -24,6 +32,10 @@ public class SettingsScreen implements Screen {
 
     }
 
+    /**
+     * Renderiza los elementos de Settings y pone un fondo
+     * @param delta tasa de refresco
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(242.0f/255.0f, 198.0f/255.0f, 75.0f/255.0f, 1.0f);
@@ -54,6 +66,9 @@ public class SettingsScreen implements Screen {
         this.dispose();
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
         settings.dispose();

@@ -21,32 +21,40 @@ import java.util.Locale;
  */
 public class AssetLoader {
 
+    //Archivos de idiomas
     public static I18NBundle enBundle, esBundle, glBundle, myBundle;
 
+    //Mapas
     public static TiledMap level1, level2, level3, level4;
-
     public static LevelCreator levelCreator;
 
+    //Texturas y animaciones de enemigos
     public static Texture farmer, farmerSlowed, barbarian, barbarianSlowed, mage, mageSlowed, thief, thiefSlowed;
     public static TextureRegion farmer1, farmer2, farmer3, farmer4, barbarian1, barbarian2, barbarian3, barbarian4, mage1, mage2, mage3, mage4, thief1, thief2, thief3, thief4;
     public static TextureRegion farmerSlowed1, farmerSlowed2, farmerSlowed3, farmerSlowed4, barbarianSlowed1, barbarianSlowed2, barbarianSlowed3, barbarianSlowed4, mageSlowed1, mageSlowed2, mageSlowed3, mageSlowed4, thiefSlowed1, thiefSlowed2, thiefSlowed3, thiefSlowed4;
     public static Animation farmerAnimation, barbarianAnimation, mageAnimation, thiefAnimation;
     public static Animation farmerSlowedAnimation, barbarianSlowedAnimation, mageSlowedAnimation, thiefSlowedAnimation;
 
+    //Texturas y animaciones de torres
     public static Texture arrowTower, witchTower, stickyTower, cyclopTower;
     public static TextureRegion arrowTower1, arrowTower2, arrowTower3, arrowTower4, witchTower1, witchTower2, witchTower3, witchTower4, stickyTower1, stickyTower2, stickyTower3, stickyTower4, cyclopTower1, cyclopTower2, cyclopTower3, cyclopTower4;
     public static Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
 
+    //Texturas de proyectiles
     public static Texture redBullet;
     public static TextureRegion redBullet1;
 
+    //Skins (paquetes de fuente, color y otros parámetros) para labels y botones
     public static Skin skinArcade, skinMother;
 
+    //Musica y sonidos
     public static Music musicMainMenu, musicLevel1, musicLevel2, musicLevel3, musicLevel4;
     public static Sound soundArrow, soundBuiltTower, soundCyclop, soundDead, soundDestroyTower, soundFundationSelected, soundRage, soundSticky, soundWitch;
 
+    //Preferencias (para persistencia de datos)
     public static Preferences preferences;
 
+    //Texturas para los botones de los menus
     public static TextureRegionDrawable flagEN, flagES, flagGL, backArrow;
     /**
      * Carga de assets

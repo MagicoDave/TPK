@@ -14,6 +14,9 @@ import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.MainMenuScreen;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla de créditos
+ */
 public class Credits extends Stage {
 
     TpkGame game;
@@ -21,6 +24,10 @@ public class Credits extends Stage {
     Label heada, headb, headc, headd, heade, headf, bodya, bodyb, bodyc, bodyd, bodye, bodyf;
     Button btnBack;
 
+    /**
+     * Inicializa la pantalla de créditos con todos sus elementos
+     * @param game Referencia de game para moverse entre pantallas
+     */
     public Credits(final TpkGame game){
         super(new StretchViewport(160,288));
 

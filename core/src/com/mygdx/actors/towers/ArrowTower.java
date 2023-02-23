@@ -10,6 +10,12 @@ import com.mygdx.helpers.AssetLoader;
  * Esta clase gestiona las propiedades de la Tower Arrowtower
  */
 public class ArrowTower extends Tower{
+
+    /**
+     * Crea una nueva ArrowTower con los valores predeterminados
+     * @param world Referencia del nivel
+     * @param fundation Fundation en la cual se construye la torre
+     */
     public ArrowTower (World world, Tile fundation){
         super(world, fundation);
 

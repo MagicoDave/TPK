@@ -16,12 +16,22 @@ public abstract class Button extends Actor {
     Texture texture;
     boolean isPressed = false;
 
+    /**
+     * Crea un nuevo botón genérico
+     * @param world referencia del nivel
+     */
     public Button(World world){
         this.world = world;
         texture = new Texture(Gdx.files.internal("bullets/redbullet.png")); //Textura placeholder para testear botones
         setBounds(0, 0, 20, 20);
     }
 
+    /**
+     * Detecta si el botón esta siendo pulsado
+     * @param screenX Coordinada x de la pantalla
+     * @param screenY Coordinada y de la pantalla
+     * @return true si esta siendo pulsado, false si no
+     */
     public boolean isTouchDown(float screenX, float screenY) {
         Rectangle hitbox = new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
         if (hitbox.contains(screenX, screenY)) {
@@ -31,6 +41,12 @@ public abstract class Button extends Actor {
         return false;
     }
 
+    /**
+     * Detecta si el usuario ha levantado el dedo sobre un botón
+     * @param screenX Coordinada x de la pantalla
+     * @param screenY Coordinada y de la pantalla
+     * @return true si esta siendo levantado, false si no
+     */
     public boolean isTouchUp(float screenX, float screenY) {
         Rectangle hitbox = new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
         if (hitbox.contains(screenX, screenY) && isPressed) {

@@ -10,11 +10,19 @@ import com.mygdx.actors.tiles.Tile;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
 
+/**
+ * Botón de destruir torre
+ */
 public class DestroyButton extends Button{
 
     private Tile fundation;
     private World world;
 
+    /**
+     * Inicializa un botón de destruir torre
+     * @param world referencia del nivel
+     * @param fundation fundation de la torre a destruir
+     */
     public DestroyButton(final World world, final Tile fundation) {
         super(world);
 

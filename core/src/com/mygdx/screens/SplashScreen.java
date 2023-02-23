@@ -8,6 +8,10 @@ public class SplashScreen implements Screen {
 
     }
 
+    /**
+     * Renderiza los elementos de SplashScreen y pone un fondo
+     * @param delta tasa de refresco
+     */
     @Override
     public void render(float delta) {
 
@@ -33,6 +37,9 @@ public class SplashScreen implements Screen {
 
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
 

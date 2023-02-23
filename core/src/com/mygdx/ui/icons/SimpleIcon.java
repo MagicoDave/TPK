@@ -26,6 +26,12 @@ public class SimpleIcon extends Image {
     float statetime = 0;
     int height;
 
+    /**
+     * Inicializa un nuevo icono a parámetros
+     * @param texturePath ruta de la textura
+     * @param text texto del icono
+     * @param height altura del icono
+     */
     public SimpleIcon (String texturePath, String text, int height){
         this.height = height;
 
@@ -48,6 +54,10 @@ public class SimpleIcon extends Image {
         label.setText(text);
     }
 
+    /**
+     * Actualiza al frame adecuado de la animación
+     * @param delta tasa de refresco
+     */
     @Override
     public void act(float delta){
         currentFrame = (TextureRegion) animation.getKeyFrame(statetime += delta, true);
@@ -55,6 +65,11 @@ public class SimpleIcon extends Image {
         //Gdx.app.log("Current frame: ", animation.getKeyFrame(delta, true).toString());
     }
 
+    /**
+     * Dibuja el frame actual de la animación
+     * @param batch componente de dibujo
+     * @param parentAlpha transparencia del componente padre
+     */
     @Override
     public void draw(Batch batch, float parentAlpha) {
         Gdx.app.log("Current frame: ", currentFrame.toString());

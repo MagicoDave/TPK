@@ -20,6 +20,9 @@ import com.mygdx.actors.towers.WitchTower;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
 
+/**
+ * Botón que construye torres
+ */
 public class BuildTowerButton extends Button{
 
     private Tile fundation;
@@ -27,6 +30,12 @@ public class BuildTowerButton extends Button{
     private int towerCost;
     private Label labelCost;
 
+    /**
+     * Inicializa un nuevo botón
+     * @param world Referencia del nivel
+     * @param towerIndex Index de la torre a construir
+     * @param fundation Fundation en la cual se construirá
+     */
     public BuildTowerButton (final World world, int towerIndex, final Tile fundation){
         super(world);
         this.fundation = fundation;
@@ -75,6 +84,12 @@ public class BuildTowerButton extends Button{
         });
     }
 
+    /**
+     * Override de draw para actualizar el color de la label del precio en función de si se dispone o no
+     * de dinero suficiente para construir la torre
+     * @param batch componente para dibujar
+     * @param parentAlpha transparencia del componente padre
+     */
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);

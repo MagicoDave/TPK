@@ -4,10 +4,10 @@ package com.mygdx.actors.tiles;
  * Enumerado del tipo de Tiles existentes
  */
 public enum Type {
-    SPAWN("SPAWN"),
-    ROAD("ROAD"),
-    FINISH_LINE("FINISH_LINE"),
-    FUNDATION("FUNDATION");
+    SPAWN("SPAWN"), //Punto de aparicion de los enemigos
+    ROAD("ROAD"), //Punto de colisión/giro para los enemigos
+    FINISH_LINE("FINISH_LINE"), //Punto de llegada para los enemigos
+    FUNDATION("FUNDATION"); //Ubicación de construcción de torres
 
     private final String value;
 

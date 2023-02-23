@@ -8,20 +8,19 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.helpers.Stats;
-import com.mygdx.screens.ChooseLevelScreen;
 import com.mygdx.screens.MainMenuScreen;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla de opciones
+ */
 public class Settings extends Stage {
 
     TpkGame game;
@@ -31,6 +30,10 @@ public class Settings extends Stage {
     Button btnEnglish, btnSpanish, btnGalician;
     String language;
 
+    /**
+     * Inicializa la pantalla de opciones con sus elementos
+     * @param game referencia del game para moverse entre pantallas
+     */
     public Settings(final TpkGame game){
         super(new StretchViewport(160,288));
 
@@ -125,6 +128,7 @@ public class Settings extends Stage {
             }
 
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                //Se guardan todas las preferencias seleccionadas
                 AssetLoader.preferences.putBoolean("music", music);
                 AssetLoader.preferences.putBoolean("sound", sound);
                 AssetLoader.preferences.putString("language", language);
@@ -158,7 +162,7 @@ public class Settings extends Stage {
     }
 
     /**
-     * Actualiza los elementos de la UI
+     * Actualiza los elementos de la UI (por ejemplo, cuando se cambia el idioma)
      * @param delta Tasa de refresco
      */
     public void update(float delta){

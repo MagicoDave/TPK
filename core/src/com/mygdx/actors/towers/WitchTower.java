@@ -10,6 +10,12 @@ import com.mygdx.helpers.AssetLoader;
  * Esta clase gestiona las propiedades de la Tower WitchTower
  */
 public class WitchTower extends Tower{
+
+    /**
+     * Crea una nueva WitchTower con los valores predeterminados
+     * @param world Referencia del nivel
+     * @param fundation Fundation en la cual se construye la torre
+     */
     public WitchTower(World world, Tile fundation) {
         super(world, fundation);
 

@@ -29,6 +29,11 @@ public abstract class Tower extends Image {
 
     int ID;
 
+    /**
+     * Inicializa una torre en la fundation de un nivel
+     * @param world Referencia del nivel
+     * @param fundation Fundation donde se construye la torre
+     */
     public Tower (World world, Tile fundation) {
         super();
         this.world = world;

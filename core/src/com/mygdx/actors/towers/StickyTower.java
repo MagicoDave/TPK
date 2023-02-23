@@ -12,6 +12,12 @@ import com.mygdx.helpers.AssetLoader;
  * Esta clase gestiona las propiedades de la Tower StickyTower
  */
 public class StickyTower extends Tower{
+
+    /**
+     * Crea una nueva StickyTower con los valores predeterminados
+     * @param world Referencia del nivel
+     * @param fundation Fundation en la cual se construye la torre
+     */
     public StickyTower(World world, Tile fundation) {
         super(world, fundation);
 
@@ -24,6 +30,9 @@ public class StickyTower extends Tower{
         this.debuff = STICKY_TOWER.debuff;
     }
 
+    /**
+     * Override de adquireTarget() para que la torre priorice los enemigos no ralentizados
+     */
     @Override
     public void adquireTarget(){
 
@@ -43,6 +52,9 @@ public class StickyTower extends Tower{
         }
     }
 
+    /**
+     * Override de fire() para que busque un nuevo target después de cada disparo (y pueda asi priorizar a los no ralentizados)
+     */
     @Override
     public void fire(){
         super.fire();

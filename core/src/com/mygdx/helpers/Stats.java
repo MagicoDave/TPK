@@ -94,6 +94,13 @@ public class Stats {
     public static class EnemyStats {
         public int hp, damage, speed, reward;
 
+        /**
+         * Construye una nueva plantilla de estadísticas para un enemigo a partir de parámetros
+         * @param hp Vida
+         * @param damage Daño
+         * @param speed Multiplicador de velocidad
+         * @param reward Cantidad de oro al morir
+         */
         public EnemyStats(int hp, int damage, int speed, int reward){
             this.hp = hp;
             this.damage = damage;
@@ -109,6 +116,15 @@ public class Stats {
         public int damage, range, price, fireRate, projectileSpeed;
         public Debuff debuff;
 
+        /**
+         * Construye una nueva plantilla de estadísticas para una torre a partir de parámetros
+         * @param damage Daño
+         * @param range Alcance
+         * @param price Precio de construcción
+         * @param fireRate Frecuencia de disparo
+         * @param projectileSpeed Velocidad de proyectil
+         * @param debuff Si aplica algún debuff
+         */
         public TowerStats(int damage, int range, int price, int fireRate, int projectileSpeed, Debuff debuff){
             this.damage = damage;
             this.range = range;
@@ -119,6 +135,11 @@ public class Stats {
         }
     }
 
+    /**
+     * Silencia o vuelve a dar volumen a la música
+     * @param on true - con volumen; false - silenciado
+     * @return El volumen de la música (0 para silenciar)
+     */
     public static float musicOn(boolean on){
         if (on){
             MUSIC_VOLUME = 1.0f;
@@ -128,6 +149,11 @@ public class Stats {
         return MUSIC_VOLUME;
     }
 
+    /**
+     * Silencia o vuelve a dar volumen a los efectos de sonido
+     * @param on true - con volumen; false - silenciado
+     * @return El volumen de la música (0 para silenciar)
+     */
     public static float soundOn(boolean on){
         if (on){
             SOUND_VOLUME = 0.5f;

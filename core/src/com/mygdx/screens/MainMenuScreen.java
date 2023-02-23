@@ -6,14 +6,23 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.mygdx.menu.ChooseLevel;
 import com.mygdx.menu.MainMenu;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Pantalla para MainMenu
+ * @see MainMenu
+ */
 public class MainMenuScreen implements Screen {
 
     MainMenu mainMenu;
     OrthographicCamera camera;
 
+    /**
+     * Inicializa la screen con MainMenu
+     * @param game referencia del juego
+     */
     public MainMenuScreen(TpkGame game){
         mainMenu = new MainMenu(game);
 
@@ -26,6 +35,10 @@ public class MainMenuScreen implements Screen {
 
     }
 
+    /**
+     * Renderiza los elementos de MainMenu y pone un fondo
+     * @param delta
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(242.0f/255.0f, 198.0f/255.0f, 75.0f/255.0f, 1.0f);
@@ -54,6 +67,9 @@ public class MainMenuScreen implements Screen {
     public void hide() {
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
         mainMenu.dispose();

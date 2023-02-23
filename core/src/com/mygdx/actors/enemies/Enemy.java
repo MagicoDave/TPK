@@ -39,13 +39,24 @@ public abstract class Enemy extends Image {
     protected int ID, hp, damage, speed, reward;
 
     /**
-     *
+     *Esta variable guarda los estados alterados del enemigo (como por ejemplo, si está ralentizado)
      */
     protected Debuff debuff;
+    /**
+     * Esta variable comprueba cuanto tiempo lleva el enemigo con un estado alterado
+     */
     protected float timeDebuffed = 0;
 
+    /**
+     * Señala si el enemigo está vivo
+     */
     protected boolean alive;
 
+    /**
+     * Inicializa enemy situandolo en el spawn point del nivel
+     * @param world Referencia del nivel
+     * @param spawn Referencia del spawn
+     */
     public Enemy(World world, int spawn){
         super();
 

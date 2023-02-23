@@ -15,12 +15,18 @@ import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
 import com.mygdx.tpk.TpkGame;
 
+/**
+ * Gestiona el menú de selección de nivel
+ */
 public class ChooseLevel extends Stage {
 
     TpkGame game;
     ImageTextButton btnLevel1, btnLevel2, btnLevel3, btnLevel4;
 
-
+    /**
+     * Inicializa el menú con todos los botones y elementos
+     * @param game Referencia de game (necesaria para moverse entre pantallas)
+     */
     public ChooseLevel(final TpkGame game){
         super(new StretchViewport(160,288));
         this.game = game;

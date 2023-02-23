@@ -22,6 +22,10 @@ public class RageButton extends Button{
 
     Label labelCost;
 
+    /**
+     * Inicializa un nuevo botón Rage
+     * @param world referencia del mundo
+     */
     public RageButton(final World world) {
         super(world);
 

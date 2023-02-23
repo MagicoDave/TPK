@@ -68,6 +68,9 @@ public class GameScreen implements Screen {
 
     }
 
+    /**
+     * Gestión de recursos cuando no son necesarios
+     */
     @Override
     public void dispose() {
         world.dispose();

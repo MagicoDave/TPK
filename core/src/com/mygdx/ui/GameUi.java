@@ -47,6 +47,10 @@ public class GameUi extends Stage{
     float lastY = 0;
     float lastZ = 0;
 
+    /**
+     * Inicializa una nueva GameUi y coloca todos los componentes en posición
+     * @param world referencia del mundo
+     */
     public GameUi (final World world) {
         super(new StretchViewport(160,288));
 

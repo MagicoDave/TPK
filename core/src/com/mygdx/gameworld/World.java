@@ -25,7 +25,7 @@ import com.mygdx.tpk.TpkGame;
 
 
 /**
- * Esta clase gestiona las reglas del juego en sí
+ * Esta clase gestiona el nivel del juego
  */
 public class World extends Stage {
 
@@ -36,7 +36,10 @@ public class World extends Stage {
     private TpkGame game;
     private GameState currentState;
     public enum GameState{
-        READY, RUNNING, GAMEOVER, VICTORY
+        READY, //El estado inicial de preparación, a la espera del input del jugador para comenzar el nivel
+        RUNNING, //El estado normal de funcionamiento, los enemigos se mueven y las torres disparan
+        GAMEOVER, //El estado que se alcanza cuando las vidas llegan a cero
+        VICTORY //El estado que se alcanza cuando se eliminan todos los enemigos
     }
     private Level level;
     public enum Level{
@@ -56,16 +59,24 @@ public class World extends Stage {
     public Array<Tile> roadTiles;
     public Array<Tile> fundationTiles;
 
-    float timeSinceLastSpawn = 0;
+    float timeSinceLastSpawn = 0; //Se utiliza para medir cuanto tiempo ha pasado desde la aparición del último enemigo
 
+    /**
+     * Inicializa un nuevo World a partir del mapa y el nivel que se le pasan
+     * @param levelCreator El generador del mapa del nivel seleccionado
+     * @param game Referencia del game
+     * @param level El nivel seleccinado
+     */
     public World(LevelCreator levelCreator, TpkGame game, Level level){
         this.game = game;
         this.level = level;
 
+        //Se inicializan puntuación, vidas y oro a valores predeterminados
         score = START_SCORE;
         lifes = START_HEALTH;
         gold = START_GOLD;
 
+        //Se detiene la música del menu, y en función del nivel se carga el mapa, la música y la puntuación record
         game.getMusic().stop();
         switch (level){
             case LEVEL_1:
@@ -92,11 +103,13 @@ public class World extends Stage {
         game.getMusic().setLooping(true);
         game.getMusic().setVolume(MUSIC_VOLUME);
 
+        //En función de los datos del mapa, se guardan los objetos importantes del mismo
         spawnPoint = levelCreator.getSpawnTile();
         finishPoint = levelCreator.getFinishTile();
         roadTiles = levelCreator.getDirectionTiles();
         fundationTiles = levelCreator.getFundationTiles();
 
+        //Se escoge la oleada de enemigos correspondiente al nivel
         switch (level){
             case LEVEL_1:
                 waveManager = new WaveManager(this, LEVEL_1_WAVE);
@@ -112,8 +125,9 @@ public class World extends Stage {
                 break;
         }
 
+        //Se prepara el juego a la espera del input del jugador (ready) y se crean los manager
+        //para las torres y los enemigos
         currentState = GameState.READY;
-
         enemyManager = new EnemyManager(this);
         towerManager = new TowerManager(this);
 
@@ -209,6 +223,9 @@ public class World extends Stage {
         this.level = level;
     }
 
+    /**
+     * Si se bate el anterior record del nivel (highscore), se guarda el nuevo valor
+     */
     public void saveHighscore(){
         if (isHighScore()){
             switch (level){

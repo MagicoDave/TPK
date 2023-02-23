@@ -16,6 +16,11 @@ public class WaveManager {
     private World world;
     private Array<Enemy> array;
 
+    /**
+     * Inicializa a partir de parámetros
+     * @param world Referencia del nivel
+     * @param wave Array de valores de los enemigos de la oleada
+     */
     public WaveManager(World world, int[] wave){
         this.world = world;
         setWave(wave);

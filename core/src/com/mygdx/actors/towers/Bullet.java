@@ -7,6 +7,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.actors.enemies.Enemy;
 import com.mygdx.gameworld.World;
 
+/**
+ * Esta clase gestiona las propiedades y comportamiento de los proyectiles disparados por las torres
+ */
 public class Bullet extends Image {
 
     private World world;
@@ -19,6 +22,12 @@ public class Bullet extends Image {
     private Debuff debuff;
     private boolean alive;
 
+    /**
+     * Crea un nuevo bullet y asigna valores en función de la torre que dispara
+     * @param world Referencia del nivel
+     * @param tower La tower que disparó el bullet
+     * @param target El enemy objetivo del disparo
+     */
     public Bullet (World world, Tower tower, Enemy target){
         super();
 
@@ -40,6 +49,10 @@ public class Bullet extends Image {
 
     }
 
+    /**
+     * Actualiza el estado del bullet. Si el objetivo muere antes de llegar, la bullet desaparece ('muere')
+     * @param delta Tasa de refresco
+     */
     public void update(float delta){
         if (target.isAlive()){
             fly(delta);
@@ -48,6 +61,10 @@ public class Bullet extends Image {
         }
     }
 
+    /**
+     * Mueve la bullet hacia su objetivo. Si impacta, hace daño y aplica debuff (si hay)
+     * @param delta Tasa de refresco
+     */
     public void fly(float delta){
         if (this.position.dst(target.getCenter()) <= speed && alive) {
             if (this.debuff != null){
