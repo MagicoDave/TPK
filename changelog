@@ -96,13 +96,15 @@
     Añadido menú de records: Ahora se pueden consultar las puntuaciones máximas para cada nivel.
     Añadido menú de créditos: Ahora se pueden ver los créditos.
     Añadida memoria del proyecto (archivo 'memory').
+    Terminados todos los archivos de strings de localización para los tres idiomas.
 23/02/23
     Se termina de comentar todas las clases. Son 44 clases comentadas, Javi. Ya las puedes leer todas.
+    Actualizado el menú principal con una bruja para que el jugador no se sienta solo.
     Actualizado el menú de creditos para que se vea un poco mejor.
+    Añadida splash screen (pantalla de 'carga' de inicio).
+    Añadido tutorial.
 
 TODO LIST
-    - Terminar los strings de localización
-    - Splashscreen
     - HowToPlay
     - Grabar el gameplay
     - Generar el javadoc

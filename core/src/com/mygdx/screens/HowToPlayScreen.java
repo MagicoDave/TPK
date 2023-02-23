@@ -1,12 +1,31 @@
 package com.mygdx.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.mygdx.menu.HowToPlay;
+import com.mygdx.tpk.TpkGame;
 
 /**
  * Pantalla para HowToPlay
- * @see com.mygdx.menu.HowToPlay
+ * @see HowToPlay
  */
 public class HowToPlayScreen implements Screen {
+
+    HowToPlay howToPlay;
+    OrthographicCamera camera;
+
+    /**
+     * Inicializa la pantalla con HowToPlay
+     * @param game referencia del juego
+     */
+    public HowToPlayScreen(TpkGame game){
+        howToPlay = new HowToPlay(game);
+
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, 160, 288);
+    }
     @Override
     public void show() {
 
@@ -18,7 +37,11 @@ public class HowToPlayScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-
+        Gdx.gl.glClearColor(242.0f/255.0f, 198.0f/255.0f, 75.0f/255.0f, 1.0f);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        camera.update();
+        howToPlay.act(delta);
+        howToPlay.draw();
     }
 
     @Override
@@ -38,7 +61,7 @@ public class HowToPlayScreen implements Screen {
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     /**
@@ -46,6 +69,6 @@ public class HowToPlayScreen implements Screen {
      */
     @Override
     public void dispose() {
-
+        howToPlay.dispose();
     }
 }

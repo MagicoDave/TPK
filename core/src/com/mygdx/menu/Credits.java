@@ -94,13 +94,11 @@ public class Credits extends Stage {
         t.add(bodye).row();
         t.add(headf).row();
         t.add(bodyf).row();
-        t.setDebug(true);
 
         scroll = new ScrollPane(t);
 
         root.add(scroll);
         root.setFillParent(true);
-        root.setDebug(true);
         addActor(root);
 
 

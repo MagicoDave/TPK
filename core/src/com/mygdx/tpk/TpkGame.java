@@ -5,6 +5,7 @@ import com.badlogic.gdx.audio.Music;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
 import com.mygdx.screens.MainMenuScreen;
+import com.mygdx.screens.SplashScreen;
 
 /**
  * Clase principal
@@ -22,7 +23,7 @@ public class TpkGame extends Game {
 	@Override
 	public void create () {
 		AssetLoader.load();
-		this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new SplashScreen(this));
 	}
 
 	/**
