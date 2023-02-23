@@ -21,7 +21,7 @@ public class Credits extends Stage {
 
     TpkGame game;
     ScrollPane scroll;
-    Label heada, headb, headc, headd, heade, headf, bodya, bodyb, bodyc, bodyd, bodye, bodyf;
+    Label heada, headb, headc, headd, heade, headf, bodya, bodyb, bodyc, bodyd, bodye, bodyf, headz, bodyz;
     Button btnBack;
 
     /**
@@ -35,6 +35,10 @@ public class Credits extends Stage {
         Gdx.input.setInputProcessor(this);
         Skin skin = AssetLoader.skinMother;
 
+        headz = new Label(AssetLoader.myBundle.get("creditsZ").toUpperCase(), skin, "giygas");
+        headz.setFontScale(0.4f);
+        bodyz = new Label(AssetLoader.myBundle.get("creditsz"), skin, "default");
+        bodyz.setFontScale(0.5f);
         heada = new Label(AssetLoader.myBundle.get("creditsA").toUpperCase(), skin, "giygas");
         heada.setFontScale(0.4f);
         bodya = new Label(AssetLoader.myBundle.get("creditsa"), skin, "default");
@@ -76,6 +80,8 @@ public class Credits extends Stage {
 
         t.add(btnBack).left().top().width(20).height(20).padBottom(20);
         t.row();
+        t.add(headz).row();
+        t.add(bodyz).row();
         t.add(heada).row();
         t.add(bodya).row();
         t.add(headb).row();
@@ -88,13 +94,13 @@ public class Credits extends Stage {
         t.add(bodye).row();
         t.add(headf).row();
         t.add(bodyf).row();
-        t.setFillParent(true);
+        t.setDebug(true);
 
         scroll = new ScrollPane(t);
-        scroll.setFillParent(true);
 
-        root.add(scroll).padRight(25);
+        root.add(scroll);
         root.setFillParent(true);
+        root.setDebug(true);
         addActor(root);
 
 

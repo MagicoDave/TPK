@@ -23,6 +23,9 @@ public class SimpleIcon extends Image {
     Animation animation;
     TextureRegion currentFrame;
 
+    /**
+     * Se usa para determinar el frame adecuado de la animación
+     */
     float statetime = 0;
     int height;
 

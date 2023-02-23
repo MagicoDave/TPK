@@ -14,6 +14,9 @@ public abstract class Button extends Actor {
 
     World world;
     Texture texture;
+    /**
+     * Determina si el botón esta siendo pulsado
+     */
     boolean isPressed = false;
 
     /**

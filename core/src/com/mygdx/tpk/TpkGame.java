@@ -11,6 +11,9 @@ import com.mygdx.screens.MainMenuScreen;
  */
 public class TpkGame extends Game {
 
+	/**
+	 * La pista de música actual del juego
+	 */
 	private Music music;
 
 	/**

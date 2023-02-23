@@ -26,8 +26,7 @@ import com.mygdx.ui.buttons.Button;
 public class MainMenu extends Stage {
 
     TpkGame game;
-    ImageTextButton btnStart, btnOptions, btnRecords, btnCredits;
-    Button btnHowToPlay;
+    ImageTextButton btnStart, btnOptions, btnRecords, btnCredits, btnHowToPlay;
 
     /**
      * Inicializa el menú principal con todos sus elementos

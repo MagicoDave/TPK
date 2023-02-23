@@ -29,19 +29,46 @@ import com.mygdx.tpk.TpkGame;
  */
 public class World extends Stage {
 
+    /**
+     * Puntuación, vidas, oro y record
+     */
     public int score, lifes, gold, highscore;
 
-    private float runTime = 0; // runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
+    /**
+     * runTime lleva la cuenta del tiempo que un objeto lleva en una animación determinada
+     */
+    private float runTime = 0;
 
+    /**
+     * Referencia a la clase principal, utilizada para moverse entre pantallas y gestionar la música
+     */
     private TpkGame game;
+
+    /**
+     * El estado actual del juego
+     * @see GameState
+     */
     private GameState currentState;
+
+    /**
+     * El estado del juego.
+     * READY: El estado inicial de preparación, a la espera del input del jugador para comenzar el nivel
+     * RUNNING: El estado normal de funcionamiento, los enemigos se mueven y las torres disparan
+     * GAMEOVER: El estado que se alcanza cuando las vidas llegan a cero
+     * VICTORY: El estado que se alcanza cuando se eliminan todos los enemigos
+     */
     public enum GameState{
-        READY, //El estado inicial de preparación, a la espera del input del jugador para comenzar el nivel
-        RUNNING, //El estado normal de funcionamiento, los enemigos se mueven y las torres disparan
-        GAMEOVER, //El estado que se alcanza cuando las vidas llegan a cero
-        VICTORY //El estado que se alcanza cuando se eliminan todos los enemigos
+        READY, RUNNING, GAMEOVER, VICTORY
     }
+
+    /**
+     * Nivel seleccionado
+     */
     private Level level;
+
+    /**
+     * Enumerado de niveles del juego
+     */
     public enum Level{
         LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4
     }
@@ -50,16 +77,40 @@ public class World extends Stage {
     WaveManager waveManager;
     TowerManager towerManager;
 
+    /**
+     * Array de enemigos vivos que han hecho spawn en el nivel
+     */
     public Array<Enemy> enemiesInScreen = new Array<Enemy>();
+    /**
+     * Array de torres construidas en el nivel
+     */
     public Array<Tower> constructedTowers = new Array<Tower>();
+    /**
+     * Array de balas disparadas y en activo del nivel
+     */
     public Array<Bullet> bulletsInScreen = new Array<Bullet>();
 
+    /**
+     * Array de puntos de spawn del nivel
+     */
     public Array<Tile> spawnPoint;
+    /**
+     * Tile de final del recorrido de los enemigos
+     */
     public Tile finishPoint;
+    /**
+     * Array de tiles de tipo ROAD del nivel
+     */
     public Array<Tile> roadTiles;
+    /**
+     * Array de tiles de tipo FUNDATION del nivel
+     */
     public Array<Tile> fundationTiles;
 
-    float timeSinceLastSpawn = 0; //Se utiliza para medir cuanto tiempo ha pasado desde la aparición del último enemigo
+    /**
+     * Se utiliza para medir cuanto tiempo ha pasado desde la aparición del último enemigo
+     */
+    float timeSinceLastSpawn = 0;
 
     /**
      * Inicializa un nuevo World a partir del mapa y el nivel que se le pasan

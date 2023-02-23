@@ -17,16 +17,34 @@ public class Tile extends Image {
 
     private Direction direction;
     private Type type;
+    /**
+     * Caja de colisión
+     */
     private Rectangle hitbox;
 
     private Tower tower;
 
+    /**
+     * Indica (si es una fundation) si es la que está seleccionada
+     */
     private boolean isSelected;
 
+    /**
+     * Textura
+     */
     Texture texture;
+    /**
+     * Frame actual de la animación
+     */
     TextureRegion currentFrame;
+    /**
+     * Animación
+     */
     Animation animation;
 
+    /**
+     * Se usa para determinar el frame adecuado de la animación
+     */
     float statetime;
 
     /**

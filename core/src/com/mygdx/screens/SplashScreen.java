@@ -2,6 +2,9 @@ package com.mygdx.screens;
 
 import com.badlogic.gdx.Screen;
 
+/**
+ * Pantalla de inicio cuando se abre el juego
+ */
 public class SplashScreen implements Screen {
     @Override
     public void show() {

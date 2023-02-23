@@ -41,10 +41,25 @@ public class GameUi extends Stage{
 
     private RageButton rageButton;
 
+    /**
+     * Variable que almacena la disponibilidad del acelerómetro en el dispositivo
+     */
     boolean accelerometerAvailability;
+    /**
+     * Variable que almacena la última vez que se actualizó la lectura del acelerómetro
+     */
     long lastUpdate = 0;
+    /**
+     * Variable que almacena la última lectura del valor X del acelerómetro
+     */
     float lastX = 0;
+    /**
+     * Variable que almacena la última lectura del valor Y del acelerómetro
+     */
     float lastY = 0;
+    /**
+     * Variable que almacena la última lectura del valor Z del acelerómetro
+     */
     float lastZ = 0;
 
     /**
@@ -53,14 +68,13 @@ public class GameUi extends Stage{
      */
     public GameUi (final World world) {
         super(new StretchViewport(160,288));
-
         Gdx.input.setInputProcessor(this);
-
         this.world = world;
 
         buttons = new Array<Button>();
         fundations = world.fundationTiles;
 
+        //Comprueba si el acelerómetro esta disponible
         accelerometerAvailability = Gdx.input.isPeripheralAvailable(Input.Peripheral.Accelerometer);
         Gdx.app.log("accelReady: ", accelerometerAvailability + "");
 
@@ -96,6 +110,7 @@ public class GameUi extends Stage{
         rageButton.setVisible(false);
         addActor(rageButton);
 
+        //Eventos de toque para las fundations del world
         for (final Tile fundation: fundations) {
             fundation.setBounds(fundation.getHitbox().getX(), fundation.getHitbox().getY(), fundation.getHitbox().getWidth(), fundation.getHitbox().getHeight());
             fundation.addListener(new InputListener(){
@@ -119,6 +134,7 @@ public class GameUi extends Stage{
             addActor(fundation);
         }
 
+        //Eventos de toque para la pantalla que no sean en un fundation o button
         addListener(new InputListener(){
 
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
