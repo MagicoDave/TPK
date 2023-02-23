@@ -98,3 +98,11 @@
     Añadida memoria del proyecto (archivo 'memory').
 23/02/23
     Se termina de comentar todas las clases. Son 44 clases comentadas, Javi. Ya las puedes leer todas.
+    Actualizado el menú de creditos para que se vea un poco mejor.
+
+TODO LIST
+    - Terminar los strings de localización
+    - Splashscreen
+    - HowToPlay
+    - Grabar el gameplay
+    - Generar el javadoc
