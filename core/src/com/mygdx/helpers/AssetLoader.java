@@ -103,9 +103,23 @@ public class AssetLoader {
     public static TextureRegionDrawable flagEN, flagES, flagGL, backArrow, fundation;
 
     /**
+     * Texturas del parallax del menú principal
+     */
+    public static Texture pBack, pCloseMount, pClouds, pFarMount, pRaid, pTPK, pWitch;
+
+    /**
      * Carga de assets
      */
     public static void load(){
+
+        //Parallax
+        pBack = new Texture(Gdx.files.internal("parallax/pBack.png"));
+        pCloseMount = new Texture(Gdx.files.internal("parallax/pCloseMount.png"));
+        pClouds = new Texture(Gdx.files.internal("parallax/pClouds.png"));
+        pFarMount = new Texture(Gdx.files.internal("parallax/pFarMount.png"));
+        pRaid = new Texture(Gdx.files.internal("parallax/pRaid.png"));
+        pTPK = new Texture(Gdx.files.internal("parallax/pTPK.png"));
+        pWitch = new Texture(Gdx.files.internal("parallax/pWitch.png"));
 
         //Languages
         FileHandle baseFileHandler = Gdx.files.internal("i18n/strings");

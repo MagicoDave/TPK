@@ -104,6 +104,7 @@
     Añadida splash screen (pantalla de 'carga' de inicio).
     Añadido tutorial. Una cantidad ingente de texto traducida a tres idiomas, valoramelo Javi porfa.
 24/02/23
+    Añadido efecto parallax en la pantalla del menú in extremis.
     Añadido javadoc en carpeta comprimida.
 
 TODO LIST

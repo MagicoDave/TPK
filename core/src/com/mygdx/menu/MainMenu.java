@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -28,6 +29,7 @@ public class MainMenu extends Stage {
     TpkGame game;
     ImageTextButton btnStart, btnOptions, btnRecords, btnCredits, btnHowToPlay;
     AnimatedImage witch;
+    Image title, w;
 
     /**
      * Inicializa el menú principal con todos sus elementos
@@ -42,6 +44,9 @@ public class MainMenu extends Stage {
 
         Label label = new Label(AssetLoader.myBundle.format("gameFullName").toUpperCase(), skin, "giygas");
         label.setFontScale(0.5f);
+
+        title = new Image(AssetLoader.pTPK);
+        w = new Image(AssetLoader.pWitch);
 
         witch = new AnimatedImage(AssetLoader.witchTowerAnimation);
         witch.setSize(60, 60);
@@ -107,9 +112,9 @@ public class MainMenu extends Stage {
         });
 
         Table table = new Table();
-        table.add(label);
+        table.add(title).width(80).height(80);
         table.row();
-        table.add(witch).padTop(10).padBottom(10);
+        table.add(w);
         table.row();
         table.add(btnStart);
         table.row();

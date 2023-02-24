@@ -70,6 +70,9 @@ el usuario abra la aplicación. Se usa la clase propia de Preferences de libGDX 
 Splash Screen: La aplicación dispone de una pantalla de 'carga' al abrir al juego con el logo del creador,
 con un fade-in y un fade-out.
 
+Parallax del menú principal: El parallax del menú principal está hecho de 5 capas que se mueven a velocidades
+diferentes.
+
 Hardware: El juego utiliza el vibrador y el acelerómetro. El móvil vibra cuando se pierden vidas o al
 activar el modo Rage (cada evento tiene una vibración característica). El jugador puede darle una sacudida
 al móvil para activar el modo Rage (con cuidado, por favor).
