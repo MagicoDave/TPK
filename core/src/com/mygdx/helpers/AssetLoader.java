@@ -100,7 +100,7 @@ public class AssetLoader {
     /**
      * Texturas para los botones de los menus
      */
-    public static TextureRegionDrawable flagEN, flagES, flagGL, backArrow;
+    public static TextureRegionDrawable flagEN, flagES, flagGL, backArrow, fundation;
 
     /**
      * Carga de assets
@@ -140,7 +140,7 @@ public class AssetLoader {
         flagES = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/ES.png"))));
         flagGL = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/GL.png"))));
         backArrow = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/backArrow.png"))));
-
+        fundation = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("menu/fundation.png"))));
 
         //Levels
         levelCreator = new LevelCreator();

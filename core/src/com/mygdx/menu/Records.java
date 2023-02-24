@@ -54,13 +54,12 @@ public class Records extends Stage {
         });
 
         Table t = new Table();
+        t.add(btnBack).left().height(20).width(20).padBottom(40).row();
         t.add(record1).row();
         t.add(record2).row();
         t.add(record3).row();
         t.add(record4).row();
-        t.add(btnBack).padRight(50).padTop(50).width(20).height(20);
         t.setFillParent(true);
-        t.center();
 
         addActor(t);
     }

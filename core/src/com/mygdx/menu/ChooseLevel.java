@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.gameworld.World;
 import com.mygdx.helpers.AssetLoader;
 import com.mygdx.screens.GameScreen;
+import com.mygdx.screens.MainMenuScreen;
 import com.mygdx.tpk.TpkGame;
 
 /**
@@ -22,6 +24,7 @@ public class ChooseLevel extends Stage {
 
     TpkGame game;
     ImageTextButton btnLevel1, btnLevel2, btnLevel3, btnLevel4;
+    Button btnBack;
 
     /**
      * Inicializa el menú con todos los botones y elementos
@@ -87,8 +90,20 @@ public class ChooseLevel extends Stage {
             }
         });
 
+        btnBack = new Button(AssetLoader.backArrow);
+        btnBack.addListener(new InputListener(){
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new MainMenuScreen(game));
+            }
+        });
+
         Table table = new Table();
-        table.add(label).padBottom(40);
+        table.add(btnBack).width(20).height(20).left().row();
+        table.add(label).padBottom(30);
         table.row();
         table.add(btnLevel1);
         table.row();
@@ -98,7 +113,6 @@ public class ChooseLevel extends Stage {
         table.row();
         table.add(btnLevel4);
         table.setFillParent(true);
-        table.center();
 
         addActor(table);
     }

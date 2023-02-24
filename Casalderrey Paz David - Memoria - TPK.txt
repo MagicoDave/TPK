@@ -49,6 +49,10 @@ quedará grabada como nuevo record.
 Opciones: El jugador puede desde el menú de opciones silenciar por separado música y sonido o
 cambiar el idioma de la aplicación.
 
+Tutorial: El jugador puede aprender como jugar desde el botón How To Play disponible en el menú principal.
+Se trata de un completa tabla de información describiendo todas las mecánicas y elementos del juego disponible
+en tres idiomas.
+
 Idiomas: El usuario puede escoger entre tres idiomas; castellano, gallego e inglés. Para implementar la
 localización se ha usado la clase propia de libGDX 'i18n', que funciona similar al fichero xml de strings
 de Android pero no es exclusivo de esta plataforma permitiendo su uso en versiones de PC o iOS.
@@ -56,7 +60,7 @@ de Android pero no es exclusivo de esta plataforma permitiendo su uso en version
 Persistencia de datos: Las preferencias de opciones y los records se guardan y persisten la próxima vez que
 el usuario abra la aplicación.
 
-Tutorial: El jugador puede aprender como jugar desde el botón How To Play disponible en el menú principal.
+Splash Screen: La aplicación dispone de una pantalla de 'carga' al abrir al juego con el logo del creador.
 
 Hardware: El juego utiliza el vibrador y el acelerómetro. El móvil vibra cuando se pierden vidas o al
 activar el modo Rage (cada evento tiene una vibración característica). El jugador puede darle una sacudida

@@ -102,9 +102,8 @@
     Actualizado el menú principal con una bruja para que el jugador no se sienta solo.
     Actualizado el menú de creditos para que se vea un poco mejor.
     Añadida splash screen (pantalla de 'carga' de inicio).
-    Añadido tutorial.
+    Añadido tutorial. Una cantidad ingente de texto traducida a tres idiomas, valoramelo Javi porfa.
 
 TODO LIST
-    - HowToPlay
     - Grabar el gameplay
     - Generar el javadoc
