@@ -6,6 +6,14 @@ tratan de cruzar el mapa de una punta a otra y el jugador debe evitarlo construy
 de 'torres' que disparan automaticamente a los enemigos que están dentro de su alcance. El juego
 fuerza el modo portrait (vertical) en android al iniciarse.
 
+Framework: El juego está hecho en libGDX y utiliza varias de las clases y recursos que ofrece.
+Las clases Stage y Actor se heredan en varios de los componentes para facilitar la programación y
+dibujado de los componentes (Todos los Actors que hayan sido añadidos a un Stage se pueden actualizar
+y dibujar al mismo tiempo llamando a las funciones correspondientes de Stage). Se usa también las clases
+de scene2d.ui que incluyen botones, tablas, labels y otros elementos para crear menús y otros elementos
+de interfaz. También se usa I18NBundle en lugar de strings.xml de android para poder hacer las localizaciones
+multiplataforma.
+
 Economía: El jugador dispone de dos recursos: Oro y Vidas. El oro se emplea para constuir
 torres y usar power-ups y se obtiene al eliminar enemigos. Las vidas se pierden cada vez que un
 enemigo consigue terminar su recorrido, y el jugador pierde cuando llegan a cero.
@@ -49,25 +57,32 @@ quedará grabada como nuevo record.
 Opciones: El jugador puede desde el menú de opciones silenciar por separado música y sonido o
 cambiar el idioma de la aplicación.
 
+Idiomas: El usuario puede escoger entre tres idiomas; castellano, gallego e inglés. Para implementar la
+localización se ha usado la clase propia de libGDX como se explica en el apartado de Framework.
+
 Tutorial: El jugador puede aprender como jugar desde el botón How To Play disponible en el menú principal.
 Se trata de un completa tabla de información describiendo todas las mecánicas y elementos del juego disponible
-en tres idiomas.
-
-Idiomas: El usuario puede escoger entre tres idiomas; castellano, gallego e inglés. Para implementar la
-localización se ha usado la clase propia de libGDX 'i18n', que funciona similar al fichero xml de strings
-de Android pero no es exclusivo de esta plataforma permitiendo su uso en versiones de PC o iOS.
+en cualquiera de los tres idiomas disponibles.
 
 Persistencia de datos: Las preferencias de opciones y los records se guardan y persisten la próxima vez que
-el usuario abra la aplicación.
+el usuario abra la aplicación. Se usa la clase propia de Preferences de libGDX que es multiplataforma.
 
-Splash Screen: La aplicación dispone de una pantalla de 'carga' al abrir al juego con el logo del creador.
+Splash Screen: La aplicación dispone de una pantalla de 'carga' al abrir al juego con el logo del creador,
+con un fade-in y un fade-out.
 
 Hardware: El juego utiliza el vibrador y el acelerómetro. El móvil vibra cuando se pierden vidas o al
 activar el modo Rage (cada evento tiene una vibración característica). El jugador puede darle una sacudida
 al móvil para activar el modo Rage (con cuidado, por favor).
 
 Assets: La música y los sonidos utilizados estan bajo una licencia de Creative Commons. Los sprites utilizados
-son una mezcla de cosecha propia elaborados por el alumno y licencias de Creative Commons de terceros.
+son una mezcla de cosecha propia elaborados por el alumno y licencias de Creative Commons de terceros. Las fuentes
+se han conseguido del repositorio público comunitario de Skins de libGDX.
+
+Comentarios finales: Ha sido el proyecto más grande de programación que he acometido hasta la fecha, y aunque la
+experiencia fue muy disfrutable también fue duro. Aprender libGDX en un par de meses ha sido desafiante y a menudo
+durante el desarrollo me frustraba encontrar una forma más eficiente de hacer el trabajo que ya tenía hecho anteriormente
+aprovechando mejor el framework. El propio código refleja ese aprendizaje en el cambio de metodología a lo largo del tiempo,
+si hubiera tenido más tiempo me hubiera gustado reescribir completamente algunas de las clases.
 
 
 

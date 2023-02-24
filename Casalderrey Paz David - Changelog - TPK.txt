@@ -103,7 +103,8 @@
     Actualizado el menú de creditos para que se vea un poco mejor.
     Añadida splash screen (pantalla de 'carga' de inicio).
     Añadido tutorial. Una cantidad ingente de texto traducida a tres idiomas, valoramelo Javi porfa.
+24/02/23
+    Añadido javadoc en carpeta comprimida.
 
 TODO LIST
     - Grabar el gameplay
-    - Generar el javadoc

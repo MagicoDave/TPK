@@ -75,6 +75,5 @@ public class GameScreen implements Screen {
     public void dispose() {
         world.dispose();
         gameUi.dispose();
-
     }
 }
