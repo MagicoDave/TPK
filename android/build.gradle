@@ -85,8 +85,5 @@ task run(type: Exec) {
     commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.mygdx.tpk/com.mygdx.tpk.AndroidLauncher'
 }
 
-dependencies {
-    implementation fileTree(dir: 'C:\\androidSDK\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
-}
 
 eclipse.project.name = appName + "-android"
