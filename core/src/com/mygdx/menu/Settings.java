@@ -23,11 +23,34 @@ import com.mygdx.tpk.TpkGame;
  */
 public class Settings extends Stage {
 
+    /**
+     * Referencia del juego para moverse entre pantallas
+     */
     TpkGame game;
+
+    /**
+     * Label para encabezados
+     */
     Label lblTitle, lblLanguage;
+
+    /**
+     * Botones para opciones de sonido y aplicar
+     */
     ImageTextButton btnMusic, btnSound, btnApply;
+
+    /**
+     * Indican si música y/o sonido están muteados (false) o no (true)
+     */
     boolean music, sound;
+
+    /**
+     * Botones para cambio de idioma
+     */
     Button btnEnglish, btnSpanish, btnGalician;
+
+    /**
+     * Contiene el valor para idioma que se graba en preferences
+     */
     String language;
 
     /**

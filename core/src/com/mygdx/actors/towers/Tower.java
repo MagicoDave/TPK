@@ -16,15 +16,53 @@ import com.mygdx.helpers.AssetLoader;
  */
 public abstract class Tower extends Image {
 
+    /**
+     * Ubicación de la torre
+     */
     protected Vector2 position;
 
+    /**
+     * damage = daño por disparo
+     * range = alcance de la torre
+     * price = coste de construcción
+     * projectileSpeed = velocidad del proyectil disparado
+     */
     protected int damage, range, price, projectileSpeed;
+
+    /**
+     * fireRate = frecuencia de disparo
+     * cooldown = tiempo restante hasta el próximo disparo
+     */
     protected float fireRate, cooldown;
+
+    /**
+     * Indica si está en Rage o no
+     */
     protected boolean enraged;
+
+    /**
+     * Mide cuanto tiempo lleva en Rage la torre
+     */
     protected float timeEnraged = 0;
+
+    /**
+     * Estados especiales que infligen los disparos en los enemigos (si hay)
+     */
     Debuff debuff;
+
+    /**
+     * Objetivo actual (Enemy) de la torre
+     */
     Enemy target;
+
+    /**
+     * Referencia del nivel
+     */
     protected World world;
+
+    /**
+     * Fundation sobre la cual ha sido construida la torre
+     */
     protected Tile fundation;
 
     int ID;

@@ -22,8 +22,19 @@ import com.mygdx.tpk.TpkGame;
  */
 public class ChooseLevel extends Stage {
 
+    /**
+     * Referencia del juego, para cambiar de pantalla
+     */
     TpkGame game;
+
+    /**
+     * Botones de selección
+     */
     ImageTextButton btnLevel1, btnLevel2, btnLevel3, btnLevel4;
+
+    /**
+     * Botón de retroceso
+     */
     Button btnBack;
 
     /**

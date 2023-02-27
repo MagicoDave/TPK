@@ -19,9 +19,24 @@ import com.mygdx.tpk.TpkGame;
  */
 public class Credits extends Stage {
 
+    /**
+     * Referencia del juego para cambio de pantallas
+     */
     TpkGame game;
+
+    /**
+     * Se usa para poder hacer scroll en los elementos contenidos
+     */
     ScrollPane scroll;
+
+    /**
+     * Label para encabezados y contenidos
+     */
     Label heada, headb, headc, headd, heade, headf, bodya, bodyb, bodyc, bodyd, bodye, bodyf, headz, bodyz;
+
+    /**
+     * Botón de retroceso
+     */
     Button btnBack;
 
     /**

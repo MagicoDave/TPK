@@ -21,10 +21,24 @@ import com.mygdx.tpk.TpkGame;
  */
 public class MainMenuScreen implements Screen {
 
+    /**
+     * Contenidos de la pantalla Main Menu
+     */
     MainMenu mainMenu;
+
+    /**
+     * Cámara
+     */
     OrthographicCamera camera;
+
+    /**
+     * Herramienta de dibujo
+     */
     SpriteBatch batch;
-    Texture pBack, pCloseMount, pClouds, pFarMount, pRaid, pTPK, pWitch;
+
+    /**
+     * Renderiza las distintas capas del parallax
+     */
     ParallaxLayer[] layers;
 
     /**

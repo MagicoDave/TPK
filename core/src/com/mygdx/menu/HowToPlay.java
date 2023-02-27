@@ -23,11 +23,34 @@ import com.mygdx.ui.icons.SimpleIcon;
  */
 public class HowToPlay extends Stage {
 
+    /**
+     * Referencia del juego para cambio de pantallas
+     */
     TpkGame game;
+
+    /**
+     * Labels para encabezados y contenidos
+     */
     Label htp0, htp1, towers, htp2, htp3, htp4, htp5, htp6, enemies, htp7, htp8, htp9, htp10, resources, htp11, htp12, htp13;
+
+    /**
+     * Iconos animados
+     */
     AnimatedImage arrow, witch, sticky, cyclops, farmer, barbarian, thief, mage;
+
+    /**
+     * Iconos animados (reutilizando la clase original)
+     */
     SimpleIcon gold, lifes;
+
+    /**
+     * Imagenes estáticas
+     */
     Image fundation, rageButton;
+
+    /**
+     * Botón de retroceso
+     */
     Button btnBack;
 
     /**

@@ -7,7 +7,11 @@ import com.mygdx.helpers.Stats;
  * Esta clase establece propiedades para el Enemy Farmer
  */
 public class Farmer extends Enemy{
-
+    /**
+     * Inicializa un Enemy de tipo Farmer con stats por defecto
+     * @param world referencia del nivel
+     * @param spawn referencia de la ubicación de spawn en el mapa
+     */
     public Farmer(World world, int spawn) {
         super(world, spawn);
 

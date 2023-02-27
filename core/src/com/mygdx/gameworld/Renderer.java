@@ -23,15 +23,44 @@ import com.mygdx.ui.buttons.Button;
  */
 public class Renderer {
 
+    /**
+     * Referencia del nivel
+     */
     private World world;
+
+    /**
+     * Cámara
+     */
     private OrthographicCamera camera;
+
+    /**
+     * Dibujado de formas
+     */
     private ShapeRenderer shapeRenderer;
+
+    /**
+     * Renderizador del mapa de tiles
+     */
     private OrthogonalTiledMapRenderer tiledMapRenderer;
 
+    /**
+     * Dibujado de sprites
+     */
     private SpriteBatch batcher;
 
+    /**
+     * Animaciones de enemigos, normal y ralentizado
+     */
     private Animation farmerAnimation, farmerSlowedAnimation, barbarianAnimation, barbarianSlowedAnimation, mageAnimation, mageSlowedAnimation, thiefAnimation, thiefSlowedAnimation;
+
+    /**
+     * Animaciones de torres
+     */
     private Animation arrowTowerAnimation, witchTowerAnimation, stickyTowerAnimation, cyclopTowerAnimation;
+
+    /**
+     * Textura proyectil
+     */
     private TextureRegion redBullet;
 
     /**

@@ -4,7 +4,8 @@
 
 > Made by David Casalderrey Paz
 > 
-> WORK IN PROGRESS
+> UPDATE:
+> You can now download it from [here](https://magicodave.itch.io/total-party-kill)!
 > 
 > How to play:
 > Stop enemies from reaching the end of the level by constructing towers.

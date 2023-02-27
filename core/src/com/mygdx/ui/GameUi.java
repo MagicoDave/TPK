@@ -30,15 +30,44 @@ import com.mygdx.ui.icons.SimpleIcon;
  */
 public class GameUi extends Stage{
 
+    /**
+     * Referencia del nivel
+     */
     private final World world;
+
+    /**
+     * Array que contiene los botones del menú de construcción de torreta
+     */
     public final Array<Button> buttons;
+
+    /**
+     * Array con el conjunto de fundaciones del nivel
+     */
     private final Array<Tile> fundations;
+
+    /**
+     * Labels informativas del estado del juego y puntuación
+     */
     private final Label score, ready, gameOver;
+
+    /**
+     * Iconos animados con label para vidas y oro
+     */
     private final SimpleIcon lifes, gold;
 
+    /**
+     * Tabla interna
+     */
     private Table t;
+
+    /**
+     * Tabla externa
+     */
     private Table root;
 
+    /**
+     * Botón Rage
+     */
     private RageButton rageButton;
 
     /**

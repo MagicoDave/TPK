@@ -18,8 +18,19 @@ import com.mygdx.tpk.TpkGame;
  */
 public class Records extends Stage {
 
+    /**
+     * Referencia del juego para cambio de pantallas
+     */
     TpkGame game;
+
+    /**
+     * Labels para contenidos
+     */
     Label record1, record2, record3, record4;
+
+    /**
+     * Botón de retroceso
+     */
     Button btnBack;
 
     /**
